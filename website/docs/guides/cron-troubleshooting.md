@@ -224,7 +224,7 @@ If you've worked through this guide and the issue persists:
 
 1. Run the job with `haishui cron run <job_id>` (fires on next gateway tick) and watch for errors in the chat output
 2. Check `~/.haishui/logs/agent.log` for scheduler messages and `~/.haishui/logs/errors.log` for warnings
-3. Open an issue at [github.com/NousResearch/haishui-agent](https://github.com/NousResearch/haishui-agent) with:
+3. Open an issue at [github.com/aiqinghaiwork163/haishui-agent](https://github.com/aiqinghaiwork163/haishui-agent) with:
    - The job ID and schedule
    - The delivery target
    - What you expected vs. what happened

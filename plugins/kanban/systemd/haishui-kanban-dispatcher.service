@@ -15,7 +15,7 @@
 
 [Unit]
 Description=Haishui Kanban dispatcher (DEPRECATED standalone daemon — prefer gateway-embedded dispatch)
-Documentation=https://haishui-agent.nousresearch.com/docs/user-guide/features/kanban
+Documentation=https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/kanban
 After=network.target
 
 [Service]

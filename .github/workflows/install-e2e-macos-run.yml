@@ -46,7 +46,7 @@ on:
         description: 'Bootstrap dmg to install OLD with. Default: the latest published one — what a user downloads today.'
         required: false
         type: string
-        default: https://haishui-assets.nousresearch.com/Haishui-Setup.dmg
+        default: https://aiqinghaiwork163.github.io/haishui-agent/assets/Haishui-Setup.dmg
       timeout-minutes:
         description: 'Job timeout. App-update legs do a full Electron build.'
         required: false

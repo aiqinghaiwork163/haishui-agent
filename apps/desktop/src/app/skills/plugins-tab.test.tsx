@@ -202,7 +202,7 @@ describe('PluginsTab', () => {
           tier: 'community',
           type: 'haishui-plugin-pick'
         },
-        origin: 'https://haishui-agent.nousresearch.com'
+        origin: 'https://aiqinghaiwork163.github.io/haishui-agent'
       })
     )
 
@@ -297,7 +297,7 @@ describe('PluginsTab', () => {
           subdir: 'nested-plugin',
           type: 'haishui-plugin-pick'
         },
-        origin: 'https://haishui-agent.nousresearch.com'
+        origin: 'https://aiqinghaiwork163.github.io/haishui-agent'
       })
     )
 
@@ -414,7 +414,7 @@ describe('PluginsTab catalog UX', () => {
           repo: 'https://github.com/example/demo-weather',
           type: 'haishui-plugin-pick'
         },
-        origin: 'https://haishui-agent.nousresearch.com'
+        origin: 'https://aiqinghaiwork163.github.io/haishui-agent'
       })
     )
 
@@ -447,7 +447,7 @@ describe('PluginsTab catalog UX', () => {
           repo: 'https://github.com/example/demo-weather',
           type: 'haishui-plugin-pick'
         },
-        origin: 'https://haishui-agent.nousresearch.com'
+        origin: 'https://aiqinghaiwork163.github.io/haishui-agent'
       })
     )
 

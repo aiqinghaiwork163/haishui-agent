@@ -27,7 +27,7 @@ layer on top.
 ## What's in an entry
 
 Each catalog entry is a small YAML file in the
-[`plugin-catalog/`](https://github.com/NousResearch/haishui-agent/tree/main/plugin-catalog)
+[`plugin-catalog/`](https://github.com/aiqinghaiwork163/haishui-agent/tree/main/plugin-catalog)
 directory of the haishui-agent repository, declaring:
 
 | Field | Meaning |
@@ -131,7 +131,7 @@ unreviewed name index. Install such plugins by `owner/repo` or Git URL instead
 ### Live refresh
 
 The docs build publishes the catalog as one JSON document
-(`https://haishui-agent.nousresearch.com/docs/api/plugin-catalog.json`).
+(`https://aiqinghaiwork163.github.io/haishui-agent/docs/api/plugin-catalog.json`).
 `search`/`install`/`update` fetch it at most every six hours and cache it under
 `~/.haishui/cache/`, so new entries and removals reach installed clients without
 updating Haishui. Offline, the copy shipped with your checkout is used (a failed
@@ -155,7 +155,7 @@ catalog for discovery.
 
 Submissions are pull requests that add one `plugin-catalog/<name>.yaml` file.
 The full checklist lives in the
-[plugin-catalog README](https://github.com/NousResearch/haishui-agent/tree/main/plugin-catalog);
+[plugin-catalog README](https://github.com/aiqinghaiwork163/haishui-agent/tree/main/plugin-catalog);
 in short, an entry must be:
 
 1. **Owner-submitted** — the PR author owns or maintains the plugin repo.

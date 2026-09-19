@@ -1,6 +1,6 @@
 """`haishui memory status` should explain *why* a provider is unavailable.
 
-Regression coverage for NousResearch/haishui-agent#2765: when the selected
+Regression coverage for aiqinghaiwork163/haishui-agent#2765: when the selected
 provider reports unavailable, status lists the missing env vars and surfaces
 the systemd/gateway ``.env``-inheritance gotcha that most often causes it.
 """

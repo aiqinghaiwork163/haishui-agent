@@ -312,8 +312,8 @@ The CLI uses argparse, so `--help` is a good first probe for "did my new flag re
 
 ## See also
 
-- User-facing setup + troubleshooting: [Egress proxy](https://haishui-agent.nousresearch.com/docs/user-guide/egress/iron-proxy)
-- Docker backend internals: [Docker](https://haishui-agent.nousresearch.com/docs/user-guide/docker)
-- Bitwarden Secrets Manager integration: [`haishui secrets bitwarden`](https://haishui-agent.nousresearch.com/docs/user-guide/secrets/bitwarden)
-- CLI command reference: [`haishui egress`](https://haishui-agent.nousresearch.com/docs/reference/cli-commands#haishui-egress)
-- Sandbox-injected environment variables: [Egress proxy (sandbox-injected)](https://haishui-agent.nousresearch.com/docs/reference/environment-variables#egress-proxy-sandbox-injected)
+- User-facing setup + troubleshooting: [Egress proxy](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/egress/iron-proxy)
+- Docker backend internals: [Docker](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/docker)
+- Bitwarden Secrets Manager integration: [`haishui secrets bitwarden`](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/secrets/bitwarden)
+- CLI command reference: [`haishui egress`](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/cli-commands#haishui-egress)
+- Sandbox-injected environment variables: [Egress proxy (sandbox-injected)](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/environment-variables#egress-proxy-sandbox-injected)

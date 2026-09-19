@@ -13,7 +13,7 @@ from typing import Optional
 import httpx
 
 # Nous-hosted pairing API; override for PoC/staging with TELEGRAM_ONBOARDING_URL.
-DEFAULT_API_URL = "https://setup.haishui-agent.nousresearch.com"
+DEFAULT_API_URL = "https://setup.aiqinghaiwork163.github.io/haishui-agent"
 TELEGRAM_ONBOARDING_URL_ENV = "TELEGRAM_ONBOARDING_URL"
 DEFAULT_BOT_NAME = "Haishui Agent"
 DEFAULT_POLL_TIMEOUT = 180

@@ -50,7 +50,7 @@ const PLUGINS_URL = "/docs/api/plugins.json";
 const META_URL = "/docs/api/plugins-meta.json";
 
 const CATALOG_README_URL =
-  "https://github.com/NousResearch/haishui-agent/tree/main/plugin-catalog";
+  "https://github.com/aiqinghaiwork163/haishui-agent/tree/main/plugin-catalog";
 
 const TIER_CONFIG: Record<
   string,

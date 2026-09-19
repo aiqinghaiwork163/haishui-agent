@@ -11,7 +11,7 @@ The fix adds ``_expand_tilde()`` which delegates to
 ``haishui_constants.get_subprocess_home()`` — the same policy the terminal tool
 uses for subprocess environments.
 
-See: https://github.com/NousResearch/haishui-agent/issues/48552
+See: https://github.com/aiqinghaiwork163/haishui-agent/issues/48552
 """
 
 import os

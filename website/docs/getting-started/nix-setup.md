@@ -42,17 +42,17 @@ No clone needed. Nix fetches, builds, and runs everything:
 
 ```bash
 # Run the desktop app
-nix run github:NousResearch/haishui-agent#desktop
+nix run github:aiqinghaiwork163/haishui-agent#desktop
 
 # Or install persistently
-nix profile install github:NousResearch/haishui-agent#desktop
+nix profile install github:aiqinghaiwork163/haishui-agent#desktop
 
 # run the tui
-nix run github:NousResearch/haishui-agent -- setup
-nix run github:NousResearch/haishui-agent -- --tui
+nix run github:aiqinghaiwork163/haishui-agent -- setup
+nix run github:aiqinghaiwork163/haishui-agent -- --tui
 
 # or install it in your profile
-nix profile install github:NousResearch/haishui-agent
+nix profile install github:aiqinghaiwork163/haishui-agent
 haishui setup
 haishui --tui
 ```
@@ -70,7 +70,7 @@ The `default` package adds ~700 MB to the closure. If you only need messaging pl
 <summary><strong>Running from a local clone</strong></summary>
 
 ```bash
-git clone https://github.com/NousResearch/haishui-agent.git
+git clone https://github.com/aiqinghaiwork163/haishui-agent.git
 cd haishui-agent
 nix develop
 haishui setup
@@ -95,7 +95,7 @@ This module needs NixOS. Haishui is an agent for one person. If you want an agen
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    haishui-agent.url = "github:NousResearch/haishui-agent";
+    haishui-agent.url = "github:aiqinghaiwork163/haishui-agent";
   };
 
   outputs = { nixpkgs, haishui-agent, ... }: {
@@ -616,7 +616,7 @@ The option set is the same set that the NixOS module uses. It is `services.haish
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    haishui-agent.url = "github:NousResearch/haishui-agent";
+    haishui-agent.url = "github:aiqinghaiwork163/haishui-agent";
   };
 }
 ```
@@ -864,7 +864,7 @@ External flakes can override the package directly:
 
 ```nix
 {
-  inputs.haishui-agent.url = "github:NousResearch/haishui-agent";
+  inputs.haishui-agent.url = "github:aiqinghaiwork163/haishui-agent";
   outputs = { haishui-agent, nixpkgs, ... }: {
     nixpkgs.overlays = [ haishui-agent.overlays.default ];
     # Then:

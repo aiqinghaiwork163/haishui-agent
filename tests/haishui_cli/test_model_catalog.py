@@ -137,9 +137,9 @@ class TestFallbackChain:
     releases (opus 4.8, etc.) never reach the picker.
     """
 
-    PRIMARY = "https://haishui-agent.nousresearch.com/docs/api/model-catalog.json"
+    PRIMARY = "https://aiqinghaiwork163.github.io/haishui-agent/docs/api/model-catalog.json"
     FALLBACK = (
-        "https://raw.githubusercontent.com/NousResearch/haishui-agent"
+        "https://raw.githubusercontent.com/aiqinghaiwork163/haishui-agent"
         "/main/website/static/api/model-catalog.json"
     )
 

@@ -1073,7 +1073,7 @@ export const ja = defineLocale({
       sshErrHostKey:
         '前回の接続以降、ホスト鍵が変更されています。想定どおりか確認し、ssh-keygen -R <host> を実行してから再接続してください。',
       sshErrNotInstalled:
-        'リモートホストに Haishui がインストールされていません。リモートでインストールする（curl -fsSL https://haishui-agent.nousresearch.com/install.sh | sh）か、Haishui パスを設定してください。',
+        'リモートホストに Haishui がインストールされていません。リモートでインストールする（curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | sh）か、Haishui パスを設定してください。',
       sshErrPlatform:
         'サポートされていないリモートプラットフォームです。Haishui Desktop の SSH モードは Linux、macOS、Windows のリモートホストに対応しています。',
       sshErrTimeout: 'SSH 接続がタイムアウトしました。ホストが到達不能、またはスリープ中の可能性があります。',

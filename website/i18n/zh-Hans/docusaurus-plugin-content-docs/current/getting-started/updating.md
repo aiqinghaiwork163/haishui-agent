@@ -123,7 +123,7 @@ tail -f ~/.haishui/logs/update.log
 haishui --version
 ```
 
-与 [GitHub releases 页面](https://github.com/NousResearch/haishui-agent/releases) 上的最新版本进行比较。
+与 [GitHub releases 页面](https://github.com/aiqinghaiwork163/haishui-agent/releases) 上的最新版本进行比较。
 
 ### 从消息平台更新
 

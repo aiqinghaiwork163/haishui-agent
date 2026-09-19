@@ -1,6 +1,6 @@
 # Contributor Quick Reference
 
-For occasional contributors and PR authors. Full developer docs: https://haishui-agent.nousresearch.com/docs/developer-guide/
+For occasional contributors and PR authors. Full developer docs: https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/
 
 ### Project Layout
 

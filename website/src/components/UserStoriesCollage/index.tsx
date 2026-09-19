@@ -295,7 +295,7 @@ export default function UserStoriesCollage(): JSX.Element {
       <div className={styles.footer}>
         Built something with Haishui?{' '}
         <a
-          href="https://github.com/NousResearch/haishui-agent/edit/main/website/src/data/userStories.json"
+          href="https://github.com/aiqinghaiwork163/haishui-agent/edit/main/website/src/data/userStories.json"
           target="_blank"
           rel="noopener noreferrer"
         >

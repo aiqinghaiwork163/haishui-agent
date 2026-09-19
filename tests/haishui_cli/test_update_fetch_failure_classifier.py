@@ -15,7 +15,7 @@ RATE_LIMIT_STDERR = (
     "fatal: expected flush after ref listing"
 )
 CURL_429_STDERR = (
-    "fatal: unable to access 'https://github.com/NousResearch/haishui-agent.git/':"
+    "fatal: unable to access 'https://github.com/aiqinghaiwork163/haishui-agent.git/':"
     " The requested URL returned error: 429"
 )
 

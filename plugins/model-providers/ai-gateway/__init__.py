@@ -21,7 +21,7 @@ class VercelAIGatewayProfile(ProviderProfile):
 vercel = VercelAIGatewayProfile(
     name="ai-gateway", aliases=("vercel", "vercel-ai-gateway", "ai_gateway", "aigateway"),
     env_vars=("AI_GATEWAY_API_KEY",), base_url="https://ai-gateway.vercel.sh/v1",
-    default_headers={"HTTP-Referer": "https://haishui-agent.nousresearch.com", "X-Title": "Haishui Agent"},
+    default_headers={"HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent", "X-Title": "Haishui Agent"},
     default_aux_model="google/gemini-3-flash",
 )
 

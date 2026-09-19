@@ -4,8 +4,8 @@ Verifies that Haishui-managed provider, tool, and gateway env vars are
 stripped from subprocess environments so external CLIs are not silently
 misrouted or handed Haishui secrets.
 
-See: https://github.com/NousResearch/haishui-agent/issues/1002
-See: https://github.com/NousResearch/haishui-agent/issues/1264
+See: https://github.com/aiqinghaiwork163/haishui-agent/issues/1002
+See: https://github.com/aiqinghaiwork163/haishui-agent/issues/1264
 """
 
 import os

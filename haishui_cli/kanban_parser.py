@@ -442,7 +442,7 @@ def build_parser(parent_subparsers: argparse._SubParsersAction) -> argparse.Argu
         description="Durable SQLite-backed task board shared across Haishui profiles. "
                     "Tasks are claimed atomically, can depend on other tasks, and "
                     "are executed by a named profile in an isolated workspace. "
-                    "See https://haishui-agent.nousresearch.com/docs/user-guide/features/kanban.",
+                    "See https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/kanban.",
     )
     # --board scopes every subcommand to one board's DB; when omitted the
     # resolution is HAISHUI_KANBAN_BOARD, then the persisted current-board

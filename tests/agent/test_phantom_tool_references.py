@@ -22,7 +22,7 @@ class TestHaishuiAgentHelpGuidance:
     def test_no_skills_variant_has_no_skill_view_reference(self):
         from agent.prompt_builder import HAISHUI_AGENT_HELP_GUIDANCE_NO_SKILLS
         assert "skill_view" not in HAISHUI_AGENT_HELP_GUIDANCE_NO_SKILLS
-        assert "haishui-agent.nousresearch.com/docs" in HAISHUI_AGENT_HELP_GUIDANCE_NO_SKILLS
+        assert "aiqinghaiwork163.github.io/haishui-agent/docs" in HAISHUI_AGENT_HELP_GUIDANCE_NO_SKILLS
 
 
 class TestExecutionGuidanceText:

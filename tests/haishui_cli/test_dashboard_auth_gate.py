@@ -77,7 +77,7 @@ def test_empty_provider_login_page_shows_supported_auth_paths():
     assert "SSH tunnel" in html
     assert "Tailscale" in html
     assert (
-        'href="https://haishui-agent.nousresearch.com/docs/'
+        'href="https://aiqinghaiwork163.github.io/haishui-agent/docs/'
         'user-guide/features/web-dashboard#authentication-gated-mode"'
     ) in html
 

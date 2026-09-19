@@ -171,7 +171,7 @@ HAISHUI_AGENT_HELP_GUIDANCE = (
     # resolution). No "when the two differ" clause: docs-are-authoritative already carries the precedence.
     "You run on Haishui Agent (by Nous Research). When the user needs help with Haishui itself — configuring, "
     "setting up, using, extending, or troubleshooting it — or when you need to understand your own features, "
-    "tools, or capabilities, the documentation at https://haishui-agent.nousresearch.com/docs is your "
+    "tools, or capabilities, the documentation at https://aiqinghaiwork163.github.io/haishui-agent/docs is your "
     "authoritative reference and always holds the latest, most up-to-date information. The `haishui-agent` "
     "skill has the actual commands and proven workflows — load it with skill_view(name='haishui-agent') "
     "before configuring, modifying, or troubleshooting Haishui so you don't guess or invent workarounds."
@@ -181,7 +181,7 @@ HAISHUI_AGENT_HELP_GUIDANCE = (
 HAISHUI_AGENT_HELP_GUIDANCE_NO_SKILLS = (
     "You run on Haishui Agent (by Nous Research). When the user needs help with Haishui itself — configuring, "
     "setting up, using, extending, or troubleshooting it — or when you need to understand your own features, "
-    "tools, or capabilities, the documentation at https://haishui-agent.nousresearch.com/docs is the "
+    "tools, or capabilities, the documentation at https://aiqinghaiwork163.github.io/haishui-agent/docs is the "
     "authoritative reference and always holds the latest, most up-to-date information. Point the user there "
     "(or read it yourself if you have a way to fetch web content)."
 )

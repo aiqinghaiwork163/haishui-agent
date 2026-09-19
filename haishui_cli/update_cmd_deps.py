@@ -1116,4 +1116,4 @@ def _sync_python_dependencies_after_pull(
         print(f"  ⚠ {failing_module} still fails to import after updating:")
         print(f"      {import_error}")
         print("    Run `haishui update` again — if it persists, reinstall:")
-        print("    https://haishui-agent.nousresearch.com")
+        print("    https://aiqinghaiwork163.github.io/haishui-agent")

@@ -110,7 +110,7 @@ mining, per-epoch anchor windows) before default flip.
    gold: `~60GB`
 3. **Which specific Electron setting is suspected of causing the Windows occlusion freeze in issue #83420?**  
    gold: `backgroundThrottling`
-4. **What exact error message is returned when 'gh pr merge --auto' is attempted on the NousResearch/haishui-agent repository?**  
+4. **What exact error message is returned when 'gh pr merge --auto' is attempted on the aiqinghaiwork163/haishui-agent repository?**  
    gold: `Auto merge is not allowed for this repository (enablePullRequestAutoMerge)`
 5. **What is the specified 'Rule 0' that must be included in a subagent brief?**  
    gold: `load the skill first`

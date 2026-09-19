@@ -81,7 +81,7 @@ def _local_runtime_hint(reason: str | None) -> str:
 
     ``local_embedded`` imports ``from hindsight import HindsightEmbedded``, which is provided only by the
     ``hindsight-all`` package (its wheel ships the top-level ``hindsight`` module).
-    NousResearch/haishui-agent#7718.
+    aiqinghaiwork163/haishui-agent#7718.
     """
     text = (reason or "").lower()
     if "no module named" in text and any(m in text for m in ("hindsight'", 'hindsight"', "hindsight_embed")):

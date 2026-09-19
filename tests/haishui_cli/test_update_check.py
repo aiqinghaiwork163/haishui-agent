@@ -33,7 +33,7 @@ def git_repo(tmp_path, monkeypatch):
     return repo_dir
 
 
-def _stub_git(monkeypatch, *, head=SHA_A, origin="https://github.com/NousResearch/haishui-agent.git"):
+def _stub_git(monkeypatch, *, head=SHA_A, origin="https://github.com/aiqinghaiwork163/haishui-agent.git"):
     calls = []
 
     def fake_run(args, **kwargs):

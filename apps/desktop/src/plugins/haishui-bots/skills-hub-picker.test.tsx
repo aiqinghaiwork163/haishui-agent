@@ -13,7 +13,7 @@ import type * as HaishuiSdk from '@haishui/plugin-sdk'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-const HUB_ORIGIN = 'https://haishui-agent.nousresearch.com'
+const HUB_ORIGIN = 'https://aiqinghaiwork163.github.io/haishui-agent'
 
 const mocks = vi.hoisted(() => ({
   notify: vi.fn(),

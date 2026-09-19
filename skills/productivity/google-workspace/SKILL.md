@@ -13,7 +13,7 @@ required_credential_files:
 metadata:
   haishui:
     tags: [Google, Gmail, Calendar, Drive, Sheets, Docs, Contacts, Email, OAuth]
-    homepage: https://github.com/NousResearch/haishui-agent
+    homepage: https://github.com/aiqinghaiwork163/haishui-agent
     related_skills: [himalaya]
 ---
 

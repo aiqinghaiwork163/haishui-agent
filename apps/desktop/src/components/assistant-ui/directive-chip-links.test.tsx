@@ -8,7 +8,7 @@ import { DirectiveContent } from './directive-text'
 
 const desktopWindow = window as unknown as { haishuiDesktop?: Window['haishuiDesktop'] }
 
-const PR_URL = 'https://github.com/NousResearch/haishui-agent/pull/107950'
+const PR_URL = 'https://github.com/aiqinghaiwork163/haishui-agent/pull/107950'
 
 function installDesktopBridge() {
   const openExternal = vi.fn().mockResolvedValue(undefined)

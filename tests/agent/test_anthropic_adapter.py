@@ -68,7 +68,7 @@ class TestBuildAnthropicClient:
             )
             kwargs = mock_sdk.Anthropic.call_args[1]
             headers = kwargs["default_headers"]
-            assert headers["HTTP-Referer"] == "https://haishui-agent.nousresearch.com"
+            assert headers["HTTP-Referer"] == "https://aiqinghaiwork163.github.io/haishui-agent"
             assert headers["X-Title"] == "Haishui Agent"
             assert headers["User-Agent"].startswith("HaishuiAgent/")
             # Auth branch is unchanged: x-api-key via api_key, betas kept.
@@ -1446,7 +1446,7 @@ class TestConvertToolsToAnthropicDedup:
 
     Anthropic rejects requests with duplicate tool names.  This guard converts
     a hard failure into a warning log.  See:
-    https://github.com/NousResearch/haishui-agent/issues/18478
+    https://github.com/aiqinghaiwork163/haishui-agent/issues/18478
     """
 
     def _make_openai_tool(self, name: str) -> dict:
@@ -1907,9 +1907,9 @@ def test_oauth_system_prompt_sanitizer_preserves_docs_url():
                 "role": "system",
                 "content": (
                     "Haishui Agent by Nous Research uses haishui-agent skills. "
-                    "Docs: https://haishui-agent.nousresearch.com/docs ; "
+                    "Docs: https://aiqinghaiwork163.github.io/haishui-agent/docs ; "
                     "interpreter ~/.haishui/haishui-agent/venv/bin/python ; "
-                    "source github.com/NousResearch/haishui-agent ; mail haishui-agent@example.com ; "
+                    "source github.com/aiqinghaiwork163/haishui-agent ; mail haishui-agent@example.com ; "
                     "skill_view(name='haishui-agent') ; haishui-agent's docs ; built by haishui-agent."
                 ),
             },
@@ -1923,11 +1923,11 @@ def test_oauth_system_prompt_sanitizer_preserves_docs_url():
 
     system_text = "\n".join(block["text"] for block in kwargs["system"])
     assert "Claude Code by Anthropic uses claude-code skills." in system_text
-    assert "https://haishui-agent.nousresearch.com/docs" in system_text
+    assert "https://aiqinghaiwork163.github.io/haishui-agent/docs" in system_text
     # Paths and repo slugs are addresses too: a subagent told to run
     # ``~/.haishui/claude-code/venv/bin/python`` fails on a file that does not exist.
     assert "~/.haishui/haishui-agent/venv/bin/python" in system_text
-    assert "github.com/NousResearch/haishui-agent" in system_text
+    assert "github.com/aiqinghaiwork163/haishui-agent" in system_text
     assert "haishui-agent@example.com" in system_text
     assert "skill_view(name='haishui-agent')" in system_text  # a quoted slug is an identifier
     assert "built by claude-code." in system_text  # a sentence-final dot is prose

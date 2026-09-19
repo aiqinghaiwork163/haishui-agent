@@ -297,7 +297,7 @@ describe('SkillsView toolset management', { timeout: 60_000 }, () => {
       window.dispatchEvent(
         new MessageEvent('message', {
           data: { type: 'haishui-skill-pick', name: 'web-research', identifier: 'web-research' },
-          origin: 'https://haishui-agent.nousresearch.com'
+          origin: 'https://aiqinghaiwork163.github.io/haishui-agent'
         })
       )
     })

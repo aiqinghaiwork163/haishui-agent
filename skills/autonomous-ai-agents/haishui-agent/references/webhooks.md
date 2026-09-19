@@ -83,7 +83,7 @@ haishui webhook subscribe todoist-haishui \
   --deliver telegram --deliver-chat-id "12345"
 ```
 
-Full filter syntax: https://haishui-agent.nousresearch.com/docs/user-guide/messaging/webhooks#payload-filters
+Full filter syntax: https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/webhooks#payload-filters
 
 ### List subscriptions
 ```bash

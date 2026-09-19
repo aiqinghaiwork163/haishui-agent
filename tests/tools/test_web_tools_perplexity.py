@@ -21,7 +21,7 @@ def _assert_haishui_identity_headers(headers):
     plus Perplexity's integration header."""
     from haishui_cli import __version__
 
-    assert headers["HTTP-Referer"] == "https://haishui-agent.nousresearch.com"
+    assert headers["HTTP-Referer"] == "https://aiqinghaiwork163.github.io/haishui-agent"
     assert headers["X-Title"] == "Haishui Agent"
     assert headers["User-Agent"] == f"HaishuiAgent/{__version__}"
     assert headers["X-Pplx-Integration"] == "haishui-agent"

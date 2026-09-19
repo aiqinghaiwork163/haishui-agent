@@ -407,7 +407,7 @@ class TestCmdUpdateBranchFallback:
         """Regression for issue #26172: forks whose local HEAD already matches
         origin/main must still consult upstream/main before printing
         "Already up to date!" — otherwise a fork that's caught up to its own
-        origin but behind NousResearch/haishui-agent silently misses updates.
+        origin but behind aiqinghaiwork163/haishui-agent silently misses updates.
         """
         from haishui_cli import main as hm
 

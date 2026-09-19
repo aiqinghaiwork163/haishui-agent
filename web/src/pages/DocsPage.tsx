@@ -5,7 +5,7 @@ import { usePageHeader } from "@/contexts/usePageHeader";
 import { cn } from "@/lib/utils";
 import { PluginSlot } from "@/plugins";
 
-export const HAISHUI_DOCS_URL = "https://haishui-agent.nousresearch.com/docs/";
+export const HAISHUI_DOCS_URL = "https://aiqinghaiwork163.github.io/haishui-agent/docs/";
 
 const DS_BUTTON_OUTLINED_LINK_CN = cn(
   "group relative inline-grid grid-cols-[auto_1fr_auto] items-center",

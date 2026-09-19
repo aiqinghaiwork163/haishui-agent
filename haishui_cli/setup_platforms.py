@@ -233,7 +233,7 @@ def _setup_webhooks():
     print_warning("   internet. For security, run the gateway in a sandboxed environment")
     print_warning("   (Docker, VM, etc.) to limit blast radius from prompt injection.")
     print()
-    _info("   Full guide: https://haishui-agent.nousresearch.com/docs/user-guide/messaging/webhooks/", None)
+    _info("   Full guide: https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/webhooks/", None)
     _save_port("WEBHOOK_PORT", prompt("Webhook port (default 8644)"), "8644")
     save_prompted("WEBHOOK_SECRET", "Global HMAC secret (shared across all routes)", password=True,
                    success_msg="Webhook secret saved",
@@ -246,7 +246,7 @@ def _setup_webhooks():
           "   2. Point your service (GitHub, GitLab, etc.) at:",
           "      http://your-server:8644/webhooks/<route-name>", None,
           "   Route configuration guide:",
-          "   https://haishui-agent.nousresearch.com/docs/user-guide/messaging/webhooks/#configuring-routes",
+          "   https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/webhooks/#configuring-routes",
           None,
           # Printed twice upstream; kept verbatim for output parity.
           "   Open config in your editor:  haishui config edit",

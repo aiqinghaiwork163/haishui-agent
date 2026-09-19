@@ -22,7 +22,7 @@ Pick whichever fits the moment. They share state, so you can start a session in 
 
 ## Install
 
-Download the app from the [Haishui Desktop product page](https://haishui-agent.nousresearch.com/desktop), or follow the [installation instructions for Haishui Desktop](../getting-started/installation.md).
+Download the app from the [Haishui Desktop product page](https://aiqinghaiwork163.github.io/haishui-agent/desktop), or follow the [installation instructions for Haishui Desktop](../getting-started/installation.md).
 
 If you already have Haishui installed, simply run
 
@@ -321,7 +321,7 @@ The desktop app and the Haishui backend it talks to update on separate clocks â€
 
 After any backend update, the app also re-checks its own version and warns with a one-click **Update desktop app** action if the GUI is still behind â€” so updating a remote backend can never silently leave you on a stale desktop build.
 
-The [manual update process](https://haishui-agent.nousresearch.com/docs/getting-started/updating) also works with the GUI.
+The [manual update process](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/updating) also works with the GUI.
 
 ## Uninstalling
 

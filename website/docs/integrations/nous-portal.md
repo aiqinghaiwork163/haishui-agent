@@ -124,7 +124,7 @@ OAuth needs a browser, but the loopback callback runs on the machine where Haish
 
 ### Profile setup {#profile-setup}
 
-If you use [Haishui profiles](../user-guide/profiles.md), the Portal refresh token is shared across profiles via a shared token store — but the store **refreshes an existing login, it does not create one**. Profiles are independent islands ([#111724](https://github.com/NousResearch/haishui-agent/issues/111724)), so a profile that has never signed in to the Portal has no Nous credentials of its own: at boot it fails closed with `Profile '<name>' is not connected to any AI provider yet` rather than silently adopting another profile's session.
+If you use [Haishui profiles](../user-guide/profiles.md), the Portal refresh token is shared across profiles via a shared token store — but the store **refreshes an existing login, it does not create one**. Profiles are independent islands ([#111724](https://github.com/aiqinghaiwork163/haishui-agent/issues/111724)), so a profile that has never signed in to the Portal has no Nous credentials of its own: at boot it fails closed with `Profile '<name>' is not connected to any AI provider yet` rather than silently adopting another profile's session.
 
 Sign in **once per profile** with `haishui -p <name> portal` (alias for `haishui -p <name> auth add nous --type oauth`). When a shared Portal session already exists on the machine, that command offers to import it — one confirmation, no browser round-trip. After that first import the profile keeps its own state, and the shared store keeps its token current whenever any profile refreshes or re-logs in. `haishui profile create <name> --clone-all` from a signed-in profile also carries the Portal login (only single-use grants such as Anthropic/Codex are stripped from clones).
 
@@ -272,7 +272,7 @@ The Portal routes each model to a suitable backend — some through OpenRouter, 
 /model anthropic/claude-opus-4.6
 ```
 
-If a model is genuinely missing, [open an issue](https://github.com/NousResearch/haishui-agent/issues) — we surface the Portal's catalog to Haishui and gaps usually mean a routing config we can update.
+If a model is genuinely missing, [open an issue](https://github.com/aiqinghaiwork163/haishui-agent/issues) — we surface the Portal's catalog to Haishui and gaps usually mean a routing config we can update.
 
 ### Bills not appearing on my Portal account
 

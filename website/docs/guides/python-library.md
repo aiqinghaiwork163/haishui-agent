@@ -15,7 +15,7 @@ Haishui isn't just a CLI tool. You can import `AIAgent` directly and use it prog
 Clone Haishui and create its supported editable development environment:
 
 ```bash
-git clone https://github.com/NousResearch/haishui-agent.git
+git clone https://github.com/aiqinghaiwork163/haishui-agent.git
 cd haishui-agent
 uv sync
 ```

@@ -1,7 +1,7 @@
 # Haishui CLI Reference
 
 Live sources when anything looks stale: `haishui --help`, `haishui <command> --help`,
-https://haishui-agent.nousresearch.com/docs/reference/cli-commands
+https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/cli-commands
 
 ### Global Flags
 
@@ -79,7 +79,7 @@ haishui gateway run|install|start|stop|restart|status|setup
 ```
 
 20+ platforms: Telegram, Discord, Slack, WhatsApp (Baileys + Business Cloud API), iMessage (Photon — `haishui photon setup`), Signal, Email, SMS, Matrix, Mattermost, Teams, LINE, SimpleX, ntfy, Google Chat, Home Assistant, DingTalk, Feishu, WeCom, Weixin, API Server, Webhooks. Open WebUI connects via the API Server adapter. Most adapters ship under `plugins/platforms/`.
-Docs: https://haishui-agent.nousresearch.com/docs/user-guide/messaging/
+Docs: https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/
 
 ### Sessions
 
@@ -142,10 +142,10 @@ Plugin- and provider-supplied subcommands (e.g. `haishui photon setup`) only app
 
 | Looking for... | Location |
 |---|---|
-| Config options | `haishui config edit` · [Configuration docs](https://haishui-agent.nousresearch.com/docs/user-guide/configuration) |
-| Tools / toolsets | `haishui tools list` · [Tools reference](https://haishui-agent.nousresearch.com/docs/reference/tools-reference) |
-| Skills catalog | `haishui skills browse` · [Skills catalog](https://haishui-agent.nousresearch.com/docs/reference/skills-catalog) |
-| Provider setup | `haishui model` · [Providers guide](https://haishui-agent.nousresearch.com/docs/integrations/providers) |
-| Env variables | `haishui config env-path` · [Env vars reference](https://haishui-agent.nousresearch.com/docs/reference/environment-variables) |
+| Config options | `haishui config edit` · [Configuration docs](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/configuration) |
+| Tools / toolsets | `haishui tools list` · [Tools reference](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/tools-reference) |
+| Skills catalog | `haishui skills browse` · [Skills catalog](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/skills-catalog) |
+| Provider setup | `haishui model` · [Providers guide](https://aiqinghaiwork163.github.io/haishui-agent/docs/integrations/providers) |
+| Env variables | `haishui config env-path` · [Env vars reference](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/environment-variables) |
 | Gateway logs | `~/.haishui/logs/gateway.log` (or `haishui logs`) |
 | Sessions | `haishui sessions browse` (reads state.db) |

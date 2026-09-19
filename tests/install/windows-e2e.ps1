@@ -104,7 +104,7 @@ param(
 
     [string]$WorkRoot = $(if ($env:HAISHUI_E2E_WORKROOT) { $env:HAISHUI_E2E_WORKROOT } else { Join-Path $env:TEMP "haishui-desktop-gui-e2e" }),
 
-    [string]$SetupExeUrl = "https://haishui-assets.nousresearch.com/Haishui-Setup.exe",
+    [string]$SetupExeUrl = "https://aiqinghaiwork163.github.io/haishui-agent/assets/Haishui-Setup.exe",
 
     # Pinned @playwright/test for the update-gui driver. Installed fresh
     # into a scratch dir every run -- never resolved from the installed
@@ -133,8 +133,8 @@ $ProofRoot   = Join-Path $WorkRoot "proof"
 $AhkDir      = Join-Path $WorkRoot "ahk"
 $AssetsDir   = Join-Path $PSScriptRoot "e2e-assets"
 
-$RepoUrlHttps = "https://github.com/NousResearch/haishui-agent.git"
-$RepoUrlSsh   = "git@github.com:NousResearch/haishui-agent.git"
+$RepoUrlHttps = "https://github.com/aiqinghaiwork163/haishui-agent.git"
+$RepoUrlSsh   = "git@github.com:aiqinghaiwork163/haishui-agent.git"
 
 function Write-Step([string]$Message) {
     Write-Host ""

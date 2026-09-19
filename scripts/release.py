@@ -2434,7 +2434,7 @@ def get_pr_number(subject: str) -> str | None:
     return None
 
 
-def generate_changelog(commits, tag_name, semver, repo_url="https://github.com/NousResearch/haishui-agent",
+def generate_changelog(commits, tag_name, semver, repo_url="https://github.com/aiqinghaiwork163/haishui-agent",
                        prev_tag=None, first_release=False):
     """Generate markdown changelog from categorized commits."""
     lines = []

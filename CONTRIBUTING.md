@@ -24,10 +24,10 @@ A quick search before you build saves your time and keeps the PR queue clean —
 
 - **Search both open *and* merged PRs and issues** for your topic or error symptom — the duplicate-check in the PR template fires at review time, after you've already done the work:
   ```bash
-  gh search issues --repo NousResearch/haishui-agent "<your terms>"
-  gh search prs --repo NousResearch/haishui-agent --state all "<your terms>"
+  gh search issues --repo aiqinghaiwork163/haishui-agent "<your terms>"
+  gh search prs --repo aiqinghaiwork163/haishui-agent --state all "<your terms>"
   ```
-  Or use the web UI: [issues](https://github.com/NousResearch/haishui-agent/issues?q=) · [PRs (all states)](https://github.com/NousResearch/haishui-agent/pulls?q=is%3Apr).
+  Or use the web UI: [issues](https://github.com/aiqinghaiwork163/haishui-agent/issues?q=) · [PRs (all states)](https://github.com/aiqinghaiwork163/haishui-agent/pulls?q=is%3Apr).
 - **The issue tracker can lag the code.** Many requested features are already implemented in-tree, so also search the source (`search_files`, or your editor's grep) for the capability before proposing it.
 - **If an open PR already addresses it**, consider reviewing or improving that one instead of opening a competing duplicate.
 - **For larger work**, comment on the issue to signal you're working on it, so others don't start the same thing.
@@ -93,7 +93,7 @@ The reason is maintenance load, not quality. Every external product absorbed int
 
 Publish these as a **standalone plugin repo** instead:
 
-- Implement the relevant ABC and use the existing plugin discovery path (`~/.haishui/plugins/`, project `.haishui/plugins/`, or a pip entry point) — see [Build a Haishui Plugin](https://haishui-agent.nousresearch.com/docs/guides/build-a-haishui-plugin)
+- Implement the relevant ABC and use the existing plugin discovery path (`~/.haishui/plugins/`, project `.haishui/plugins/`, or a pip entry point) — see [Build a Haishui Plugin](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/build-a-haishui-plugin)
 - Register lifecycle hooks (`pre_tool_call`, `post_tool_call`, `pre_llm_call`, `post_llm_call`, `on_session_start`, `on_session_end`), tools (`ctx.register_tool`), and CLI subcommands (`ctx.register_cli_command`) through the surface we already expose — no core changes needed
 - If your plugin needs a capability the framework doesn't expose, that's a feature request to **widen the generic plugin surface** (a new hook or `ctx` method) — never special-case your plugin in core
 - Promote it in the [Nous Research Discord](https://discord.gg/NousResearch) `#plugins-skills-and-skins` channel so users can find and install it
@@ -124,7 +124,7 @@ development environment on the same layout the CLI, updater, lazy dependency
 installer, gateway, and docs assume.
 
 ```bash
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 cd "${HAISHUI_HOME:-$HOME/.haishui}/haishui-agent"
 
 # Add dev/test extras on top of the standard install.
@@ -156,7 +156,7 @@ which silently destroys the running runtime mid-session. Keeping it outside the
 tree means no relative path from the workspace resolves to it.
 
 ```bash
-git clone https://github.com/NousResearch/haishui-agent.git
+git clone https://github.com/aiqinghaiwork163/haishui-agent.git
 cd haishui-agent
 
 # Create venv with Python 3.11, OUTSIDE the source tree
@@ -284,7 +284,7 @@ haishui-agent/
 ├── skills/                   # Bundled skills (copied to ~/.haishui/skills/ on install)
 ├── optional-skills/          # Official optional skills (discoverable via hub, not activated by default)
 ├── tests/                    # Test suite
-├── website/                  # Documentation site (haishui-agent.nousresearch.com)
+├── website/                  # Documentation site (aiqinghaiwork163.github.io/haishui-agent)
 │
 ├── cli-config.yaml.example   # Example configuration (copied to ~/.haishui/config.yaml)
 └── AGENTS.md                 # Development guide for AI coding assistants
@@ -986,7 +986,7 @@ test(tools): add unit tests for file_operations
 
 ## Reporting Issues
 
-- Use [GitHub Issues](https://github.com/NousResearch/haishui-agent/issues)
+- Use [GitHub Issues](https://github.com/aiqinghaiwork163/haishui-agent/issues)
 - Include: OS, Python version, Haishui version (`haishui --version`), full error traceback
 - Include steps to reproduce
 - Check existing issues before creating duplicates

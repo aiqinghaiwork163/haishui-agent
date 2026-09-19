@@ -8,7 +8,7 @@ const config: Config = {
   tagline: 'The self-improving AI agent',
   favicon: 'img/favicon.ico',
 
-  url: 'https://haishui-agent.nousresearch.com',
+  url: 'https://aiqinghaiwork163.github.io/haishui-agent',
   baseUrl: '/docs/',
 
   organizationName: 'NousResearch',
@@ -81,7 +81,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',  // Docs at the root of /docs/
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/NousResearch/haishui-agent/edit/main/website/',
+          editUrl: 'https://github.com/aiqinghaiwork163/haishui-agent/edit/main/website/',
           // Relative `.md` links (readable on GitHub, #114428) must also resolve
           // across the zh-Hans fallback boundary; see src/remark/relativeDocLinks.js.
           beforeDefaultRemarkPlugins: [[relativeDocLinks, {siteDir: __dirname}]],
@@ -144,7 +144,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://haishui-agent.nousresearch.com/',
+          href: 'https://aiqinghaiwork163.github.io/haishui-agent/',
           label: 'Download',
           position: 'left',
         },
@@ -153,12 +153,12 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://haishui-agent.nousresearch.com',
+          href: 'https://aiqinghaiwork163.github.io/haishui-agent',
           label: 'Home',
           position: 'right',
         },
         {
-          href: 'https://github.com/NousResearch/haishui-agent',
+          href: 'https://github.com/aiqinghaiwork163/haishui-agent',
           label: 'GitHub',
           position: 'right',
         },
@@ -185,15 +185,15 @@ const config: Config = {
           title: 'Community',
           items: [
             { label: 'Discord', href: 'https://discord.gg/NousResearch' },
-            { label: 'GitHub Issues', href: 'https://github.com/NousResearch/haishui-agent/issues' },
+            { label: 'GitHub Issues', href: 'https://github.com/aiqinghaiwork163/haishui-agent/issues' },
             { label: 'Skills Hub', href: 'https://agentskills.io' },
           ],
         },
         {
           title: 'More',
           items: [
-            { label: 'Desktop Download', href: 'https://haishui-agent.nousresearch.com/' },
-            { label: 'GitHub', href: 'https://github.com/NousResearch/haishui-agent' },
+            { label: 'Desktop Download', href: 'https://aiqinghaiwork163.github.io/haishui-agent/' },
+            { label: 'GitHub', href: 'https://github.com/aiqinghaiwork163/haishui-agent' },
             { label: 'Nous Research', href: 'https://nousresearch.com' },
           ],
         },

@@ -834,7 +834,7 @@ _PROVIDERS_WITHOUT_VISION: frozenset = frozenset({"kimi-coding", "kimi-coding-cn
 
 # OpenRouter app attribution (always sent). `X-Title` is what the dashboard reads.
 _OR_HEADERS_BASE = {
-    "HTTP-Referer": "https://haishui-agent.nousresearch.com",
+    "HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent",
     "X-Title": "Haishui Agent",
     "X-OpenRouter-Categories": "productivity,cli-agent",
 }
@@ -902,7 +902,7 @@ def build_nvidia_nim_headers(base_url: str | None) -> dict:
 from haishui_cli import __version__ as _HAISHUI_VERSION
 
 _AI_GATEWAY_HEADERS = {
-    "HTTP-Referer": "https://haishui-agent.nousresearch.com",
+    "HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent",
     "X-Title": "Haishui Agent",
     "User-Agent": f"HaishuiAgent/{_HAISHUI_VERSION}",
 }

@@ -18,7 +18,7 @@ Haishui discovers memory providers from four sources, in this precedence order:
 
 | Source | Location | Notes |
 |---|---|---|
-| Bundled | `plugins/memory/<name>/` | Ships with Haishui. Closed to new providers — see [CONTRIBUTING](https://github.com/NousResearch/haishui-agent/blob/main/CONTRIBUTING.md). |
+| Bundled | `plugins/memory/<name>/` | Ships with Haishui. Closed to new providers — see [CONTRIBUTING](https://github.com/aiqinghaiwork163/haishui-agent/blob/main/CONTRIBUTING.md). |
 | User | `$HAISHUI_HOME/plugins/<name>/` | Dropped in by the user, per profile. |
 | Project | `./.haishui/plugins/<name>/` | Opt-in via `HAISHUI_ENABLE_PROJECT_PLUGINS=1`. |
 | Package | `haishui_agent.memory_providers` entry point | `pip install`, nothing to copy. |

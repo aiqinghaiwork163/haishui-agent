@@ -12,13 +12,13 @@ import { useEffect, useRef, useState } from 'react'
 import { useBots } from './i18n'
 
 // ── skills hub section: the REAL hub page (docs) embedded as a picker ──────
-// https://haishui-agent.nousresearch.com/docs/skills?embed=picker hides the
+// https://aiqinghaiwork163.github.io/haishui-agent/docs/skills?embed=picker hides the
 // docs chrome and adds "+ Add to this Agent" per card, posting
 // {type: 'haishui-skill-pick', ...} to us (haishui-agent#86243). We validate
 // the origin, install via skills.manage, and bubble onInstalled so the
 // checklist above gains the row. Search-box fallback kept for offline use.
 
-const HUB_ORIGIN = 'https://haishui-agent.nousresearch.com'
+const HUB_ORIGIN = 'https://aiqinghaiwork163.github.io/haishui-agent'
 const HUB_PICKER_URL = HUB_ORIGIN + '/docs/skills?embed=picker'
 /** One `skills.manage action=search` hit. */
 interface HubSkillResult {

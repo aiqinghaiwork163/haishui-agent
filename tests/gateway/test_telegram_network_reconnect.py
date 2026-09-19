@@ -735,7 +735,7 @@ async def test_handle_polling_network_error_updater_stop_timeout():
 
     This test simulates the hang by making stop() outlive the deadline and
     verifies that the current Updater is not drained or restarted afterward.
-    Refs: NousResearch/haishui-agent#58270
+    Refs: aiqinghaiwork163/haishui-agent#58270
     """
     adapter = _make_adapter()
     adapter._polling_network_error_count = 0

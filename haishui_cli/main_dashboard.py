@@ -591,7 +591,7 @@ def _maybe_setup_dashboard_auth_interactively(args) -> None:
             "    haishui dashboard register\n"
             "  It provisions a Nous Portal OAuth client and writes "
             "HAISHUI_DASHBOARD_OAUTH_CLIENT_ID into ~/.haishui/.env for you.\n"
-            "  Docs: https://haishui-agent.nousresearch.com/docs/"
+            "  Docs: https://aiqinghaiwork163.github.io/haishui-agent/docs/"
             "user-guide/features/web-dashboard#authentication-gated-mode"
         )
         sys.exit(0)

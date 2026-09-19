@@ -37,7 +37,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
-USER_AGENT = "haishui-agent/1.0 (reddit-reading skill; +https://github.com/NousResearch/haishui-agent)"
+USER_AGENT = "haishui-agent/1.0 (reddit-reading skill; +https://github.com/aiqinghaiwork163/haishui-agent)"
 TIMEOUT = 25
 ATOM = {"a": "http://www.w3.org/2005/Atom"}
 WWW = "https://www.reddit.com"

@@ -35,11 +35,11 @@ Haishui Agent 提供了一个 Nix flake，支持三个层级的集成：
 
 ```bash
 # 直接运行（首次使用时构建，之后使用缓存）
-nix run github:NousResearch/haishui-agent -- setup
-nix run github:NousResearch/haishui-agent -- chat
+nix run github:aiqinghaiwork163/haishui-agent -- setup
+nix run github:aiqinghaiwork163/haishui-agent -- chat
 
 # 或持久化安装
-nix profile install github:NousResearch/haishui-agent
+nix profile install github:aiqinghaiwork163/haishui-agent
 haishui setup
 haishui chat
 ```
@@ -50,7 +50,7 @@ haishui chat
 <summary><strong>从本地克隆构建</strong></summary>
 
 ```bash
-git clone https://github.com/NousResearch/haishui-agent.git
+git clone https://github.com/aiqinghaiwork163/haishui-agent.git
 cd haishui-agent
 nix build
 ./result/bin/haishui setup
@@ -75,7 +75,7 @@ nix build
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    haishui-agent.url = "github:NousResearch/haishui-agent";
+    haishui-agent.url = "github:aiqinghaiwork163/haishui-agent";
   };
 
   outputs = { nixpkgs, haishui-agent, ... }: {
@@ -685,7 +685,7 @@ services.haishui-agent = {
 
 ```nix
 {
-  inputs.haishui-agent.url = "github:NousResearch/haishui-agent";
+  inputs.haishui-agent.url = "github:aiqinghaiwork163/haishui-agent";
   outputs = { haishui-agent, nixpkgs, ... }: {
     nixpkgs.overlays = [ haishui-agent.overlays.default ];
     # 然后：

@@ -80,7 +80,7 @@ class TestInlineFormatting:
 
         Slack numbers each rich_text_list independently.  If blank lines break
         the list run, N items produce N separate lists each starting at 1.
-        See: https://github.com/NousResearch/haishui-agent/issues/57076
+        See: https://github.com/aiqinghaiwork163/haishui-agent/issues/57076
         """
         md = "1. alpha\n\n1. beta\n\n1. gamma"
         blocks = render_blocks(md)

@@ -263,7 +263,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = with lib; {
     description = "AI agent with advanced tool-calling capabilities";
-    homepage = "https://github.com/NousResearch/haishui-agent";
+    homepage = "https://github.com/aiqinghaiwork163/haishui-agent";
     mainProgram = "haishui";
     license = licenses.mit;
     platforms = platforms.unix;

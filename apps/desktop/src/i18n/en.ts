@@ -1236,7 +1236,7 @@ export const en: Translations = {
       sshErrHostKey:
         'The host key has CHANGED since you last connected. Verify this is expected, then run ssh-keygen -R <host> and reconnect.',
       sshErrNotInstalled:
-        'Haishui is not installed on the remote host. Install it there (curl -fsSL https://haishui-agent.nousresearch.com/install.sh | sh) or set the Haishui path.',
+        'Haishui is not installed on the remote host. Install it there (curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | sh) or set the Haishui path.',
       sshErrPlatform:
         'Unsupported remote platform. Haishui Desktop SSH mode supports Linux, macOS, and Windows remote hosts.',
       sshErrTimeout: 'SSH connection timed out. The host may be unreachable or asleep.',

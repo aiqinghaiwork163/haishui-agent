@@ -10,7 +10,7 @@ from providers import register_provider
 from providers.base import OMIT_TEMPERATURE, ProviderProfile
 
 _HEADERS = {
-    "HTTP-Referer": "https://haishui-agent.nousresearch.com",
+    "HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent",
     "X-Title": "Haishui Agent",
     "User-Agent": f"HaishuiAgent/{_HAISHUI_VERSION}",
 }

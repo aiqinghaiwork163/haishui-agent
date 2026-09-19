@@ -6,7 +6,7 @@ Usage (via cron with --no-agent):
     haishui cron create haishui-issues \\
       --schedule "*/5 * * * *" --no-agent \\
       --script "$HAISHUI_HOME/skills/devops/watchers/scripts/watch_github.py" \\
-      --script-args "--name haishui-issues --repo NousResearch/haishui-agent --scope issues"
+      --script-args "--name haishui-issues --repo aiqinghaiwork163/haishui-agent --scope issues"
 
 Set GITHUB_TOKEN (or GH_TOKEN) in the Haishui .env file
 (``${HAISHUI_HOME:-~/.haishui}/.env``) to avoid the 60 req/hr

@@ -1,7 +1,7 @@
 # Configuration, Toolsets & Voice
 
 Edit with `haishui config edit` or `haishui config set section.key value`.
-Full reference: https://haishui-agent.nousresearch.com/docs/user-guide/configuration
+Full reference: https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/configuration
 
 ### Config Sections (most-used keys)
 

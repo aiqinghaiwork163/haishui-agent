@@ -13,7 +13,7 @@ import urllib.request
 
 DEFAULT_UA = (
     "haishui-osint-investigation/0.2 "
-    "(+https://github.com/NousResearch/haishui-agent; "
+    "(+https://github.com/aiqinghaiwork163/haishui-agent; "
     "set HAISHUI_OSINT_UA env var to identify yourself per "
     "Wikimedia / SEC fair-use guidance)"
 )

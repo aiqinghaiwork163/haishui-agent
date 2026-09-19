@@ -298,7 +298,7 @@ def _beta_header(betas: list) -> Dict[str, str]:
 def _attribution_headers() -> Dict[str, str]:
     """Same client-attribution set sent to OpenRouter / Vercel AI Gateway / Fireworks."""
     return {
-        "HTTP-Referer": "https://haishui-agent.nousresearch.com", "X-Title": "Haishui Agent",
+        "HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent", "X-Title": "Haishui Agent",
         "User-Agent": f"HaishuiAgent/{_HAISHUI_VERSION}",
     }
 
@@ -471,8 +471,8 @@ _OAUTH_SYSTEM_REPLACEMENTS = (
     ("Haishui Agent", "Claude Code"), ("Haishui agent", "Claude Code"), ("Nous Research", "Anthropic"),
 )
 # The slug is rewritten only as a standalone prose word. Joined to a host, path, repo, mailbox
-# or quoted as an identifier (``haishui-agent.nousresearch.com``, ``~/.haishui/haishui-agent/venv``,
-# ``NousResearch/haishui-agent``, ``skill_view(name='haishui-agent')``) it is an address the model
+# or quoted as an identifier (``aiqinghaiwork163.github.io/haishui-agent``, ``~/.haishui/haishui-agent/venv``,
+# ``aiqinghaiwork163/haishui-agent``, ``skill_view(name='haishui-agent')``) it is an address the model
 # dereferences, and the rewritten form does not exist (#48860). The OPENING quote marks an
 # identifier; a sentence-final ``.`` or a possessive ``'s`` is prose.
 _OAUTH_SLUG_PATTERN = re.compile(r"""(?<![\w./:@'"`-])haishui-agent(?![\w/@-]|\.\w)""")

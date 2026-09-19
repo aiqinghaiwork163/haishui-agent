@@ -177,7 +177,7 @@ async function locateHaishui(ssh, remoteHaishuiPath) {
     //   - version checking: `<python> --version` printed "Python x.y.z" instead of
     //     the Haishui version, and
     //   - capability probing: `<python> serve --help` failed entirely.
-    // See https://github.com/NousResearch/haishui-agent/issues/74411
+    // See https://github.com/aiqinghaiwork163/haishui-agent/issues/74411
     return candidate
   }
 
@@ -237,7 +237,7 @@ async function locateHaishui(ssh, remoteHaishuiPath) {
 
   const err: any = new Error(
     'Haishui is not installed on the remote host (could not find a `haishui` executable). ' +
-      'Install it on the remote with:  curl -fsSL https://haishui-agent.nousresearch.com/install.sh | sh  ' +
+      'Install it on the remote with:  curl -fsSL https://aiqinghaiwork163.github.io/haishui-agent/install.sh | sh  ' +
       '— or set the Haishui path explicitly in the SSH connection settings.'
   )
 

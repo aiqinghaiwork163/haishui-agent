@@ -209,7 +209,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     description = "Native Electron desktop shell for Haishui Agent";
-    homepage = "https://github.com/NousResearch/haishui-agent";
+    homepage = "https://github.com/aiqinghaiwork163/haishui-agent";
     license = licenses.mit;
     platforms = platforms.unix;
     mainProgram = "haishui-desktop";

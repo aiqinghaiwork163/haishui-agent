@@ -81,7 +81,7 @@ Esto no es una barra de calidad — es una decisión de acoplamiento y mantenimi
 ### Clonar e instalar
 
 ```bash
-git clone https://github.com/NousResearch/haishui-agent.git
+git clone https://github.com/aiqinghaiwork163/haishui-agent.git
 cd haishui-agent
 
 # Crear venv con Python 3.11
@@ -194,7 +194,7 @@ haishui-agent/
 ├── skills/                   # Habilidades incluidas (copiadas a ~/.haishui/skills/ en la instalación)
 ├── optional-skills/          # Habilidades opcionales oficiales (descubribles vía hub, no activadas por defecto)
 ├── tests/                    # Suite de tests
-├── website/                  # Sitio de documentación (haishui-agent.nousresearch.com)
+├── website/                  # Sitio de documentación (aiqinghaiwork163.github.io/haishui-agent)
 │
 ├── cli-config.yaml.example   # Configuración de ejemplo (copiada a ~/.haishui/config.yaml)
 └── AGENTS.md                 # Guía de desarrollo para asistentes de codificación IA
@@ -581,7 +581,7 @@ test(tools): añadir tests unitarios para file_operations
 
 ## Reportar Issues
 
-- Usa [GitHub Issues](https://github.com/NousResearch/haishui-agent/issues)
+- Usa [GitHub Issues](https://github.com/aiqinghaiwork163/haishui-agent/issues)
 - Incluye: SO, versión de Python, versión de Haishui (`haishui --version`), traza de error completa
 - Incluye pasos para reproducir
 - Verifica los issues existentes antes de crear duplicados

@@ -2,7 +2,7 @@
 
 Set via `haishui model` (picker) or `haishui setup`. 35+ provider profiles ship as
 plugins under `plugins/model-providers/`; user plugins of the same name override.
-Full docs: https://haishui-agent.nousresearch.com/docs/integrations/providers
+Full docs: https://aiqinghaiwork163.github.io/haishui-agent/docs/integrations/providers
 
 ### Providers
 

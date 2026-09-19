@@ -5,7 +5,7 @@ description: >-
   `haishui plugins validate`. Drop this into your plugin repo's CI:
 
     - uses: actions/checkout@<sha>
-    - uses: NousResearch/haishui-agent/.github/actions/plugin-validate@main
+    - uses: aiqinghaiwork163/haishui-agent/.github/actions/plugin-validate@main
       with:
         path: .
 
@@ -37,7 +37,7 @@ runs:
         set -euo pipefail
         # CI-context install from git; the ref lets plugin authors validate
         # against a pinned haishui release instead of main.
-        pip install "git+https://github.com/NousResearch/haishui-agent@${_HAISHUI_REF}"
+        pip install "git+https://github.com/aiqinghaiwork163/haishui-agent@${_HAISHUI_REF}"
 
     - name: Validate plugin
       shell: bash

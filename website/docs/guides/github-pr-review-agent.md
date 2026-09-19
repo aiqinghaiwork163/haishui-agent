@@ -69,7 +69,7 @@ haishui
 Test with a simple command:
 
 ```
-Run: gh pr list --repo NousResearch/haishui-agent --state open --limit 3
+Run: gh pr list --repo aiqinghaiwork163/haishui-agent --state open --limit 3
 ```
 
 You should see a list of open PRs. If this works, you're ready.
@@ -84,7 +84,7 @@ Still in the chat, ask Haishui to review a real PR:
 Review this pull request. Read the diff, check for bugs, security issues,
 and code quality. Be specific about line numbers and quote problematic code.
 
-Run: gh pr diff 3888 --repo NousResearch/haishui-agent
+Run: gh pr diff 3888 --repo aiqinghaiwork163/haishui-agent
 ```
 
 Haishui will:

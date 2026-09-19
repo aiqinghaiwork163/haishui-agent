@@ -42,7 +42,7 @@ export TS_BASE=$SECONDS
 PHASE="all"
 UPDATE_METHOD=""
 INSTALL_REF=""
-DMG_URL="https://haishui-assets.nousresearch.com/Haishui-Setup.dmg"
+DMG_URL="https://aiqinghaiwork163.github.io/haishui-agent/assets/Haishui-Setup.dmg"
 PLAYWRIGHT_VERSION="1.58.2"
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -69,8 +69,8 @@ esac
 [ "$(uname -s)" = "Darwin" ] || { echo "error: this driver runs on macOS only" >&2; exit 1; }
 
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-REPO_URL_SSH="git@github.com:NousResearch/haishui-agent.git"
-REPO_URL_HTTPS="https://github.com/NousResearch/haishui-agent.git"
+REPO_URL_SSH="git@github.com:aiqinghaiwork163/haishui-agent.git"
+REPO_URL_HTTPS="https://github.com/aiqinghaiwork163/haishui-agent.git"
 ASSETS="$REPO_ROOT/tests/install/e2e-assets"
 
 WORK_ROOT="${HAISHUI_E2E_WORKROOT:-${RUNNER_TEMP:-${TMPDIR:-/tmp}}/haishui-macos-desktop-e2e}"

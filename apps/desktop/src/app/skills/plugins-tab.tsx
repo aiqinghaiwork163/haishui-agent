@@ -52,7 +52,7 @@ import { mergePluginPackages, type PackageKind, type PluginPackage } from './plu
 // dual-target install modal (agent half → catalog-pinned install into the
 // scoped profile; desktop half → this app), so unified packages install both
 // halves in one flow.
-const CATALOG_ORIGIN = 'https://haishui-agent.nousresearch.com'
+const CATALOG_ORIGIN = 'https://aiqinghaiwork163.github.io/haishui-agent'
 const CATALOG_PICKER_URL = `${CATALOG_ORIGIN}/docs/plugins?embed=picker`
 
 // Catalog viewport: persisted through the shared pane store, dragged from the

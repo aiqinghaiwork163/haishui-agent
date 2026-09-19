@@ -14,7 +14,7 @@ from providers.base import ProviderProfile
 # Attribution headers (same values as OpenRouter / Vercel / Fireworks); via
 # default_headers so they survive model switches and credential rotation.
 _ATTRIBUTION_HEADERS = {
-    "HTTP-Referer": "https://haishui-agent.nousresearch.com",
+    "HTTP-Referer": "https://aiqinghaiwork163.github.io/haishui-agent",
     "X-Title": "Haishui Agent",
     "User-Agent": f"HaishuiAgent/{_HAISHUI_VERSION}",
 }
