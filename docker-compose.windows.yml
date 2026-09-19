@@ -1,0 +1,38 @@
+#
+# docker-compose.windows.yml — Windows Docker Desktop compatible
+#
+# Differences from docker-compose.yml:
+#   - Removes `network_mode: host` (not supported on Docker Desktop for Windows)
+#   - Uses explicit port mappings instead
+#   - Uses Windows-style volume path for ~/.haishui
+#
+# Usage:
+#   docker compose -f docker-compose.windows.yml up -d
+#
+services:
+  gateway:
+    image: nousresearch/haishui-agent:latest
+    container_name: haishui
+    restart: unless-stopped
+    volumes:
+      - ${USERPROFILE}/.haishui:/opt/data
+    environment:
+      - HAISHUI_UID=10000
+      - HAISHUI_GID=10000
+    command: ["gateway", "run"]
+
+  dashboard:
+    image: nousresearch/haishui-agent:latest
+    container_name: haishui-dashboard
+    restart: unless-stopped
+    depends_on:
+      - gateway
+    volumes:
+      - ${USERPROFILE}/.haishui:/opt/data
+    environment:
+      - HAISHUI_UID=10000
+      - HAISHUI_GID=10000
+      - HAISHUI_DASHBOARD_HOST=0.0.0.0
+    ports:
+      - "127.0.0.1:9119:9119"
+    command: ["dashboard", "--host", "0.0.0.0", "--port", "9119", "--no-open", "--insecure"]
