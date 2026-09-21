@@ -1,13 +1,12 @@
-# Haishui Desktop ☤
+# Haishui Desktop 🌊
 
 <p align="center">
   <a href="https://github.com/aiqinghaiwork163/haishui-agent/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
   <a href="https://aiqinghaiwork163.github.io/haishui-agent/docs/"><img src="https://img.shields.io/badge/Docs-aiqinghaiwork163.github.io/haishui-agent-FFD700?style=for-the-badge" alt="Documentation"></a>
-  <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="https://github.com/aiqinghaiwork163/haishui-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
 </p>
 
-**The native desktop app for [Haishui Agent](../../README.md) — the self-improving AI agent from [Nous Research](https://nousresearch.com).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
+**The native desktop app for [Haishui Agent](../../README.md) — the self-improving AI agent.** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
 
 <table>
 <tr><td><b>Chat with the full agent</b></td><td>Streaming responses, live tool activity, structured tool summaries, and the same conversation history as every other Haishui surface.</td></tr>
@@ -247,7 +246,6 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\haishui\haishui-agent\venv"
 
 ## Community
 
-- 💬 [Discord](https://discord.gg/NousResearch)
 - 📖 [Documentation](https://aiqinghaiwork163.github.io/haishui-agent/docs/)
 - 🐛 [Issues](https://github.com/aiqinghaiwork163/haishui-agent/issues)
 
@@ -256,5 +254,3 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\haishui\haishui-agent\venv"
 ## License
 
 MIT — see [LICENSE](../../LICENSE).
-
-Built by [Nous Research](https://nousresearch.com).

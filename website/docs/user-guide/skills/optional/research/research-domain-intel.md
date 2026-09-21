@@ -15,7 +15,7 @@ Passive recon of subdomains, SSL certs, WHOIS, and DNS.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/research/domain-intel` |
-| Path | `optional-skills/research\domain-intel` |
+| Path | `optional-skills/research/domain-intel` |
 | Version | `1.0.0` |
 | Author | FurkanL0, Haishui Agent |
 | License | MIT |

@@ -15,7 +15,7 @@ Modify or debug s6 services in the Haishui Docker image.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/devops/haishui-s6-container-supervision` |
-| Path | `optional-skills/devops\haishui-s6-container-supervision` |
+| Path | `optional-skills/devops/haishui-s6-container-supervision` |
 | Version | `1.0.0` |
 | Author | Haishui Agent |
 | License | MIT |

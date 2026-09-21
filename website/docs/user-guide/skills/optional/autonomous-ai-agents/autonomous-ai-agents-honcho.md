@@ -15,7 +15,7 @@ Configure and troubleshoot Honcho memory for Haishui.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/autonomous-ai-agents/honcho` |
-| Path | `optional-skills/autonomous-ai-agents\honcho` |
+| Path | `optional-skills/autonomous-ai-agents/honcho` |
 | Version | `2.0.0` |
 | Author | Haishui Agent |
 | License | MIT |

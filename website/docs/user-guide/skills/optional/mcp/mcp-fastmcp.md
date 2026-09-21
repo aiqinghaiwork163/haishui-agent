@@ -15,13 +15,13 @@ Build, test, and deploy Python MCP servers.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/mcp/fastmcp` |
-| Path | `optional-skills/mcp\fastmcp` |
+| Path | `optional-skills/mcp/fastmcp` |
 | Version | `1.0.0` |
 | Author | Haishui Agent |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `MCP`, `FastMCP`, `Python`, `Tools`, `Resources`, `Prompts`, `Deployment` |
-| Related skills | [`haishui-agent`](../../bundled/autonomous-ai-agents/autonomous-ai-agents-haishui-agent.md), [`mcporter`](./mcp-mcporter.md) |
+| Related skills | [`haishui-agent`](../../bundled/autonomous-ai-agents/autonomous-ai-agents-haishui-agent.md), [`mcporter`](../../optional/mcp/mcp-mcporter.md) |
 
 ## Reference: full SKILL.md
 

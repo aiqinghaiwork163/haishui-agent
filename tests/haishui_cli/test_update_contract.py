@@ -28,7 +28,7 @@ def _valid_marker(tmp_path: Path) -> Path:
         "schema": 1,
         "deployment_kind": "image",
         "manager": "docker",
-        "image": "nousresearch/haishui-agent",
+        "image": "aiqinghaiwork163/haishui-agent",
         "version": "1.0.0",
         "revision": "a" * 40,
     }))
@@ -163,7 +163,7 @@ def test_refusal_receipt_written_as_refused(tmp_path, monkeypatch):
         UpdateRefusal(
             code="image-marker",
             message="msg",
-            update_command="docker pull nousresearch/haishui-agent:latest",
+            update_command="docker pull aiqinghaiwork163/haishui-agent:latest",
         )
     )
     receipts = list((tmp_path / "receipts").glob("*.json"))

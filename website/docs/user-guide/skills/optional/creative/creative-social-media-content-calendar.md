@@ -15,7 +15,7 @@ Plan multi-platform social campaigns: briefs to posting.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/creative/social-media-content-calendar` |
-| Path | `optional-skills/creative\social-media-content-calendar` |
+| Path | `optional-skills/creative/social-media-content-calendar` |
 | Version | `0.1.0` |
 | Author | Ben Barclay (benbarclay), Haishui Agent |
 | License | MIT |

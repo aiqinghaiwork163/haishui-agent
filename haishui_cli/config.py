@@ -341,7 +341,7 @@ def detect_install_method(project_root: Optional[Path] = None) -> str:
 
     The supported installs self-identify via the code-scoped stamp: - the curl installer
     (scripts/install.sh, the README/website install command) git-clones the repo and stamps ``git`` next to
-    the code; - the published ``nousresearch/haishui-agent`` image bakes a ``docker`` stamp into
+    the code; - the published ``aiqinghaiwork163/haishui-agent`` image bakes a ``docker`` stamp into
     ``/opt/haishui`` at build time. An unsupported manual install dropped into a container (no stamp) falls
     through to the ``.git`` checks and behaves like any off-path install. See issue #34397.
     """
@@ -394,7 +394,7 @@ def is_nix_install_method(method: str) -> bool:
 
 
 _UPDATE_COMMAND_BY_METHOD = {
-    "docker": "docker pull nousresearch/haishui-agent:latest",
+    "docker": "docker pull aiqinghaiwork163/haishui-agent:latest",
     "apt": "pkg upgrade haishui-agent",  # "apt" == Termux APT by contract; uses Termux's `pkg`.
 }
 
@@ -420,23 +420,23 @@ def recommended_update_command() -> str:
 _DOCKER_UPDATE_MESSAGE = """\
 ✗ ``haishui update`` doesn't apply inside the Docker container.
 
-Haishui Agent runs as a published image (nousresearch/haishui-agent), not a
+Haishui Agent runs as a published image (aiqinghaiwork163/haishui-agent), not a
 git checkout — the container has no working tree to pull into.  Update by
 pulling a fresh image and restarting your container instead:
 
-  docker pull nousresearch/haishui-agent:latest
+  docker pull aiqinghaiwork163/haishui-agent:latest
   # then restart whatever started the container, e.g.:
   docker compose up -d --force-recreate haishui-agent
   # or, for ad-hoc runs, exit the current container and `docker run` again
 
 Verify the new version after restart:
-  docker run --rm nousresearch/haishui-agent:latest --version
+  docker run --rm aiqinghaiwork163/haishui-agent:latest --version
 
 Notes:
   • If you pinned a specific tag (e.g. ``:v0.14.0``) the ``:latest`` tag
     won't move your container — pull the newer tag you actually want, or
     switch to ``:latest`` / ``:main`` for rolling updates.  See available
-    tags at https://hub.docker.com/r/nousresearch/haishui-agent/tags
+    tags at https://hub.docker.com/r/aiqinghaiwork163/haishui-agent/tags
   • Your config and session history live under ``$HAISHUI_HOME`` (``/opt/data``
     in the container, typically bind-mounted from the host) and persist
     across image upgrades — re-pulling doesn't lose any state.

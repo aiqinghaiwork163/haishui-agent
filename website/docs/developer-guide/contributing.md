@@ -294,7 +294,6 @@ When you ask Haishui to review a PR in a repository that has `.agents/checks/`, 
 
 ## Community
 
-- **Discord**: [discord.gg/NousResearch](https://discord.gg/NousResearch)
 - **GitHub Discussions**: For design proposals and architecture discussions
 - **Skills Hub**: Upload specialized skills and share with the community
 

@@ -347,7 +347,7 @@ export function BootFailureOverlay() {
       {
         key: 'discord',
         label: copy.cloudDownDiscord,
-        onClick: () => openExternalLink('https://discord.gg/NousResearch'),
+        onClick: () => openExternalLink('https://github.com/aiqinghaiwork163/haishui-agent/issues'),
         variant: 'ghost'
       },
       { ...settingsAction, variant: 'ghost' }

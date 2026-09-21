@@ -84,7 +84,8 @@ def _nous_credential_present(exc: BaseException) -> bool:
     with no stored state is the normal condition for users who never chose Nous; the auto-route walk
     hits it on every discovery pass and must not warn (the ladder already logs its own summary).
     """
-    if getattr(exc, "code", None):
+    code = getattr(exc, "code", None)
+    if code and str(code) != "nous_auth_missing":
         return True
     from haishui_cli.auth import get_provider_auth_state
 

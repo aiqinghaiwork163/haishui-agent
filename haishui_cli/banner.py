@@ -59,28 +59,27 @@ def _skin_color(key: str, fallback: str) -> str:
 
 from haishui_cli import __version__ as VERSION, __release_date__ as RELEASE_DATE
 
-HAISHUI_AGENT_LOGO = """[bold #FFD700]██╗  ██╗███████╗██████╗ ███╗   ███╗███████╗███████╗       █████╗  ██████╗ ███████╗███╗   ██╗████████╗[/]
-[bold #FFD700]██║  ██║██╔════╝██╔══██╗████╗ ████║██╔════╝██╔════╝      ██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝[/]
-[#FFBF00]███████║█████╗  ██████╔╝██╔████╔██║█████╗  ███████╗█████╗███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║[/]
-[#FFBF00]██╔══██║██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══╝  ╚════██║╚════╝██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║[/]
-[#CD7F32]██║  ██║███████╗██║  ██║██║ ╚═╝ ██║███████╗███████║      ██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║[/]
-[#CD7F32]╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝      ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝[/]"""
+HAISHUI_AGENT_LOGO = """[bold #FFD700]██╗  ██╗ █████╗ ██╗███████╗██╗  ██╗██╗   ██╗██╗   █████╗  ██████╗ ███████╗███╗   ██╗████████╗[/]
+[bold #FFD700]██║  ██║██╔══██╗██║██╔════╝██║  ██║██║   ██║██║  ██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝[/]
+[#FFBF00]███████║███████║██║███████╗███████║██║   ██║██║  ███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║   [/]
+[#FFBF00]██╔══██║██╔══██║██║╚════██║██╔══██║██║   ██║██║  ██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║   [/]
+[#CD7F32]██║  ██║██║  ██║██║███████║██║  ██║╚██████╔╝██║  ██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║   [/]
+[#CD7F32]╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   [/]"""
 
-HAISHUI_CADUCEUS = """[#CD7F32]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⣀⣀⠀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#CD7F32]⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⣇⠸⣿⣿⠇⣸⣿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀[/]
-[#FFBF00]⠀⢀⣠⣴⣶⠿⠋⣩⡿⣿⡿⠻⣿⡇⢠⡄⢸⣿⠟⢿⣿⢿⣍⠙⠿⣶⣦⣄⡀⠀[/]
-[#FFBF00]⠀⠀⠉⠉⠁⠶⠟⠋⠀⠉⠀⢀⣈⣁⡈⢁⣈⣁⡀⠀⠉⠀⠙⠻⠶⠈⠉⠉⠀⠀[/]
-[#FFD700]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⡿⠛⢁⡈⠛⢿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#FFD700]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⣿⣦⣤⣈⠁⢠⣴⣿⠿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#FFBF00]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠻⢿⣿⣦⡉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#FFBF00]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢷⣦⣈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#CD7F32]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⠦⠈⠙⠿⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#CD7F32]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣤⡈⠁⢤⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#B8860B]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠷⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#B8860B]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠑⢶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#B8860B]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠁⢰⡆⠈⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#B8860B]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⠈⣡⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
-[#B8860B]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]"""
+HAISHUI_CADUCEUS = """[#00BFFF]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡴⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
+[#00BFFF]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
+[#1E90FF]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠉⢀⣠⡴⠖⠛⠉⠉⠉⠉⠛⠲⢦⣄⠀⠀⠀⠀⠀⠀[/]
+[#1E90FF]⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⢁⣴⠞⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⣄⠀⠀⠀⠀[/]
+[#00CED1]⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⣰⠋⢀⣤⠶⠚⠛⠉⠉⠉⠉⠛⠶⣤⡀⠀⠀⠀⠘⣆⠀⠀⠀[/]
+[#00CED1]⠀⠀⠀⠀⠀⠀⠀⢠⡇⢰⠃⣰⠟⠁⢀⣠⣤⣤⣤⣤⣄⡀⠀⠀⠙⢦⡀⠀⠀⢸⡄⠀⠀[/]
+[#4682B4]⠀⠀⠀⠀⠀⠀⠀⢸⠀⢸⠀⣿⠀⣰⠟⠉⠀⠀⠀⠈⠙⢿⣆⠀⠀⠈⣷⠀⠀⢸⡇⠀⠀[/]
+[#4682B4]⠀⠀⠀⠀⠀⠀⠀⢸⠀⢸⠀⢿⡄⣿⠀⠀⠀⠀⠀⠀⠀⣸⣿⠀⠀⢠⡿⠀⠀⢸⡇⠀⠀[/]
+[#20B2AA]⠀⠀⠀⠀⠀⠀⠀⠘⣇⠘⣇⠈⠻⣿⣦⣀⠀⠀⠀⣀⣴⣿⠃⠀⢀⡾⠁⠀⢠⡟⠀⠀⠀[/]
+[#20B2AA]⠀⠀⠀⠀⠀⠀⠀⠀⠘⢦⡘⢦⡀⠀⠉⠛⠛⠛⠛⠛⠉⠀⠀⢀⡴⠋⠀⢀⡴⠋⠀⠀⠀⠀[/]
+[#008B8B]⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠲⠿⢦⣤⣀⣀⣀⣀⣀⣀⣤⠶⠛⠁⣀⡴⠟⠁⠀⠀⠀⠀⠀[/]
+[#008B8B]⠀⠀⠀⠀⠀⢀⣀⣤⣤⣤⣤⣀⣀⣀⣀⠀⠈⠉⠉⠉⢀⣀⣠⠴⠞⠋⠀⠀⠀⠀⠀⠀⠀⠀[/]
+[#008080]⠀⠀⢀⣴⠟⠋⠉⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
+[#008080]⠀⠰⠿⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤[/]"""
 
 # === Skills scanning ===
 
@@ -145,7 +144,7 @@ _last_target_rev: Optional[str] = None
 UPDATE_AVAILABLE_NO_COUNT = -1
 
 _UPSTREAM_REPO_URL = "https://github.com/aiqinghaiwork163/haishui-agent.git"
-_OFFICIAL_REPO_CANONICAL = "github.com/nousresearch/haishui-agent"
+_OFFICIAL_REPO_CANONICAL = "github.com/aiqinghaiwork163/haishui-agent"
 
 
 def _canonical_github_remote(url: str | None) -> str:
@@ -236,7 +235,7 @@ def _github_compare(current_rev: str, target_rev: str) -> Optional[dict]:
     key = (current_rev, target_rev)
     if key in _compare_payload_cache:
         return _compare_payload_cache[key]
-    url = f"https://api.github.com/repos/nousresearch/haishui-agent/compare/{current_rev}...{target_rev}"
+    url = f"https://api.github.com/repos/aiqinghaiwork163/haishui-agent/compare/{current_rev}...{target_rev}"
 
     def _fetch():
         import urllib.request
@@ -866,7 +865,7 @@ def _banner_left_lines(model: str, cwd: str, session_id, context_length, provide
         return f" [dim {dim}]·[/] [dim {dim}]{label}[/]"
     lines = []
     ctx_str = _dim_sep(f"{_format_context_length(context_length)} context") if context_length else ""
-    nous_str = _dim_sep("Nous Research")
+    provider_str = _dim_sep(str(provider)) if provider and str(provider).lower() not in ("auto", "unknown", "nous") else ""
     if not (model or "").strip():
         # Credentials resolve lazily on the first message; the banner prints first. Ask the route
         # the same question so a fresh free-tier install shows its model, not a red "unconfigured".
@@ -875,13 +874,13 @@ def _banner_left_lines(model: str, cwd: str, session_id, context_length, provide
         # MoA virtual provider: ``model`` is a preset name; show it with its aggregator.
         agg_label = _quiet(lambda: _moa_aggregator_label(model), "")
         agg_str = _dim_sep(f"agg {agg_label}") if agg_label else ""
-        lines.append(f"[{accent}]MoA: {_short_label(model)}[/]{agg_str}{ctx_str}{nous_str}")
+        lines.append(f"[{accent}]MoA: {_short_label(model)}[/]{agg_str}{ctx_str}{provider_str}")
     elif not (model or "").strip() or (model or "").strip().lower() == "unknown":
         # Unconfigured install: the clearest place to say what is wrong and how to fix it.
         lines.append(f"[bold red]no model configured[/] [dim {dim}]— run /model or haishui setup[/]")
     else:
         model_short = model.split("/")[-1].removesuffix(".gguf")
-        lines.append(f"[{accent}]{_short_label(model_short)}[/]{ctx_str}{nous_str}")
+        lines.append(f"[{accent}]{_short_label(model_short)}[/]{ctx_str}{provider_str}")
     if os.getenv("HAISHUI_YOLO_MODE"):
         lines.append(f"[bold red]⚠ YOLO mode[/] [dim {dim}]— all approval prompts bypassed[/]")
     lines.append(f"[dim {dim}]{cwd}[/]")

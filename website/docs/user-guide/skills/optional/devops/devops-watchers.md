@@ -15,7 +15,7 @@ Poll RSS, JSON APIs, and GitHub with watermark dedup.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/devops/watchers` |
-| Path | `optional-skills/devops\watchers` |
+| Path | `optional-skills/devops/watchers` |
 | Version | `1.0.0` |
 | Author | Haishui Agent |
 | License | MIT |

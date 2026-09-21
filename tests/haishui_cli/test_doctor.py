@@ -40,7 +40,7 @@ class TestDoctorPlatformHints:
 
         hint = doctor_platform._sqlite_upgrade_hint()
 
-        assert "docker pull nousresearch/haishui-agent:latest" in hint
+        assert "docker pull aiqinghaiwork163/haishui-agent:latest" in hint
         assert "recreate all Haishui containers" in hint
         assert "haishui update" not in hint
 

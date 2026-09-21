@@ -15,7 +15,7 @@ AST-aware structural code search and rewrite via ast-grep.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/software-development/ast-grep` |
-| Path | `optional-skills/software-development\ast-grep` |
+| Path | `optional-skills/software-development/ast-grep` |
 | Version | `1.0.0` |
 | Author | Yeongyu Kim (code-yeongyu), adapted by Haishui Agent |
 | License | MIT |

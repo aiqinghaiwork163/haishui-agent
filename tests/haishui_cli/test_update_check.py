@@ -59,7 +59,7 @@ def test_passive_check_uses_the_api_and_never_fetches(git_repo, monkeypatch):
     monkeypatch.setattr(banner, "_github_compare_behind", lambda cur, tgt: 61)
 
     assert banner.check_for_updates() == 61
-    tip.assert_called_once_with("nousresearch/haishui-agent", "main")
+    tip.assert_called_once_with("aiqinghaiwork163/haishui-agent", "main")
     assert not any(c[1] in {"fetch", "ls-remote"} for c in calls)
 
     cached = json.loads((git_repo.parent / ".update_check").read_text())

@@ -8,10 +8,10 @@ const config: Config = {
   tagline: 'The self-improving AI agent',
   favicon: 'img/favicon.ico',
 
-  url: 'https://aiqinghaiwork163.github.io/haishui-agent',
-  baseUrl: '/docs/',
+  url: 'https://aiqinghaiwork163.github.io',
+  baseUrl: '/haishui-agent/docs/',
 
-  organizationName: 'NousResearch',
+  organizationName: 'aiqinghaiwork163',
   projectName: 'haishui-agent',
 
   onBrokenLinks: 'warn',
@@ -162,11 +162,6 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
-        {
-          href: 'https://discord.gg/NousResearch',
-          label: 'Discord',
-          position: 'right',
-        },
       ],
     },
     footer: {
@@ -184,7 +179,6 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            { label: 'Discord', href: 'https://discord.gg/NousResearch' },
             { label: 'GitHub Issues', href: 'https://github.com/aiqinghaiwork163/haishui-agent/issues' },
             { label: 'Skills Hub', href: 'https://agentskills.io' },
           ],
@@ -194,11 +188,10 @@ const config: Config = {
           items: [
             { label: 'Desktop Download', href: 'https://aiqinghaiwork163.github.io/haishui-agent/' },
             { label: 'GitHub', href: 'https://github.com/aiqinghaiwork163/haishui-agent' },
-            { label: 'Nous Research', href: 'https://nousresearch.com' },
           ],
         },
       ],
-      copyright: `Built by <a href="https://nousresearch.com">Nous Research</a> · MIT License · ${new Date().getFullYear()}`,
+      copyright: `Haishui Agent · MIT License · ${new Date().getFullYear()}`,
     },
     prism: {
       theme: prismThemes.github,

@@ -15,7 +15,7 @@ Hand-drawn Excalidraw JSON diagrams (arch, flow, seq).
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/creative/excalidraw` |
-| Path | `optional-skills/creative\excalidraw` |
+| Path | `optional-skills/creative/excalidraw` |
 | Version | `1.0.1` |
 | Author | Haishui Agent |
 | License | MIT |

@@ -73,7 +73,7 @@ class TestCollectInventory:
         monkeypatch.setattr("haishui_cli.config.detect_install_method", lambda *a, **k: "docker")
         monkeypatch.setattr(
             "haishui_cli.config.recommended_update_command_for_method",
-            lambda m: "docker pull nousresearch/haishui-agent:latest",
+            lambda m: "docker pull aiqinghaiwork163/haishui-agent:latest",
         )
         plan = ui.collect_runtime_inventory()
         assert plan.install_method == "docker"
@@ -154,7 +154,7 @@ class TestPrintPlan:
         monkeypatch.setattr("haishui_cli.config.detect_install_method", lambda *a, **k: "docker")
         monkeypatch.setattr(
             "haishui_cli.config.recommended_update_command_for_method",
-            lambda m: "docker pull nousresearch/haishui-agent:latest",
+            lambda m: "docker pull aiqinghaiwork163/haishui-agent:latest",
         )
         ui.print_update_plan(ui.collect_runtime_inventory())
         out = capsys.readouterr().out

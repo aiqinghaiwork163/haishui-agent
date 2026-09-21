@@ -15,7 +15,7 @@ Delegate coding to xAI Grok Build CLI (features, PRs).
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/autonomous-ai-agents/grok` |
-| Path | `optional-skills/autonomous-ai-agents\grok` |
+| Path | `optional-skills/autonomous-ai-agents/grok` |
 | Version | `0.1.1` |
 | Author | Matt Maximo (MattMaximo), Haishui Agent |
 | License | MIT |

@@ -15,7 +15,7 @@ Rewrite text to ASD-STE100 Simplified Technical English.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/creative/simple-english` |
-| Path | `optional-skills/creative\simple-english` |
+| Path | `optional-skills/creative/simple-english` |
 | Version | `1.2.0` |
 | Author | AminBlg (https://github.com/AminBlg/SimpleEnglish), ported by Haishui Agent |
 | License | MIT |

@@ -15,7 +15,7 @@ Versioned site deploys to GitHub/Cloudflare/Netlify Pages.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/web-development/publish-site` |
-| Path | `optional-skills/web-development\publish-site` |
+| Path | `optional-skills/web-development/publish-site` |
 | Version | `1.0.0` |
 | Author | Haishui Agent (Nous Research) |
 | License | MIT |

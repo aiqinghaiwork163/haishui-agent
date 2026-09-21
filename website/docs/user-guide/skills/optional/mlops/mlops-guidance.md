@@ -15,7 +15,7 @@ Constrain LLM output with grammars; guarantee valid JSON.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/mlops/guidance` |
-| Path | `optional-skills/mlops\guidance` |
+| Path | `optional-skills/mlops/guidance` |
 | Version | `1.0.1` |
 | Author | Orchestra Research |
 | License | MIT |

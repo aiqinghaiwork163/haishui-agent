@@ -308,7 +308,7 @@ TIPS = [
     "HAISHUI_DEV=1 bypasses container mode detection for local development.",
     "Each MCP server gets its own toolset (mcp-servername) that can be toggled independently via haishui tools.",
     "MCP ${ENV_VAR} placeholders in config are resolved at server spawn — including vars from ~/.haishui/.env.",
-    "Skills from trusted repos (NousResearch) get a 'trusted' security level; community skills get extra scanning.",
+    "Skills from trusted repos get a 'trusted' security level; community skills get extra scanning.",
     "The skills quarantine at ~/.haishui/skills/.hub/quarantine/ holds skills pending security review.",
     # --- Advanced Slash Commands ---
     '/steer <prompt> injects a note after the next tool call — nudge direction mid-task without interrupting.',

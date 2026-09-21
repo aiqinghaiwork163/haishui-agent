@@ -344,7 +344,7 @@ RUN set -eu; \
         printf '%s\n' "${HAISHUI_GIT_SHA}" > /opt/haishui/.haishui_build_sha; \
     fi; \
     mkdir -p /etc/haishui; \
-    HAISHUI_GIT_SHA="${HAISHUI_GIT_SHA}" python3 -c 'import json, os, pathlib, tomllib; project = tomllib.loads(pathlib.Path("/opt/haishui/pyproject.toml").read_text(encoding="utf-8"))["project"]; marker = pathlib.Path("/etc/haishui/image-provenance.json"); marker.write_text(json.dumps({"schema": 1, "deployment_kind": "image", "manager": "docker", "image": "nousresearch/haishui-agent", "version": project["version"], "revision": os.environ.get("HAISHUI_GIT_SHA") or None}, sort_keys=True, separators=(",", ":")) + "\n", encoding="utf-8"); marker.chmod(0o444)'
+    HAISHUI_GIT_SHA="${HAISHUI_GIT_SHA}" python3 -c 'import json, os, pathlib, tomllib; project = tomllib.loads(pathlib.Path("/opt/haishui/pyproject.toml").read_text(encoding="utf-8"))["project"]; marker = pathlib.Path("/etc/haishui/image-provenance.json"); marker.write_text(json.dumps({"schema": 1, "deployment_kind": "image", "manager": "docker", "image": "aiqinghaiwork163/haishui-agent", "version": project["version"], "revision": os.environ.get("HAISHUI_GIT_SHA") or None}, sort_keys=True, separators=(",", ":")) + "\n")' && \
 
 # ---------- s6-overlay service wiring ----------
 # Static services declared at build time: main-haishui + dashboard.

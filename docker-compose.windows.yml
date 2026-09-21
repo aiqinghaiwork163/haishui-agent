@@ -11,7 +11,7 @@
 #
 services:
   gateway:
-    image: nousresearch/haishui-agent:latest
+    image: aiqinghaiwork163/haishui-agent:latest
     container_name: haishui
     restart: unless-stopped
     volumes:
@@ -22,7 +22,7 @@ services:
     command: ["gateway", "run"]
 
   dashboard:
-    image: nousresearch/haishui-agent:latest
+    image: aiqinghaiwork163/haishui-agent:latest
     container_name: haishui-dashboard
     restart: unless-stopped
     depends_on:

@@ -15,7 +15,7 @@ Curate LLM training data: dedupe, filter, PII redaction.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/mlops/nemo-curator` |
-| Path | `optional-skills/mlops\nemo-curator` |
+| Path | `optional-skills/mlops/nemo-curator` |
 | Version | `1.0.1` |
 | Author | Orchestra Research |
 | License | MIT |
@@ -404,8 +404,8 @@ cluster.close()
 
 ## References
 
-- **[Filtering Guide](https://github.com/aiqinghaiwork163/haishui-agent/blob/main/optional-skills/mlops\nemo-curator/references/filtering.md)** - 30+ quality filters, heuristics
-- **[Deduplication Guide](https://github.com/aiqinghaiwork163/haishui-agent/blob/main/optional-skills/mlops\nemo-curator/references/deduplication.md)** - Exact, fuzzy, semantic methods
+- **[Filtering Guide](https://github.com/aiqinghaiwork163/haishui-agent/blob/main/optional-skills/mlops/nemo-curator/references/filtering.md)** - 30+ quality filters, heuristics
+- **[Deduplication Guide](https://github.com/aiqinghaiwork163/haishui-agent/blob/main/optional-skills/mlops/nemo-curator/references/deduplication.md)** - Exact, fuzzy, semantic methods
 
 ## Resources
 

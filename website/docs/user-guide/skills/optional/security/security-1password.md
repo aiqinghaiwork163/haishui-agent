@@ -15,7 +15,7 @@ Set up op CLI, sign in, and read or inject secrets.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/security/1password` |
-| Path | `optional-skills/security\1password` |
+| Path | `optional-skills/security/1password` |
 | Version | `1.0.0` |
 | Author | arceus77-7, enhanced by Haishui Agent |
 | License | MIT |

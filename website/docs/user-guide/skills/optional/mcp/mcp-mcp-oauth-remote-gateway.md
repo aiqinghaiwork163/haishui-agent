@@ -15,13 +15,13 @@ Manual OAuth for remote MCP servers on headless gateways.
 | | |
 |---|---|
 | Source | Optional — install with `haishui skills install official/mcp/mcp-oauth-remote-gateway` |
-| Path | `optional-skills/mcp\mcp-oauth-remote-gateway` |
+| Path | `optional-skills/mcp/mcp-oauth-remote-gateway` |
 | Version | `1.0.0` |
 | Author | Ben Barclay (benbarclay), Haishui Agent |
 | License | MIT |
 | Platforms | linux, macos |
 | Tags | `MCP`, `OAuth`, `PKCE`, `Remote-Deployment` |
-| Related skills | [`haishui-agent`](../../bundled/autonomous-ai-agents/autonomous-ai-agents-haishui-agent.md), [`mcporter`](./mcp-mcporter.md), [`fastmcp`](./mcp-fastmcp.md) |
+| Related skills | [`haishui-agent`](../../bundled/autonomous-ai-agents/autonomous-ai-agents-haishui-agent.md), [`mcporter`](../../optional/mcp/mcp-mcporter.md), [`fastmcp`](../../optional/mcp/mcp-fastmcp.md) |
 
 ## Reference: full SKILL.md
 
