@@ -908,7 +908,7 @@ def remove_oauth_tokens(server_name: str, *, haishui_home: str | Path | None = N
 # name/logo/redirect URIs, replacing per-install DCR. The SDK does the protocol; Haishui only decides
 # eligibility. Published from ``website/static/oauth/client-metadata.json``; the github.io origin is
 # deliberate — servers MUST NOT follow redirects when fetching it, and aiqinghaiwork163.github.io/haishui-agent/docs/* 301s here.
-_CIMD_CLIENT_METADATA_URL = "https://nousresearch.github.io/haishui-agent/docs/oauth/client-metadata.json"
+_CIMD_CLIENT_METADATA_URL = "https://aiqinghaiwork163.github.io/haishui-agent/docs/oauth/client-metadata.json"
 # Loopback ports/hosts declared in that document (exact match, so no ephemeral port under CIMD);
 # below Linux's 32768 ephemeral floor. tests/tools/test_mcp_cimd.py keeps them in sync.
 _CIMD_PORTS = (27890, 27891, 27892, 27893, 27894)

@@ -37,7 +37,6 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CATALOG_DIR = REPO_ROOT / "plugin-catalog"
 DEFAULT_OUTPUT = REPO_ROOT / "website" / "static" / "api" / "plugin-stars.json"
 LIVE_URL = "https://aiqinghaiwork163.github.io/haishui-agent/docs/api/plugin-stars.json"
-UPSTREAM_URL = "https://nousresearch.github.io/hermes-agent/docs/api/plugin-stars.json"
 _GITHUB_REPO_RE = re.compile(r"^https://github\.com/([^/\s]+)/([^/\s#?]+?)(?:\.git)?/?$")
 
 
@@ -76,14 +75,12 @@ def load_previous(output: Path, live_url: str | None) -> dict:
     """Newest of {live site copy, on-disk copy}; ``{}`` when neither exists."""
     candidates: list[dict] = []
     if live_url:
-        for u in (live_url, UPSTREAM_URL):
-            try:
-                data = _http_json(u, {})
-                if isinstance(data, dict) and isinstance(data.get("stars"), dict):
-                    candidates.append(data)
-                    break
-            except (urllib.error.URLError, OSError, ValueError) as e:
-                _log(f"cache unavailable from {u} ({e}); continuing")
+        try:
+            data = _http_json(live_url, {})
+            if isinstance(data, dict) and isinstance(data.get("stars"), dict):
+                candidates.append(data)
+        except (urllib.error.URLError, OSError, ValueError) as e:
+            _log(f"cache unavailable from {live_url} ({e}); continuing")
     if output.is_file():
         try:
             data = json.loads(output.read_text(encoding="utf-8"))

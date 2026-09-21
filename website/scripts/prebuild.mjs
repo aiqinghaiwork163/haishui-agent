@@ -40,8 +40,6 @@ const pluginsMetaOutputFile = join(websiteDir, "static", "api", "plugins-meta.js
 const unifiedIndexFile = join(websiteDir, "static", "api", "skills-index.json");
 const UNIFIED_INDEX_URL =
   "https://aiqinghaiwork163.github.io/haishui-agent/docs/api/skills-index.json";
-const UPSTREAM_INDEX_URL =
-  "https://nousresearch.github.io/hermes-agent/docs/api/skills-index.json";
 const UNIFIED_INDEX_MAX_AGE_MS = 24 * 60 * 60 * 1000; // 24h
 
 function writeEmptyFallback(reason) {
@@ -93,15 +91,7 @@ async function ensureUnifiedIndex() {
     });
     if (!resp.ok) {
       console.warn(
-        `[prebuild] skills-index.json fetch from live site returned HTTP ${resp.status}; trying upstream fallback`,
-      );
-      resp = await fetch(UPSTREAM_INDEX_URL, {
-        headers: { accept: "application/json" },
-      });
-    }
-    if (!resp.ok) {
-      console.warn(
-        `[prebuild] skills-index.json fetch returned HTTP ${resp.status}; ` +
+        `[prebuild] skills-index.json fetch from live site returned HTTP ${resp.status}; ` +
           `using local copy if any`,
       );
       return existsSync(unifiedIndexFile);
