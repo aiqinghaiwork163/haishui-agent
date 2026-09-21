@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-developer-guide/relay-connector-contract" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Relay ↔ Connector Contract | Haishui Agent</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/img/haishui-agent-banner.png"><meta data-rh="true" name="twitter:image" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/img/haishui-agent-banner.png"><meta data-rh="true" property="og:url" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/relay-connector-contract"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Relay ↔ Connector Contract | Haishui Agent"><meta data-rh="true" name="description" content="Wire contract between the Haishui gateway relay adapter and external connectors (experimental)"><meta data-rh="true" property="og:description" content="Wire contract between the Haishui gateway relay adapter and external connectors (experimental)"><link data-rh="true" rel="icon" href="/haishui-agent/docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/relay-connector-contract"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/relay-connector-contract" hreflang="en"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/developer-guide/relay-connector-contract" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/relay-connector-contract" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://2JLBVEYZN5-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Relay ↔ Connector Contract","item":"https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/relay-connector-contract"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Haishui Agent" href="/haishui-agent/docs/opensearch.xml"><link rel="stylesheet" href="/haishui-agent/docs/assets/css/styles.3e972d5e.css">
+<script src="/haishui-agent/docs/assets/js/runtime~main.b0230fd1.js" defer="defer"></script>
+<script src="/haishui-agent/docs/assets/js/main.233ff3b5.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/haishui-agent/docs/img/logo.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/haishui-agent/docs/"><div class="navbar__logo"><img src="/haishui-agent/docs/img/logo.png" alt="Haishui Agent" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/haishui-agent/docs/img/logo.png" alt="Haishui Agent" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Haishui Agent</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/haishui-agent/docs/user-stories">Docs</a><a class="navbar__item navbar__link" href="/haishui-agent/docs/skills">Skills</a><a class="navbar__item navbar__link" href="/haishui-agent/docs/plugins">Plugins</a><a href="https://aiqinghaiwork163.github.io/haishui-agent/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Download<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/haishui-agent/docs/developer-guide/relay-connector-contract" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/haishui-agent/docs/zh-Hans/developer-guide/relay-connector-contract" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">简体中文</a></li></ul></div><a href="https://aiqinghaiwork163.github.io/haishui-agent" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Home<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/aiqinghaiwork163/haishui-agent" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/haishui-agent/docs/user-stories"><span class="linkLabel_WmDU">User Stories &amp; Use Cases</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/getting-started/quickstart"><span class="categoryLinkLabel_W154">Getting Started</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/user-guide/cli"><span class="categoryLinkLabel_W154">Using Haishui</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/user-guide/features/overview"><span class="categoryLinkLabel_W154">Features</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/user-guide/messaging/"><span class="categoryLinkLabel_W154">Messaging Platforms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/integrations/"><span class="categoryLinkLabel_W154">Integrations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/guides/run-nemotron-3-ultra-free"><span class="categoryLinkLabel_W154">Guides &amp; Tutorials</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/haishui-agent/docs/developer-guide/contributing"><span class="categoryLinkLabel_W154">Developer Guide</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/contributing"><span class="linkLabel_WmDU">Contributing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/worktree-ui-dev"><span class="linkLabel_WmDU">TUI &amp; Desktop from Worktrees</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/haishui-agent/docs/developer-guide/architecture"><span class="categoryLinkLabel_W154">Architecture</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/haishui-agent/docs/developer-guide/adding-tools"><span class="categoryLinkLabel_W154">Extending</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/haishui-agent/docs/developer-guide/tools-runtime"><span class="categoryLinkLabel_W154">Internals</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/tools-runtime"><span class="linkLabel_WmDU">Tools Runtime</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/browser-supervisor"><span class="linkLabel_WmDU">Browser CDP Supervisor</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/acp-internals"><span class="linkLabel_WmDU">ACP Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/cron-internals"><span class="linkLabel_WmDU">Cron Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/chronos-managed-cron-contract"><span class="linkLabel_WmDU">Chronos Managed-Cron Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/egress-internals"><span class="linkLabel_WmDU">Egress proxy internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/gateway-monitoring"><span class="linkLabel_WmDU">Gateway Monitoring</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/haishui-agent/docs/developer-guide/relay-connector-contract"><span class="linkLabel_WmDU">Relay ↔ Connector Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/relay-shared-metrics"><span class="linkLabel_WmDU">Relay Shared Metrics</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/streaming-tts"><span class="linkLabel_WmDU">Streaming TTS Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/billing-lifecycle"><span class="linkLabel_WmDU">Billing Lifecycle (TUI)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/developer-guide/trajectory-format"><span class="linkLabel_WmDU">Trajectory Format</span></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/reference/cli-commands"><span class="categoryLinkLabel_W154">Reference</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/haishui-agent/docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Developer Guide</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Internals</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Relay ↔ Connector Contract</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Relay ↔ Connector Contract (v1, EXPERIMENTAL)</h1></header>
+<blockquote>
+<p><strong>Status:</strong> EXPERIMENTAL. This contract MAY CHANGE without a deprecation
+cycle until at least two real Class-1 platforms (Discord + Telegram) have
+validated it. Evolution during the experimental phase is <strong>additive-only</strong>,
+gated by <code>contract_version</code>. A breaking change updates both repos in lockstep.</p>
+</blockquote>
+<p>This document is the formal interface between the <strong>Haishui gateway</strong> (Python,
+<code>gateway/relay/</code>) and the <strong>connector</strong> (Node/TypeScript,
+<code>NousResearch/gateway-gateway</code>). The connector implementer&#x27;s first action is to
+read this file.</p>
+<p>The gateway runs a generic <code>RelayAdapter</code> that dials <strong>out</strong> to the connector,
+receives a <code>CapabilityDescriptor</code> at handshake, then exchanges normalized
+<code>MessageEvent</code>s (inbound) and actions (outbound) over a per-turn bidirectional
+WebSocket. The gateway never learns which concrete platform is fronting it; the
+connector owns all platform-specific socket/identity logic.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-handshake">1. Handshake<a href="#1-handshake" class="hash-link" aria-label="Direct link to 1. Handshake" title="Direct link to 1. Handshake" translate="no">​</a></h2>
+<ol>
+<li class="">Gateway opens the transport (<code>connect</code>).</li>
+<li class="">Gateway calls <code>handshake()</code>; connector returns a <code>CapabilityDescriptor</code>
+(section 2) describing the platform this adapter instance fronts.</li>
+<li class="">Gateway configures the adapter from the descriptor (char limit, length unit,
+draft/edit/thread/markdown capabilities) and registers an inbound handler.</li>
+<li class="">Connector then streams inbound events and accepts outbound actions.</li>
+</ol>
+<p><code>contract_version</code> (currently <code>1</code>) is carried in the descriptor. The gateway
+ignores unknown descriptor fields (forward-compat) and fills missing optional
+fields from defaults.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-capabilitydescriptor-handshake-payload">2. CapabilityDescriptor (handshake payload)<a href="#2-capabilitydescriptor-handshake-payload" class="hash-link" aria-label="Direct link to 2. CapabilityDescriptor (handshake payload)" title="Direct link to 2. CapabilityDescriptor (handshake payload)" translate="no">​</a></h2>
+<p>JSON object. Source of truth: <code>gateway/relay/descriptor.py</code>.</p>
+<table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Meaning</th></tr></thead><tbody><tr><td><code>contract_version</code></td><td>int</td><td>yes</td><td>Contract version (additive-only within a version).</td></tr><tr><td><code>platform</code></td><td>string</td><td>yes</td><td>Platform name (e.g. <code>&quot;discord&quot;</code>, <code>&quot;telegram&quot;</code>).</td></tr><tr><td><code>label</code></td><td>string</td><td>yes</td><td>Human-readable label.</td></tr><tr><td><code>max_message_length</code></td><td>int</td><td>yes</td><td>Char limit; gateway exposes as <code>MAX_MESSAGE_LENGTH</code>. 0 → treat as 4096.</td></tr><tr><td><code>supports_draft_streaming</code></td><td>bool</td><td>yes</td><td>Native draft-streaming preview support.</td></tr><tr><td><code>supports_edit</code></td><td>bool</td><td>yes</td><td>Edit-based streaming possible; if false, consumer degrades to one-message-per-segment.</td></tr><tr><td><code>supports_threads</code></td><td>bool</td><td>yes</td><td><code>create_handoff_thread</code> capability.</td></tr><tr><td><code>markdown_dialect</code></td><td>string</td><td>yes</td><td><code>&quot;plain&quot;</code>, <code>&quot;markdown_v2&quot;</code>, <code>&quot;discord&quot;</code>, … (drives <code>supports_code_blocks</code>).</td></tr><tr><td><code>len_unit</code></td><td>string</td><td>yes</td><td><code>&quot;chars&quot;</code> (builtin len) or <code>&quot;utf16&quot;</code> (Telegram UTF-16 code units).</td></tr><tr><td><code>emoji</code></td><td>string</td><td>no</td><td>Display emoji (default 🔌).</td></tr><tr><td><code>platform_hint</code></td><td>string</td><td>no</td><td>System-prompt platform hint.</td></tr><tr><td><code>pii_safe</code></td><td>bool</td><td>no</td><td>Redact PII in session descriptions.</td></tr><tr><td><code>supports_context</code></td><td>bool</td><td>no</td><td>Whether the connector can supply surrounding channel/group <strong>context</strong> for an addressed turn on this platform (Model A on-demand history fetch — Discord/Slack/Matrix; Model B passive buffer — Telegram/Signal/WhatsApp). Default false ⇒ no <code>context</code> is attached to inbound events. See §3.</td></tr><tr><td><code>supports_inchannel_continuable</code></td><td>bool</td><td>no</td><td>Whether the platform can host a <strong>flat continuable cron surface</strong> (native Slack&#x27;s <code>cron_continuable_surface: in_channel</code>): the brief posts top-level in the channel/DM and a plain reply continues the job via the flat <code>(platform, chat_id, None)</code> session. Default false ⇒ the gateway&#x27;s scheduler fails safe to thread mode (D6 gate), so an older connector keeps today&#x27;s thread behavior.</td></tr><tr><td><code>supports_block_formatting</code></td><td>bool</td><td>no</td><td>Whether this platform&#x27;s sender renders <strong>block-level formatting</strong> from raw markdown when the gateway stamps <code>metadata.format_hints</code> on <code>send</code>/<code>edit</code> frames (Slack: native <code>markdown</code> block for tables/lists/code, mrkdwn text kept as fallback). Default false ⇒ the gateway never stamps hints, so an older connector never receives the metadata.</td></tr><tr><td><code>supported_ops</code></td><td>string[]</td><td>no</td><td>Op-level capability discovery: the outbound op names the connector&#x27;s sender for this platform actually implements (e.g. <code>[&quot;send&quot;, &quot;edit&quot;, &quot;typing&quot;, &quot;follow_up&quot;, &quot;get_chat_info&quot;]</code>). Absent/empty ⇒ the connector predates the field and the gateway assumes the legacy op set (<code>send</code>/<code>edit</code>/<code>typing</code>/<code>follow_up</code>); a NEW op is used only when explicitly advertised.</td></tr></tbody></table>
+<p>Most fields are a projection of the gateway&#x27;s existing <code>PlatformEntry</code>; the
+runtime-only fields (<code>len_unit</code>, <code>supports_*</code>, <code>markdown_dialect</code>) come from the
+live platform adapter&#x27;s capability methods.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-inbound-messageevent-envelope">3. Inbound: <code>MessageEvent</code> envelope<a href="#3-inbound-messageevent-envelope" class="hash-link" aria-label="Direct link to 3-inbound-messageevent-envelope" title="Direct link to 3-inbound-messageevent-envelope" translate="no">​</a></h2>
+<p>The connector normalizes each platform wire event into a <code>MessageEvent</code>
+(<code>gateway/platforms/base.py</code>) and delivers it to the gateway. <strong>Inbound is
+delivered over the gateway&#x27;s OUTBOUND <code>/relay</code> WebSocket</strong> (see the transport
+note below) — the connector pushes an <code>inbound</code> frame down the socket the
+gateway already dialed. The gateway keys the session via <code>build_session_key()</code>
+from the embedded <code>SessionSource</code> — so populating the right discriminators is
+the single highest-correctness responsibility of the connector.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="inbound-transport-ws-back-channel-not-http">Inbound transport (WS back-channel, not HTTP)<a href="#inbound-transport-ws-back-channel-not-http" class="hash-link" aria-label="Direct link to Inbound transport (WS back-channel, not HTTP)" title="Direct link to Inbound transport (WS back-channel, not HTTP)" translate="no">​</a></h3>
+<p>The gateway dials <strong>out</strong> to the connector&#x27;s <code>/relay</code> WebSocket for the
+handshake + outbound actions (§4) + its own <code>/stop</code> egress (§5). Inbound rides
+the <strong>same socket</strong> in the other direction: the connector pushes an <code>inbound</code>
+frame (and <code>interrupt_inbound</code> for §5) down the gateway&#x27;s outbound WS. There is
+<strong>no gateway-side inbound HTTP endpoint</strong> — a gateway need not (and, when hosted,
+cannot) expose any inbound port; everything flows over the connection it
+initiated.</p>
+<p><strong>Multi-instance routing.</strong> The connector instance that owns a platform&#x27;s socket
+(and thus produces inbound events) is generally <strong>not</strong> the instance the gateway
+dialed its outbound WS into. The producing instance therefore publishes the
+event on the connector&#x27;s internal <strong>relay bus</strong> (Redis pub/sub; <code>RelayBus</code> in
+<code>src/core/relayBus.ts</code>) keyed by tenant. Every connector instance subscribes and
+routes each message to its <strong>local</strong> sessions for that tenant
+(<code>RelayServer.routeBusMessage</code>); the single instance that actually holds the
+gateway&#x27;s socket delivers it, and instances with no local session for the tenant
+no-op. Cross-instance delivery is thus an in-cluster Redis hop, not a public
+HTTP call.</p>
+<p>Frames (connector → gateway, over the WS):</p>
+<ul>
+<li class=""><code>{&quot;type&quot;:&quot;inbound&quot;, &quot;event&quot;: &lt;MessageEvent&gt;, &quot;bufferId&quot;?}</code></li>
+<li class=""><code>{&quot;type&quot;:&quot;interrupt_inbound&quot;, &quot;session_key&quot;, &quot;chat_id&quot;}</code> (§5)</li>
+<li class=""><code>{&quot;type&quot;:&quot;passthrough_forward&quot;, &quot;forward&quot;: &lt;PassthroughForward&gt;, &quot;bufferId&quot;?}</code> (§5.1)</li>
+</ul>
+<p><strong>Channel context on inbound (design relay-channel-context).</strong> When the source
+platform&#x27;s descriptor advertised <code>supports_context</code> (§2) and the chat is
+multi-party (<code>chat_type</code> ∈ group/channel/thread/forum, never <code>dm</code>), the
+connector MAY attach two optional, additive fields to the inbound <code>MessageEvent</code>:</p>
+<ul>
+<li class=""><code>context</code>: an array of read-only surrounding messages (same channel, oldest→
+newest) — nearby non-addressed chatter the connector fetched (Model A) or
+buffered (Model B). REFERENCE ONLY: it never triggers the agent (the trigger
+decision was already made connector-side on the addressed event alone). The
+gateway renders it into <code>MessageEvent.channel_context</code> (the same read-only
+injection path history-backfill uses).</li>
+<li class=""><code>context_error</code>: bool, true when the platform is context-capable but the
+fetch/buffer failed and the connector fail-opened to an empty <code>context</code>
+(observability marker; surfaced connector-side via the delivery span).</li>
+</ul>
+<p>Both absent ⇒ byte-identical to today. A connector that never sends them, or a
+<code>dm</code>, or a no-context platform, yields no <code>channel_context</code>.</p>
+<p><code>PassthroughForward</code> is the wire form of a forwarded passthrough-plane request
+(Class-2/3 webhooks — Discord interactions, Twilio): <code>{platform, botId, method, path, headers: [[k,v],…], bodyB64, profile?}</code>. <code>profile</code> is optional — the
+connector stamps it when NAS resolves the target profile for a Team-Gateway
+interaction; omitting it (single-profile gateways) preserves legacy routing to
+the default <code>agent:main</code> session namespace, mirroring the <code>profile</code> field the
+<code>inbound</code> frame&#x27;s <code>SessionSource</code> already carries (#60586). The body is
+base64-encoded so arbitrary bytes survive the newline-delimited-JSON transport;
+the gateway base64-decodes
+back to the exact bytes the connector forwarded (the connector already verified
+the provider signature and stripped any shared-identity credential at the edge —
+§6 — so the gateway re-processes a sanitized, token-free body and acts on it via
+the token-less <code>follow_up</code> path). See §3.1.</p>
+<p><strong>Trust.</strong> The WS upgrade is authenticated with the gateway&#x27;s per-gateway secret
+(§6.1), so the channel is trusted end to end — inbound frames are not separately
+HMAC-signed (the authenticated socket subsumes the per-delivery origin proof the
+old HTTP path needed). The relay-bus hop is inside the connector trust domain
+(same as the lease/buffer/capability stores).</p>
+<blockquote>
+<p>Earlier drafts of this contract delivered inbound over a signed <strong>HTTP POST</strong>
+to a <code>gatewayEndpoint</code> (<code>HttpGatewayDelivery</code> + a gateway-side
+<code>inbound_receiver</code>), HMAC-signed with a per-tenant delivery key. That required
+every gateway to expose a reachable inbound URL — impossible for hosted
+gateways, which have no public IP. The WS back-channel above replaces it; the
+per-tenant delivery key is retained at provision for forward-compat but is no
+longer used for inbound. The <strong>passthrough plane</strong> (Class-2/3 webhooks like
+Discord interactions / Twilio) historically still used <code>gatewayEndpoint</code> for
+its post-ACK forward; Phase 5 §5.1 moves that forward onto the WS too (the
+<code>passthrough_forward</code> frame above), so a hosted gateway needs zero public
+inbound surface and <code>gatewayEndpoint</code> is retired once the cutover lands.</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-passthrough-plane-forward-51">3.1 Passthrough-plane forward (§5.1)<a href="#31-passthrough-plane-forward-51" class="hash-link" aria-label="Direct link to 3.1 Passthrough-plane forward (§5.1)" title="Direct link to 3.1 Passthrough-plane forward (§5.1)" translate="no">​</a></h3>
+<p>The passthrough plane answers the provider&#x27;s latency-critical ACK at the
+connector EDGE (e.g. Discord&#x27;s deferred interaction response within ~3s), then
+does a <strong>fire-and-forget</strong> forward of the real request to the gateway. That
+forward needs no response back (the provider was already satisfied), so it rides
+the same outbound WS as <code>inbound</code> via a <code>passthrough_forward</code> frame rather than
+an HTTP POST. The gateway processes the decoded request through its normal agent
+path (a Discord interaction is decoded to a <code>MessageEvent</code> and handled like a
+message; the reply egresses over the outbound / <code>follow_up</code> path). <code>bufferId</code> is
+present when the forward was buffered (Phase 5 §5.3 buffered-only flip) and the
+gateway acks it after durable handoff.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sessionsource-fields-the-wire-surface">SessionSource fields (the wire surface)<a href="#sessionsource-fields-the-wire-surface" class="hash-link" aria-label="Direct link to SessionSource fields (the wire surface)" title="Direct link to SessionSource fields (the wire surface)" translate="no">​</a></h3>
+<p>Source of truth: <code>SessionSource.to_dict()</code> in <code>gateway/session.py</code>. These are
+every key the gateway accepts on the wire. <code>platform</code>, <code>chat_id</code>, <code>chat_type</code>,
+<code>user_id</code>, <code>user_name</code>, <code>thread_id</code>, <code>chat_name</code>, and <code>chat_topic</code> are always
+present (may be <code>null</code>); the rest are included only when set.</p>
+<table><thead><tr><th>Field</th><th>Type</th><th>Always sent</th><th>Meaning</th></tr></thead><tbody><tr><td><code>platform</code></td><td>string</td><td>yes</td><td>Platform name (matches the descriptor&#x27;s <code>platform</code>).</td></tr><tr><td><code>chat_id</code></td><td>string</td><td>yes</td><td>Primary conversation id (channel/chat). Session-key discriminator.</td></tr><tr><td><code>chat_type</code></td><td>string</td><td>yes</td><td><code>dm</code> / <code>group</code> / <code>channel</code> / <code>thread</code> / <code>forum</code>.</td></tr><tr><td><code>chat_name</code></td><td>string|null</td><td>yes</td><td>Human-readable chat name.</td></tr><tr><td><code>user_id</code></td><td>string|null</td><td>yes</td><td>Message author id. Session-key discriminator.</td></tr><tr><td><code>user_name</code></td><td>string|null</td><td>yes</td><td>Author display name.</td></tr><tr><td><code>thread_id</code></td><td>string|null</td><td>yes</td><td>Thread/forum-topic id when in a thread. Session-key discriminator.</td></tr><tr><td><code>chat_topic</code></td><td>string|null</td><td>yes</td><td>Channel topic/description (Discord, Slack).</td></tr><tr><td><code>user_id_alt</code></td><td>string</td><td>no</td><td>Platform-specific stable alt id (Signal UUID, Feishu union_id).</td></tr><tr><td><code>chat_id_alt</code></td><td>string</td><td>no</td><td>Alternate chat id (e.g. Signal group internal id).</td></tr><tr><td><code>scope_id</code></td><td>string</td><td>no</td><td>Platform-neutral <strong>scope</strong> discriminator: Discord guild / Slack workspace / Matrix server. <strong>REQUIRED for Discord/Slack scope isolation.</strong> Session-key discriminator. (Canonical name as of the D-Q2.5 wire migration.)</td></tr><tr><td><code>guild_id</code></td><td>string</td><td>no</td><td><strong>Legacy alias, no longer read by the connector.</strong> As of D-Q2.5c the connector reads and writes only <code>scope_id</code>; the gateway&#x27;s agent-wide <code>SessionSource.to_dict()</code> still emits <code>guild_id</code> (mirrored to <code>scope_id</code>) for non-relay session persistence, so it may still appear on the wire but the connector ignores it. Do not depend on it.</td></tr><tr><td><code>parent_chat_id</code></td><td>string</td><td>no</td><td>Parent channel when <code>chat_id</code> refers to a thread.</td></tr><tr><td><code>message_id</code></td><td>string</td><td>no</td><td>Id of the triggering message (for pin/reply/react).</td></tr></tbody></table>
+<blockquote>
+<p><code>is_bot</code> (author-is-a-bot/webhook classification) exists on the gateway-side
+dataclass but is <strong>intentionally NOT on the wire</strong> in v1 — it is not part of
+<code>to_dict()</code>. Do not add it to the connector&#x27;s <code>SessionSource</code> until it is
+first added here and to <code>to_dict()</code> (additive bump).</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sessionsource-discriminators-per-platform">SessionSource discriminators per platform<a href="#sessionsource-discriminators-per-platform" class="hash-link" aria-label="Direct link to SessionSource discriminators per platform" title="Direct link to SessionSource discriminators per platform" translate="no">​</a></h3>
+<table><thead><tr><th>Platform</th><th>chat_id</th><th>chat_type</th><th>user_id</th><th>thread_id</th><th>scope_id</th></tr></thead><tbody><tr><td><strong>Discord</strong></td><td>channel id</td><td><code>dm</code>/<code>group</code>/<code>thread</code></td><td>author id</td><td>thread channel id (threads)</td><td><strong>guild id</strong> (REQUIRED for server isolation)</td></tr><tr><td><strong>Telegram</strong></td><td>chat id</td><td><code>dm</code>/<code>group</code>/<code>forum</code></td><td>from id</td><td>forum topic id (forums)</td><td>—</td></tr></tbody></table>
+<p><strong>Get Discord&#x27;s <code>guild_id</code> wrong and two servers collide into one session.</strong>
+This is the #1 High-severity risk. The gateway&#x27;s <code>build_session_key()</code> is the
+conformance oracle: for a given <code>SessionSource</code>, the connector&#x27;s normalization
+must produce the same key the Python adapter would. (The Phase-1 stub tests
+assert known-input → known-key.)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bot-identity-vs-tenant-single-bot-consolidation-appendix-a">Bot identity vs tenant (single-bot consolidation, Appendix A)<a href="#bot-identity-vs-tenant-single-bot-consolidation-appendix-a" class="hash-link" aria-label="Direct link to Bot identity vs tenant (single-bot consolidation, Appendix A)" title="Direct link to Bot identity vs tenant (single-bot consolidation, Appendix A)" translate="no">​</a></h3>
+<p>The envelope carries the <strong>originating bot identity</strong> as a field <strong>distinct from
+tenant</strong>. Tenant is resolved from the event&#x27;s own discriminator (Discord
+<code>guild_id</code>, Telegram <code>chat_id</code>, webhook path/subdomain) — <strong>never</strong> from which
+token/socket/process delivered it. This keeps one shared bot able to front many
+tenants (Phase 6) without overloading an existing field.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="author-first-resolution--the-account-link-dm-path-phase-7">Author-first resolution + the account-link (DM) path (Phase 7)<a href="#author-first-resolution--the-account-link-dm-path-phase-7" class="hash-link" aria-label="Direct link to Author-first resolution + the account-link (DM) path (Phase 7)" title="Direct link to Author-first resolution + the account-link (DM) path (Phase 7)" translate="no">​</a></h3>
+<p>Phase 7 adds <strong>self-serve, per-user onboarding to a shared bot</strong>, which changes
+<em>which</em> discriminator resolves the instance for a routed inbound message — and
+adds a management path for users to bind their own account.</p>
+<p><strong>Author-first resolution (the multi-tenant-guild rule, D-7.2).</strong> A single
+Discord guild may hold <strong>many</strong> tenants — different members each linked to their
+own agent. So for delivery the connector resolves the destination instance from
+the <strong>authenticated author binding</strong> (<code>user_instance_binding</code>, keyed by
+<code>(tenant, platform, platform_user_id)</code> via <code>resolveByUser</code>), <strong>NOT</strong> by a
+guild→instance route. Concretely:</p>
+<ul>
+<li class="">A routed message authored by a <strong>linked</strong> user reaches <strong>only that user&#x27;s</strong>
+instance — even when a second linked user in the <strong>same guild</strong> is served by a
+different instance (each reaches only their own).</li>
+<li class="">A message authored by an <strong>unlinked</strong> user resolves to <strong>no</strong> instance and is
+dropped (<strong>fail-closed</strong> — never broadcast to the guild&#x27;s other tenants).</li>
+<li class="">The author id used is the <strong>authentic <code>user_id</code> off the observed event</strong>, the
+same <code>SessionSource.user_id</code> documented above — never a value asserted by a
+gateway or carried in a management frame.</li>
+</ul>
+<p>This is the per-<code>user_id</code> owner-only routing the connector enforces in
+<code>WsGatewayDelivery</code> (the gateway-side multi-tenant-guild E2E driver
+<code>gateway_multitenant_guild_driver.py</code> is the cross-repo oracle).</p>
+<p><strong>The account-link (DM) path.</strong> A user binds their account to an instance with a
+one-time code, redeemed by DMing the shared bot:</p>
+<ol>
+<li class="">The owner triggers a link from the Portal (or a self-hosted CLI). The
+connector mints a short-lived <strong>link code</strong> for the <strong>authenticated</strong>
+instance (<code>POST /manage/link</code>; instanceId comes from the caller&#x27;s principal —
+a NAS-signed <code>aud=agent:{instanceId}</code> token or the instance&#x27;s own per-gateway
+secret — <strong>never</strong> the request body).</li>
+<li class="">The user sends <code>/link &lt;code&gt;</code> as a <strong>direct message</strong> to the shared bot from
+the account they want to bind.</li>
+<li class="">The connector&#x27;s inbound observer <strong>consumes</strong> that DM (it is not routed to any
+agent) and writes the <code>user_instance_binding</code> using the <strong>authentic
+<code>user_id</code></strong> off the observed DM event. From then on, author-first resolution
+routes that user&#x27;s messages to the bound instance.</li>
+</ol>
+<p><strong>Opt-out is connector-authoritative.</strong> Deprovisioning an instance
+(<code>POST /manage/deprovision</code>) drops its author bindings (so its users stop
+resolving to it) <strong>and</strong> revokes its per-gateway secret (so its socket can no
+longer authenticate — the next WS upgrade is closed <strong>4401</strong>). A gateway that
+sees a <strong>4401 close after a previously-successful handshake</strong> treats it as a
+terminal revocation: it stops reconnecting and reports the relay platform as
+<strong>disabled</strong> (not a retryable error). A 4401 <em>before</em> any successful handshake
+stays retryable (a cold-start / not-yet-provisioned race, not a revocation).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-going-idle--buffered-flip-primitive-53">3.2 Going-idle / buffered-flip primitive (§5.3)<a href="#32-going-idle--buffered-flip-primitive-53" class="hash-link" aria-label="Direct link to 3.2 Going-idle / buffered-flip primitive (§5.3)" title="Direct link to 3.2 Going-idle / buffered-flip primitive (§5.3)" translate="no">​</a></h3>
+<p>A scale-to-zero PRIMITIVE (not the behaviour — nothing here decides to sleep or
+suspends a machine; a later workstream consumes these frames). It lets a gateway
+enter a drain/idle transition without losing inbound that arrives while it is
+gone, by making the connector buffer for that instance and replay on reconnect.</p>
+<p>Three frames (all keyed by the connection&#x27;s <strong>authenticated</strong> per-instance id —
+read off the stored secret record at the WS upgrade, never asserted in a frame):</p>
+<ul>
+<li class=""><code>{&quot;type&quot;:&quot;going_idle&quot;}</code> (gateway → connector) — emitted as part of the
+gateway&#x27;s EXISTING drain transition (the adapter sends it before tearing down
+the socket). Asks the connector to flip this instance to <strong>buffered-only</strong>.</li>
+<li class=""><code>{&quot;type&quot;:&quot;going_idle_ack&quot;}</code> (connector → gateway) — the connector has flipped:
+live delivery has stopped and subsequent inbound for this instance buffers
+durably. The gateway <strong>stays serving until this ack</strong> (so an event landing in
+the flip window is delivered live, not lost — the same SUBSCRIBE-before-serve
+ordering discipline as the bus). Only after the ack is it safe to close.</li>
+<li class=""><code>{&quot;type&quot;:&quot;inbound_ack&quot;, &quot;bufferId&quot;}</code> (gateway → connector) — durable receipt of
+a buffered <code>inbound</code> delivery (which carries its <code>bufferId</code>) replayed on
+reconnect. The connector acks the buffer entry only after this, giving
+drain-without-dup on the <strong>delivery leg</strong>: an instance that dies mid-drain
+redelivers exactly the unacked tail; an acked entry never redelivers.</li>
+</ul>
+<p><strong>Buffer + drain.</strong> While flipped, the connector appends inbound to a durable
+per-instance delivery-leg buffer (<code>delivery:&lt;instanceId&gt;</code>) instead of pushing it
+live. On the gateway&#x27;s <strong>reconnect</strong> (a NET-NEW reconnect loop re-dials +
+re-handshakes after an unexpected close), the new handshake triggers the
+connector to drain that backlog over the new socket <strong>in order, ack-gated</strong>,
+then clear the flip so live delivery resumes. This reuses the same
+<code>drainWithoutDup</code> machinery as the Discord→connector ingest leg, applied to the
+connector→gateway delivery leg. Connector-authoritative throughout: a gateway can
+only flip/drain ITS OWN instance.</p>
+<blockquote>
+<p>NOT in scope (deferred behaviour): the autonomous idle timer that DECIDES to
+drain, the actual machine suspend, and the NAS suspended-health model. The
+primitive is &quot;when the gateway drains, relay flips to buffered + replays on
+reconnect, with no loss/dup&quot;; WHAT triggers the drain is out of scope.</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-wake-poke-52">3.3 Wake poke (§5.2)<a href="#33-wake-poke-52" class="hash-link" aria-label="Direct link to 3.3 Wake poke (§5.2)" title="Direct link to 3.3 Wake poke (§5.2)" translate="no">​</a></h3>
+<p>The other half of the sleep/wake loop: how a SUSPENDED gateway finds out it has
+buffered work waiting. A PRIMITIVE — nothing here suspends a machine; it wires
+the wake SIGNAL so a future scale-to-zero behaviour layer can rely on &quot;buffered
+⇒ wake poked.&quot;</p>
+<ul>
+<li class=""><strong>Registration.</strong> The gateway registers a <strong>wake URL</strong> at enroll/provision —
+any reachable URL the connector can GET to wake it (a Fly autostart hostname,
+a dashboard host). Self-hosted: <code>haishui gateway enroll --wake-url &lt;url&gt;</code> (or
+<code>GATEWAY_RELAY_WAKE_URL</code> / <code>gateway.relay_wake_url</code>). Managed/NAS: stamped into
+the container env beside <code>GATEWAY_RELAY_URL</code>. Forwarded in the
+<code>/relay/provision</code> body as <code>wakeUrl</code> and stored per-instance on the connector&#x27;s
+secret record (gateway-asserted but safely scoped — same posture as
+<code>instanceId</code>; the org/tenant stays token-verified, so a gateway can only
+register a wake target for ITS OWN instance). DISTINCT from the retired
+<code>gatewayEndpoint</code>: a <strong>poke target</strong>, not a delivery target.</li>
+<li class=""><strong>The poke.</strong> When a buffered-only (going-idle) destination receives its FIRST
+buffered event, the connector issues a <strong>payload-free, unsigned GET</strong> to that
+instance&#x27;s registered <code>wakeUrl</code>, <strong>directly</strong> (NOT NAS-mediated — relay stays
+NAS-independent). It carries no tenant data and no inbound: it only says &quot;you
+have buffered work, reconnect.&quot; Tenant authority is re-established the normal
+way when the gateway re-dials (the authenticated WS upgrade), so a leaked/
+guessed wake URL can at worst cause a spurious reconnect of ITS OWN instance.
+Rate-limited per instance (one poke per cooldown window, not per event), and
+best-effort — a failed poke is swallowed; the gateway still drains whenever it
+next reconnects on its own. No new frame: the wake is an out-of-band HTTP GET,
+not a relay-WS message (the socket is down — that&#x27;s the whole point).</li>
+</ul>
+<blockquote>
+<p>NOT in scope (deferred behaviour): the actual machine suspend (Fly
+<code>autostop:&quot;suspend&quot;</code>) and the autonomous idle timer that decides to sleep. The
+primitive is &quot;buffered event for a sleeping instance ⇒ its wakeUrl gets poked&quot;;
+WHAT makes the instance sleep (and wake-to-serve) is the behaviour layer.</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="34-obligations-on-a-future-scale-to-zero-behaviour-layer">3.4 Obligations on a future scale-to-zero behaviour layer<a href="#34-obligations-on-a-future-scale-to-zero-behaviour-layer" class="hash-link" aria-label="Direct link to 3.4 Obligations on a future scale-to-zero behaviour layer" title="Direct link to 3.4 Obligations on a future scale-to-zero behaviour layer" translate="no">​</a></h3>
+<p>§3.2 and §3.3 ship the <strong>primitives</strong>; this section is the <strong>contract a separate
+scale-to-zero behaviour workstream must honour to consume them safely.</strong> It owns
+the <em>decision</em> to suspend, the actual machine suspend, and the platform/health
+model — none of which live here — but it MUST hold these guarantees, which the
+primitives assume:</p>
+<ol>
+<li class=""><strong>Register a <code>wakeUrl</code> before the instance can ever be suspended.</strong> A
+suspended instance with no registered <code>wakeUrl</code> is a black hole — buffered
+inbound never triggers a poke, so it sleeps through its own traffic until
+something else reconnects it. The behaviour layer MUST ensure a reachable
+wake target is registered (self-hosted: <code>--wake-url</code>; managed: stamped) as a
+precondition of allowing suspend. A wake URL that is unreachable while the
+machine is suspended (e.g. points at the suspended machine itself with no
+platform autostart in front) is equivalent to none.</li>
+<li class=""><strong>Drain through <code>going_idle</code> → await <code>going_idle_ack</code> BEFORE tearing down the
+socket or suspending.</strong> Never suspend with an un-acked flip in flight. The
+ack is the connector&#x27;s confirmation that delivery for this instance is now
+buffered-only; a machine that suspends after sending <code>going_idle</code> but before
+the ack can drop the inbound that races the flip. The gateway already gates
+socket teardown on the ack (Q-5.3c); the suspend step MUST sit <em>after</em> a
+clean drain completes, not race it.</li>
+<li class=""><strong>Keep the NET-NEW reconnect loop live as a precondition of suspend.</strong> The
+wake→drain contract is &quot;poke ⇒ the gateway re-dials ⇒ the connector drains on
+the reconnect handshake.&quot; If the reconnect loop is disabled, a poke lands on a
+machine that never re-dials and the buffer strands. The behaviour layer must
+not suspend an instance whose relay transport won&#x27;t reconnect on wake.</li>
+<li class=""><strong>Treat suspended ≠ down in the health model (Q-5.3b).</strong> A suspended instance
+is healthy-asleep, not failed. The health/monitoring layer MUST distinguish
+the two (e.g. via the platform machine-state) so a suspended instance is not
+restarted, alerted on, or reaped as unhealthy — that would defeat the suspend
+and can race the wake/drain.</li>
+<li class=""><strong>The wake poke is best-effort and rate-limited — do not assume exactly-once
+or immediate wake.</strong> At most one poke per cooldown window per instance, and a
+failed poke is swallowed. The behaviour layer must not rely on the poke as a
+guaranteed/prompt signal; correctness still rests on &quot;the gateway drains
+whenever it next reconnects.&quot; A belt-and-suspenders wake (e.g. a scheduled
+job that also reconnects) is the behaviour layer&#x27;s call, not the primitive&#x27;s.</li>
+<li class=""><strong>Suspend only when genuinely idle — and idle is connector-observable, not
+gateway-guessed.</strong> WHAT counts as idle (no in-flight turn + no inbound for N
+min) is the behaviour layer&#x27;s policy, but it must compose with the existing
+drain machinery (<code>gateway_state</code> running→draining) rather than introduce a
+parallel relay-only idle path — the same integration constraint §3.2 places
+on <code>going_idle</code>.</li>
+<li class=""><strong>Suspend only while every messaging connection is relay-fronted — and
+re-check that at suspend time, not just at boot.</strong> A directly connected
+platform (Photon iMessage&#x27;s gRPC stream, BlueBubbles, a bot token dialled from
+the gateway itself) holds a socket the connector cannot buffer or poke for, so
+a suspend with one live loses its inbound and never wakes. The gate counts the
+enabled launch-profile platforms AND the live adapters of every served
+profile (<code>gateway.multiplex_profiles</code> secondaries included), and the idle
+watcher asks it again before each dormant sequence so a direct adapter that
+came up after startup (profile reconcile) keeps the instance awake.</li>
+</ol>
+<p>These are guarantees the behaviour layer OWES the primitives; the primitives owe
+the behaviour layer only what §3.2/§3.3 already specify (a flip-on-going_idle,
+a durable per-instance buffer + ack-gated reconnect drain, and a poke on the
+first buffered event for a flipped instance).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-outbound-action-set">4. Outbound: action set<a href="#4-outbound-action-set" class="hash-link" aria-label="Direct link to 4. Outbound: action set" title="Direct link to 4. Outbound: action set" translate="no">​</a></h2>
+<p>The gateway calls the transport with action dicts. Source of truth:
+<code>gateway/relay/transport.py</code> + <code>gateway/relay/adapter.py</code>.</p>
+<table><thead><tr><th><code>op</code></th><th>Fields</th><th>Result</th></tr></thead><tbody><tr><td><code>send</code></td><td><code>chat_id</code>, <code>content</code>, <code>reply_to?</code>, <code>metadata?</code></td><td><code>{success: bool, message_id?, error?}</code></td></tr><tr><td><code>edit</code></td><td><code>chat_id</code>, <code>message_id</code>, <code>content</code>, <code>metadata?</code></td><td><code>{success: bool, error?}</code></td></tr><tr><td><code>typing</code></td><td><code>chat_id</code>, <code>content?</code>, <code>metadata?</code></td><td><code>{success: bool}</code></td></tr><tr><td><code>follow_up</code></td><td><code>session_key</code>, <code>kind</code>, <code>content</code>, <code>metadata?</code></td><td><code>{success: bool, message_id?, error?}</code></td></tr><tr><td><code>send_media</code></td><td><code>chat_id</code>, <code>media_kind</code>, <code>source_url</code>, <code>content?</code> (caption), <code>filename?</code>, <code>reply_to?</code>, <code>metadata?</code></td><td><code>{success: bool, message_id?, error?}</code></td></tr><tr><td><code>prompt</code></td><td><code>chat_id</code>, <code>prompt_kind</code>, <code>prompt_id</code>, <code>content</code> (the question), <code>options[]{id,label,style?}</code>, <code>timeout_s?</code>, <code>reply_to?</code>, <code>metadata?</code></td><td><code>{success: bool, message_id?, error?}</code></td></tr><tr><td><code>react</code></td><td><code>chat_id</code>, <code>message_id</code>, <code>emoji</code>, <code>remove?</code>, <code>metadata?</code></td><td><code>{success: bool, error?}</code></td></tr><tr><td><code>thread_create</code></td><td><code>chat_id</code> (parent), <code>thread_name</code>, <code>message_id?</code> (anchor), <code>metadata?</code></td><td><code>{success: bool, thread_id?, error?}</code></td></tr><tr><td><code>thread_rename</code></td><td><code>chat_id</code> (parent), <code>message_id</code> (the THREAD id), <code>thread_name</code>, <code>only_if_current_name?</code>, <code>metadata?</code></td><td><code>{success: bool, error?}</code></td></tr></tbody></table>
+<p><code>get_chat_info(chat_id)</code> is a separate proxied call returning at least
+<code>{name, type}</code>.</p>
+<p><strong><code>send_media</code> (Phase 2 media egress).</strong> Media crosses the wire BY REFERENCE:
+<code>source_url</code> is either (a) a <strong>connector re-host</strong> the gateway previously
+uploaded via <code>POST {connector}/relay/media</code> (raw bytes body, <code>Content-Type</code> +
+optional <code>X-Media-Filename</code> headers, per-gateway HMAC bearer — the same token
+scheme as the WS upgrade; response <code>{id, size}</code> → reference
+<code>{connector}/relay/media/{id}</code>), or (b) a <strong>public http(s) URL</strong> (e.g. a
+fal.media generation) the connector downloads directly. <code>media_kind</code> is one of
+<code>image</code> / <code>voice</code> / <code>audio</code> / <code>video</code> / <code>document</code> and selects the
+platform-native upload lane (Telegram <code>sendPhoto</code>/<code>sendVoice</code>/…, Discord
+multipart attachment, Slack external upload, WhatsApp media upload + media
+message). The caption rides <code>content</code> and renders through the platform&#x27;s
+normal markdown lane; platforms without native captions get a follow-up text
+send (connector-side). Both routes and the op are gated on <code>supported_ops</code>
+advertising <code>send_media</code> — a legacy connector never sees the op (the gateway&#x27;s
+media sends degrade to their pre-media text fallbacks). Size cap 25 MB
+(connector <code>mediaStore.ts</code> MEDIA_MAX_BYTES; uploads over it are rejected 413).</p>
+<p><strong>Inbound media (Phase 2 media ingress).</strong> An inbound event&#x27;s <code>media_urls</code>
+carry fetchable references: platform-public URLs pass through (Discord CDN);
+auth-gated/expiring platform URLs (Telegram file API, Slack <code>url_private</code>,
+WhatsApp Graph media) are downloaded connector-side with the PLATFORM
+credential and re-hosted as <code>{connector}/relay/media/{id}</code> — the platform
+credential never crosses the wire. Re-host references are readable by any
+authenticated gateway (capability-URL semantics: the id is 128-bit random and
+was already delivered to every admitted recipient); the gateway downloads each
+reference with its per-gateway bearer and presents LOCAL file paths to the
+agent, mirroring native adapters. Re-hosts expire (TTL ~1h) — download on
+receipt, not lazily. A parallel <code>media</code> array (same order) adds <code>kind</code>, <code>mime</code>,
+<code>size</code>, <code>filename</code>, <code>caption</code> metadata; <code>message_type</code> reflects the first
+attachment&#x27;s kind (<code>image</code>/<code>audio</code>/<code>document</code>).</p>
+<p><strong><code>prompt</code> (Phase 3 interactive).</strong> One platform-abstract op renders the
+gateway&#x27;s highest-stakes interactions (exec approvals, slash confirms,
+clarify pickers) with NATIVE controls: Discord button components, Telegram
+inline keyboards, Slack Block Kit actions, WhatsApp button messages (≤3
+options) / list messages (4–10; &gt;10 degrades to the numbered-text fallback).
+<code>prompt_kind</code> (<code>approval</code>/<code>clarify</code>/<code>choice</code>) is a styling hint only.
+<code>prompt_id</code> is gateway-minted and opaque to the connector; each
+option&#x27;s callback payload carries the token <code>hp1:&lt;prompt_id&gt;:&lt;option_id&gt;</code>
+(≤64 bytes — Telegram&#x27;s <code>callback_data</code> cap binds every lane; option ids are
+<code>[A-Za-z0-9_.-]</code>, ≤32 chars). The gateway mints the prompt id as
+<code>&lt;per-process nonce&gt;.&lt;8 hex&gt;</code> within that same alphabet and budget: the
+connector fans a passthrough forward (a Discord press) out to EVERY live
+gateway session of the tenant, unlike a message, which it narrows to the
+admitted instance set, so the nonce is how a gateway tells its OWN prompt
+from a sibling&#x27;s. <code>style</code> maps per-platform
+(primary/success/danger/secondary). <code>timeout_s</code> is advisory on the wire —
+expiry is enforced GATEWAY-side (the pending-prompt registry drops expired
+entries; the owning gateway then replies with a short &quot;no longer waiting&quot;
+notice).</p>
+<p><strong><code>prompt_response</code> (Phase 3 inbound).</strong> The user&#x27;s press crosses back as a
+normal inbound MessageEvent carrying
+<code>prompt_response: {prompt_id, option_id, label?, prompt_message_id?}</code> — never
+a bare platform <code>custom_id</code>. The event&#x27;s <code>text</code> mirrors <code>/{option_id}</code> with
+<code>message_type: &quot;command&quot;</code> so a gateway predating the field routes the press
+as a typed reply instead of dropping it. A gateway that DOES understand the
+field always consumes the press instead: a prompt id it did not mint belongs
+to a sibling gateway that the same fan-out also reached, and letting the
+<code>/{option_id}</code> text reach the chat lane made every sibling answer
+&quot;Unknown command&quot; under the owner&#x27;s single ack. The SOURCE is the authentic
+CLICKING user (connector-observed: Telegram <code>callback_query.from</code>, Slack
+<code>block_actions.user</code>, WhatsApp <code>messages[].from</code>, Discord interaction
+member/user), so gateway-side authorization gates apply to a button press
+exactly as to a typed <code>/approve</code>. Ingest lanes: Telegram <code>callback_query</code>
+(polled, <code>allowed_updates</code> widened; best-effort <code>answerCallbackQuery</code>
+spinner-stop), Slack <code>POST /slack/interactions</code> (raw-bytes HMAC + replay
+window, same posture as <code>/slack/commands</code>), WhatsApp interactive
+<code>button_reply</code>/<code>list_reply</code> (webhook normalize arm), Discord type-3
+component interactions (passthrough §5.1 sanitized forward; the type-3 edge
+ack is <code>DEFERRED_UPDATE</code> so no visible &quot;thinking…&quot; reply). Foreign
+callback payloads (another integration&#x27;s buttons) never become prompt
+events: Telegram/Slack/WhatsApp drop them at the connector; Discord type-3
+forwards keep the legacy custom_id-as-text shape.</p>
+<p><strong><code>react</code> (Phase 3 ack lifecycle).</strong> Adds/removes the bot&#x27;s own <code>emoji</code>
+reaction on <code>message_id</code> — restoring the native adapters&#x27; 👀→✅/❌
+processing-lifecycle acks over the relay. Unicode emoji on the wire; the
+Slack sender maps to Slack&#x27;s name vocabulary (<code>eyes</code>, <code>white_check_mark</code>, …)
+and treats <code>already_reacted</code>/<code>no_reaction</code> as success (idempotent). Telegram
+uses <code>setMessageReaction</code> (empty set = remove; Telegram&#x27;s curated-emoji
+restriction can reject glyphs — the failure is structured and the gateway
+treats reactions as cosmetic). WhatsApp sends a reaction message (empty
+emoji = remove). Reactions are best-effort by contract: a <code>react</code> failure
+must never fail a turn.</p>
+<p><strong><code>thread_create</code> / <code>thread_rename</code> (Phase 4 thread lifecycle).</strong> One
+platform-abstract pair covers handoff threads, Telegram DM/forum topics, and
+LLM-title semantic renames. <code>thread_create</code>: Discord posts a channel thread
+(type 11) or a message-anchored thread when <code>message_id</code> is set; Telegram
+<code>createForumTopic</code> (topic id returned); Slack posts a NAMED seed root
+message and returns its <code>ts</code> (threads there are message-anchored — an
+explicit <code>message_id</code> anchor is echoed back verbatim). The created id rides
+<code>SendResult.thread_id</code>. <code>thread_rename</code>: Discord PATCHes the thread channel;
+Telegram <code>editForumTopic</code>. The <strong><code>only_if_current_name</code> no-clobber guard</strong>
+is the native adapters&#x27; human-rename-wins semantics, enforced
+CONNECTOR-side: Discord reads the current name first and no-ops (structured
+<code>success:false</code>) on mismatch; Telegram has no topic-name read, so a GUARDED
+rename is unsatisfiable and fails safe (unguarded renames proceed). Slack
+does not advertise <code>thread_rename</code> (a root message&#x27;s text is content, not a
+name). WhatsApp advertises neither (no threads).</p>
+<p><strong>Auto-thread markers + gateway-declared command manifest (Phase 4
+inbound/handshake).</strong> When the connector&#x27;s auto-thread egress policy creates
+a Discord thread, later inbound events from that thread carry
+<code>source.auto_thread_created: true</code> + <code>source.auto_thread_initial_name</code> — the
+connector-observed evidence that lights the gateway&#x27;s semantic-rename lane
+(the LLM session title renames the thread via a GUARDED <code>thread_rename</code>;
+per-instance memory, so in an N&gt;1 fleet a miss simply never lights the
+lane). The gateway may also declare its slash-command set on the Discord
+<code>hello</code> frame (<code>command_manifest: [{name, description, options?}]</code>); the
+connector reconciles Discord&#x27;s GLOBAL application-command registration
+against it (GET → diff → bulk PUT overwrite; idempotent, debounced,
+best-effort — a registration failure never affects the handshake). Commands
+still dispatch through the passthrough plane as before; the manifest only
+keeps Discord&#x27;s registry in sync with what the gateway&#x27;s dispatcher handles.</p>
+<p><strong>Inbound <code>reply_to</code> enrichment (Phase 4).</strong> A platform reply may carry
+<code>reply_to: {text?, author?, is_own?}</code> alongside <code>reply_to_message_id</code> — what
+the user QUOTED, populated only from data the connector already had in hand
+(Discord&#x27;s inline <code>referenced_message</code>, Telegram&#x27;s inline
+<code>reply_to_message</code>, WhatsApp <code>context.from</code> + a bounded per-instance
+inbound-text cache for the text leg). Absent fields mean the platform didn&#x27;t
+carry the data — never triggers an extra platform API call. <code>is_own</code> = the
+quoted message was authored by the fronted bot (same evidence as the
+<code>is_reply_to_bot</code> relevance marker). The gateway maps these onto the same
+MessageEvent reply-context fields native adapters populate.</p>
+<p><strong><code>typing</code> <code>content?</code> (Slack status clear).</strong> A <code>typing</code> frame normally omits
+<code>content</code> — the connector renders its platform&#x27;s active indicator (&quot;is
+typing…&quot; Assistant status on Slack, one-shot typing elsewhere). An <strong>empty
+string</strong> <code>content</code> is an explicit <em>clear</em> request: on Slack the connector sets
+the Assistant thread status to <code>&quot;&quot;</code>, dismissing it. The gateway emits the
+clear only for Slack (persistent status); one-shot platforms never receive it.
+Additive within <code>contract_version</code> 1, but note the deploy order: a connector
+predating gateway-gateway #154 ignores <code>content</code> and would <em>set</em> &quot;is typing…&quot;
+on a clear frame — deploy the connector first.</p>
+<p><strong><code>follow_up</code> (A2 capability action).</strong> Some inbound payloads carry a credential
+that acts on the <strong>shared</strong> bot identity (e.g. a Discord interaction follow-up
+token). Per §6 the connector strips that at the edge and binds it in its
+capability vault keyed by the session; it <strong>never reaches the gateway</strong>. To use
+it, the gateway issues <code>follow_up</code> naming the <strong>session it is already in</strong>
+(<code>session_key</code>) plus the capability <code>kind</code> (e.g. <code>discord.interaction_token</code>) —
+<strong>never a token</strong>. The connector resolves the real value from its vault,
+enforces the tenant match (tenant B can never wield tenant A&#x27;s capability), and
+egresses. <code>success: false</code> when the capability is absent/expired or the tenant
+doesn&#x27;t match — the gateway has nothing to retry with, by design (a leaked
+gateway holds zero capability material). Source of truth:
+<code>gateway/relay/transport.py</code> (<code>send_follow_up</code>) + <code>gateway/relay/adapter.py</code>.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-interrupt-stop-routing">5. Interrupt (<code>/stop</code>) routing<a href="#5-interrupt-stop-routing" class="hash-link" aria-label="Direct link to 5-interrupt-stop-routing" title="Direct link to 5-interrupt-stop-routing" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Gateway → connector:</strong> <code>send_interrupt(session_key, reason?)</code> egresses a
+mid-turn <code>/stop</code> over the outbound WS. The connector MUST forward it to the
+gateway instance running that <code>session_key</code> (the routing invariant).</li>
+<li class=""><strong>Connector → gateway:</strong> an inbound interrupt for a <code>session_key</code> is delivered
+as an <code>interrupt_inbound</code> frame down the gateway&#x27;s outbound WS (§3 transport
+note) — routed cross-instance via the relay bus to whichever instance holds
+the socket — and bridged by the adapter&#x27;s <code>on_interrupt(session_key, chat_id)</code>
+into the existing per-session interrupt mechanism, cancelling exactly that turn
+(siblings untouched).</li>
+</ul>
+<p>Both directions ride the gateway&#x27;s outbound WS: the gateway→connector <code>/stop</code>
+egresses over it, and the connector→gateway interrupt rides the same <code>inbound</code>
+back-channel as a normalized event.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-trust-boundary--signed-body-handling-a2">6. Trust boundary &amp; signed-body handling (A2)<a href="#6-trust-boundary--signed-body-handling-a2" class="hash-link" aria-label="Direct link to 6. Trust boundary &amp; signed-body handling (A2)" title="Direct link to 6. Trust boundary &amp; signed-body handling (A2)" translate="no">​</a></h2>
+<p><strong>The connector is the sole crypto/identity boundary. The gateway re-validates
+nothing.</strong></p>
+<p>Webhook signatures (Discord ed25519, Twilio HMAC, WeCom BizMsgCrypt) are
+computed over exact raw bytes, and some payloads are <em>encrypted</em> with a shared
+secret. The connector fronts a <strong>shared</strong> bot for many tenants and holds every
+tenant&#x27;s platform secrets, so it:</p>
+<ul>
+<li class=""><strong>verifies / decrypts at the edge</strong> (the only place the secrets live),</li>
+<li class=""><strong>normalizes</strong> the payload into a tenant-scoped <code>MessageEvent</code> (§3),</li>
+<li class=""><strong>strips any shared-identity capability</strong> out of the payload and binds it in
+its capability vault, keyed by the session (see §4 <code>follow_up</code>),</li>
+<li class=""><strong>forwards only the sanitized <code>MessageEvent</code></strong> — never the raw signed body.</li>
+</ul>
+<p>The gateway therefore performs <strong>no</strong> platform signature/crypto verification on
+the relay path; it trusts the normalized event. This is an enforced invariant on
+the gateway side (<code>tests/gateway/relay/test_relay_sheds_crypto.py</code>: the relay
+package imports/calls no platform-crypto).</p>
+<p><strong>Why not &quot;forward the signed body byte-for-byte so the gateway re-validates&quot;?</strong>
+That earlier model is incoherent under an untrusted, disposable tenant gateway:</p>
+<ul>
+<li class="">Re-validating Twilio HMAC / WeCom crypto would require handing the gateway the
+<strong>shared signing secret</strong> — which is itself the leak, and on a shared bot it&#x27;s
+a <em>cross-tenant</em> leak.</li>
+<li class="">WeCom payloads are encrypted with the shared secret; the connector must decrypt
+at the edge just to route, so forwarding ciphertext would again require giving
+the gateway the secret.</li>
+<li class="">A Discord interaction token lives <strong>inside</strong> the signed JSON body — you cannot
+both preserve the bytes and strip the credential; they are the same bytes.</li>
+</ul>
+<p>So byte-preservation is abandoned deliberately: the connector re-serializes the
+sanitized event and the gateway trusts it. This also unifies the passthrough and
+relay planes — both are &quot;verify at the edge → emit a normalized event,&quot; differing
+only in transport. See <code>docs/capability-trust-boundary.md</code> (connector repo:
+<code>gateway-gateway</code>) for the full A2 rationale and the connector-side vault.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="61-channel-authentication-the-connectorgateway-link-itself">6.1 Channel authentication (the connector⇄gateway link itself)<a href="#61-channel-authentication-the-connectorgateway-link-itself" class="hash-link" aria-label="Direct link to 6.1 Channel authentication (the connector⇄gateway link itself)" title="Direct link to 6.1 Channel authentication (the connector⇄gateway link itself)" translate="no">​</a></h3>
+<p>A2 makes the connector the sole holder of platform secrets while the gateway may
+be <strong>customer-managed and internet-exposed</strong>, so the connector⇄gateway channel
+is itself authenticated. The gateway holds an enrollment- or provision-issued
+<strong>per-gateway secret</strong> (<code>haishui gateway enroll</code> → connector <code>/relay/enroll</code>, or
+managed self-provision → <code>/relay/provision</code>) that authenticates its outbound WS
+upgrade. It is an HMAC-SHA256 scheme with a multi-secret rotation verify list
+(gateway side: <code>gateway/relay/auth.py</code>; connector side:
+<code>src/core/relayAuthToken.ts</code>).</p>
+<table><thead><tr><th>Leg</th><th>Credential</th><th>Mechanism</th></tr></thead><tbody><tr><td>Gateway → connector WS upgrade</td><td>per-gateway secret</td><td>An <code>Authorization</code> bearer header on the <code>/relay</code> upgrade. The token is <code>base64url(payload:exp:sig)</code> where <code>payload = gatewayId</code> and <code>sig = HMAC(payload:exp, secret)</code>. Connector verifies and rejects the upgrade (<strong>close 4401</strong>) on mismatch/absence/revocation. The authenticated tenant comes from the connector&#x27;s store, never the <code>hello</code> frame.</td></tr><tr><td>Connector → gateway inbound (<code>inbound</code> / <code>interrupt_inbound</code> frames)</td><td>— (rides the authenticated WS)</td><td>Inbound is pushed down the gateway&#x27;s already-authenticated outbound socket (§3), so no per-message signature is needed. A <strong>per-tenant delivery key</strong> is still issued at enroll/provision and retained for forward-compat, but is no longer used to sign inbound.</td></tr></tbody></table>
+<p>This is the <strong>channel</strong> authenticator — distinct from platform crypto, which the
+relay path still sheds entirely (§6). The gateway holds zero platform secrets;
+the per-gateway secret authenticates only the connector link. Full threat model +
+enrollment/rotation/kill-switch design: <code>docs/connector-gateway-auth-design.md</code>
+(connector repo).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-per-instance-delivery--the-management-plane-phase-6">7. Per-instance delivery &amp; the management plane (Phase 6)<a href="#7-per-instance-delivery--the-management-plane-phase-6" class="hash-link" aria-label="Direct link to 7. Per-instance delivery &amp; the management plane (Phase 6)" title="Direct link to 7. Per-instance delivery &amp; the management plane (Phase 6)" translate="no">​</a></h2>
+<p>Phases 1–5 treat the connector as a single-tenant front: inbound events for a
+tenant fan out to that tenant&#x27;s gateway socket(s). <strong>Phase 6 makes delivery
+per-INSTANCE</strong> — a shared bot can front many users/agents in one tenant (one
+Discord guild, one Telegram bot) without cross-delivery — and adds a small
+<strong>management plane</strong> the agent (or a managed Portal) uses to declare who-sees-what
+and what&#x27;s-relevant. All of this lives <strong>connector-side</strong>; the gateway&#x27;s only new
+responsibility is to <strong>declare its relevance policy</strong> at boot (§7.3).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="71-the-delivery-gate-connector-side-informational">7.1 The delivery gate (connector-side, informational)<a href="#71-the-delivery-gate-connector-side-informational" class="hash-link" aria-label="Direct link to 7.1 The delivery gate (connector-side, informational)" title="Direct link to 7.1 The delivery gate (connector-side, informational)" translate="no">​</a></h3>
+<p>For each inbound event the connector decides which instances receive it by
+composing three AND-ed filters. The gateway does not implement these — they run
+in the connector — but they define the delivery semantics the gateway relies on:</p>
+<table><thead><tr><th>Layer</th><th>Question</th><th>Source of truth</th></tr></thead><tbody><tr><td><strong>owner / scope ∧ principal</strong></td><td>May this instance <em>see</em> this author here?</td><td>per-user <code>user_id → instance</code> bindings (the owner floor) + per-instance <code>(guild, channel)</code> scope grants + an <code>owner-only</code> / <code>allow-list</code> / <code>any</code> principal policy.</td></tr><tr><td><strong>visibility floor</strong></td><td>Can the instance&#x27;s bound owner actually <code>VIEW_CHANNEL</code> this in Discord?</td><td>live Discord ACL (effective permissions), fail-closed. Narrows an over-broad scope grant downward.</td></tr><tr><td><strong>relevance</strong></td><td><em>Given</em> it may see it, should the agent engage?</td><td>the relevance policy declared in §7.3 (address-gating / free-response / allow-bots).</td></tr></tbody></table>
+<p>The composition only ever <strong>narrows</strong> delivery (<code>deliver ⇔ authorized ∧ visible ∧ relevant</code>); the <strong>owner floor bypasses the relevance layer</strong> (an author&#x27;s own
+message always reaches their own instance — you don&#x27;t @mention your own agent).
+A message authored by an unbound user reaches no instance (fail-closed). The
+full design + invariants live in the connector repo
+(<code>NousResearch/gateway-gateway</code>); this section is the gateway-facing summary.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="72-management-routes-connector-side-authenticated">7.2 Management routes (connector-side, authenticated)<a href="#72-management-routes-connector-side-authenticated" class="hash-link" aria-label="Direct link to 7.2 Management routes (connector-side, authenticated)" title="Direct link to 7.2 Management routes (connector-side, authenticated)" translate="no">​</a></h3>
+<p>The connector mounts authenticated management routes. They share the <strong>same
+dual-auth</strong> as the WS upgrade: either a managed NAS-signed <code>aud=agent:{instanceId}</code>
+RS256 JWT, <strong>or</strong> the gateway&#x27;s own per-gateway secret bearer (§6.1
+<code>make_upgrade_token</code>). In both cases the connector resolves the authoritative
+<code>{tenant, instanceId}</code> from its <strong>stored</strong> record — <strong>never</strong> from the request
+body (a body-asserted <code>instanceId</code> is ignored).</p>
+<table><thead><tr><th>Route</th><th>Purpose</th></tr></thead><tbody><tr><td><code>POST /manage/link</code></td><td>Issue a short-lived code to bind a platform account to the authenticated instance (the <code>/link &lt;code&gt;</code> flow; the connector reads the authentic <code>user_id</code> off the inbound event).</td></tr><tr><td><code>POST /manage/scope</code>, <code>/manage/scope/release</code></td><td>Claim / release a <code>(guild, channel)</code> scope for the authenticated instance. A channel is owned by at most one instance (non-overlap is a PK constraint).</td></tr><tr><td><code>POST /manage/principal</code></td><td>Set the instance&#x27;s principal policy (<code>owner-only</code> | <code>allow-list</code> | <code>any</code>).</td></tr><tr><td><code>POST /manage/dm-default</code></td><td>Set the user&#x27;s DM-default instance (DM tie-break when a user linked more than one).</td></tr><tr><td><code>POST /relay/policy</code></td><td>Declare the instance&#x27;s <strong>relevance policy</strong> (§7.3).</td></tr></tbody></table>
+<p>These are connector-owned (the management plane is not part of the gateway&#x27;s
+agent path); the gateway only calls <code>POST /relay/policy</code> (§7.3). The others are
+driven by the managed Portal / <code>haishui</code> CLI.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="73-relevance-policy-declaration-the-gateways-responsibility">7.3 Relevance-policy declaration (the gateway&#x27;s responsibility)<a href="#73-relevance-policy-declaration-the-gateways-responsibility" class="hash-link" aria-label="Direct link to 7.3 Relevance-policy declaration (the gateway&#x27;s responsibility)" title="Direct link to 7.3 Relevance-policy declaration (the gateway&#x27;s responsibility)" translate="no">​</a></h3>
+<p>The relevance layer (§7.1) is the per-tenant parity for the gateway&#x27;s own
+behaviour knobs (<code>require_mention</code>, <code>free_response_channels</code>,
+<code>{PLATFORM}_ALLOW_BOTS</code>). So the <strong>same</strong> behaviour governs relay delivery, the
+gateway projects those knobs into a <strong>platform-agnostic</strong> policy and POSTs it to
+<code>POST /relay/policy</code> at boot (after its per-gateway secret is resolved).</p>
+<p>Body (<code>gateway/relay/__init__.py</code> <code>relay_relevance_policy()</code> → <code>send_relay_policy()</code>):</p>
+<table><thead><tr><th>Field</th><th>Type</th><th>Projected from</th><th>Meaning</th></tr></thead><tbody><tr><td><code>platform</code></td><td>string</td><td>the fronted platform (<code>relay_platform_identity</code>)</td><td>which platform this policy applies to.</td></tr><tr><td><code>requireAddress</code></td><td>bool</td><td><code>require_mention</code></td><td>a non-owner message must @mention / reply-to the bot to be relevant.</td></tr><tr><td><code>freeResponseScopes</code></td><td>string[]</td><td><code>free_response_channels</code></td><td>scope (channel) ids where <code>requireAddress</code> is waived. Same scope vocabulary as §7.1&#x27;s scope grants.</td></tr><tr><td><code>allowOtherBots</code></td><td>bool</td><td><code>{PLATFORM}_ALLOW_BOTS ∈ {mentions, all}</code></td><td>admit bot-authored messages (default off).</td></tr></tbody></table>
+<p>Auth is the per-gateway upgrade token (§6.1), so the connector attaches the
+policy to the authenticated instance. The gateway is the <strong>source of truth</strong> and
+re-declares <strong>every boot</strong> (a full replace, mirroring the <code>routeKeys</code> upsert at
+provision — self-healing). When the projected policy is all-default the gateway
+sends nothing (the connector&#x27;s absent-row default already matches). The POST is
+<strong>fail-soft</strong>: a failure logs and boot proceeds — relevance is an optimization
+layered on the authorization gate (§7.1), never a boot dependency. There is <strong>no
+new gateway inbound surface</strong> and <strong>no new credential</strong> — it reuses the
+per-gateway secret and the same host as <code>/relay/provision</code>.</p>
+<blockquote>
+<p>A relevance drop happens <strong>before</strong> the connector wakes a scaled-to-zero agent
+(Phase 5), so excluded chatter never spins an agent up — relevance is the
+primary scale-to-zero lever as well as a correctness filter.</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-gateway-side-platform-behavior-controls-enterprise">8. Gateway-side platform behavior controls (enterprise)<a href="#8-gateway-side-platform-behavior-controls-enterprise" class="hash-link" aria-label="Direct link to 8. Gateway-side platform behavior controls (enterprise)" title="Direct link to 8. Gateway-side platform behavior controls (enterprise)" translate="no">​</a></h2>
+<p>Enterprise deployments configure fronted-platform behavior on the GATEWAY
+side, under <code>platforms.relay.extra.&lt;platform&gt;</code> — a supported subset of that
+platform&#x27;s native options. The native platform block (e.g. <code>platforms.slack</code>)
+is not read on the relay lane; the connector receives the <em>outcome</em> of these
+controls as frame metadata (§4) and executes mechanically — it holds no
+platform behavior policy of its own.</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token key atrule">platforms</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token key atrule">relay</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token key atrule">extra</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token key atrule">slack</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token key atrule">reply_in_thread</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token boolean important">true</span><span class="token plain">   </span><span class="token comment" style="color:rgb(98, 114, 164)"># default</span><br></div></code></pre></div></div>
+<p>Resolution: nested <code>extra.&lt;platform&gt;</code> object wins → legacy flat key on
+<code>extra</code> honored as fallback → default. Source of truth:
+<code>RelayAdapter._effective_reply_in_thread</code> (<code>gateway/relay/adapter.py</code>).
+Values coerce exactly as the native Slack adapter&#x27;s do — <code>1/true/yes/on</code>
+(case-insensitive, whitespace-trimmed) are ON, anything else is OFF — so a
+YAML-quoted <code>&quot;false&quot;</code> turns a knob off rather than being read as a truthy
+string.</p>
+<p>Current controls (Slack):</p>
+<table><thead><tr><th>Key</th><th>Default</th><th>Effect</th></tr></thead><tbody><tr><td><code>reply_in_thread</code></td><td><code>true</code></td><td><code>true</code>: thread-per-message — each top-level DM message anchors its own thread (status, progress, prompts, final reply all carry that <code>metadata.thread_id</code>). <code>false</code>: flat rolling DM — send-lane frames carry NO thread anchor (stripped, not omitted), one shared session per DM.</td></tr><tr><td><code>dm_top_level_threads_as_sessions</code></td><td><code>true</code></td><td>Native-parity escape hatch (mirrors <code>platforms.slack.extra.dm_top_level_threads_as_sessions</code>). <code>true</code>: in thread-per-message mode each top-level DM message keys its own session, so concurrent messages run in parallel. <code>false</code>: threaded reply placement is kept but the session stamp is skipped — one rolling DM session (legacy steer/queue posture). No effect in flat mode, which always keeps the single rolling session.</td></tr></tbody></table>
+<p>Typing/status frames always carry the triggering-ts anchor when one is known
+(liveliness is unconditional, both modes): Slack&#x27;s status line is
+thread-scoped, and in flat mode the send-side anchor strip guarantees the
+status anchor can never leak into reply placement. Semantics of the native
+key: see <a class="" href="/haishui-agent/docs/user-guide/messaging/slack">Slack</a>.</p>
+<p>Thread-anchor resolution applies to EVERY send lane — text (<code>send</code>) and media
+(<code>send_media</code>) alike — through one choke point
+(<code>RelayAdapter._apply_slack_thread_anchor</code>). Media frames egress via the same
+connector-side Slack sender, which threads on <code>metadata.thread_id</code> only, so an
+attachment resolves its anchor identically to a text reply: promoted into
+metadata in thread-per-message mode, stripped in flat mode.</p>
+<p>Changes take effect on gateway restart; no connector involvement.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-versioning-policy">9. Versioning policy<a href="#9-versioning-policy" class="hash-link" aria-label="Direct link to 9. Versioning policy" title="Direct link to 9. Versioning policy" translate="no">​</a></h2>
+<ul>
+<li class=""><code>contract_version</code> is an int; bump <strong>only</strong> for additive changes during the
+experimental phase (new optional fields, new <code>op</code>s).</li>
+<li class="">A breaking change (renamed/removed field, changed semantics) requires a
+coordinated update of both repos and a version bump.</li>
+<li class="">The connector&#x27;s first PR references the commit SHA of this file it implements
+against.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/aiqinghaiwork163/haishui-agent/edit/main/website/docs/developer-guide/relay-connector-contract.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/haishui-agent/docs/developer-guide/gateway-monitoring"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Gateway Monitoring</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/haishui-agent/docs/developer-guide/relay-shared-metrics"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Relay Shared Metrics</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-handshake" class="table-of-contents__link toc-highlight">1. Handshake</a></li><li><a href="#2-capabilitydescriptor-handshake-payload" class="table-of-contents__link toc-highlight">2. CapabilityDescriptor (handshake payload)</a></li><li><a href="#3-inbound-messageevent-envelope" class="table-of-contents__link toc-highlight">3. Inbound: <code>MessageEvent</code> envelope</a><ul><li><a href="#inbound-transport-ws-back-channel-not-http" class="table-of-contents__link toc-highlight">Inbound transport (WS back-channel, not HTTP)</a></li><li><a href="#31-passthrough-plane-forward-51" class="table-of-contents__link toc-highlight">3.1 Passthrough-plane forward (§5.1)</a></li><li><a href="#sessionsource-fields-the-wire-surface" class="table-of-contents__link toc-highlight">SessionSource fields (the wire surface)</a></li><li><a href="#sessionsource-discriminators-per-platform" class="table-of-contents__link toc-highlight">SessionSource discriminators per platform</a></li><li><a href="#bot-identity-vs-tenant-single-bot-consolidation-appendix-a" class="table-of-contents__link toc-highlight">Bot identity vs tenant (single-bot consolidation, Appendix A)</a></li><li><a href="#author-first-resolution--the-account-link-dm-path-phase-7" class="table-of-contents__link toc-highlight">Author-first resolution + the account-link (DM) path (Phase 7)</a></li><li><a href="#32-going-idle--buffered-flip-primitive-53" class="table-of-contents__link toc-highlight">3.2 Going-idle / buffered-flip primitive (§5.3)</a></li><li><a href="#33-wake-poke-52" class="table-of-contents__link toc-highlight">3.3 Wake poke (§5.2)</a></li><li><a href="#34-obligations-on-a-future-scale-to-zero-behaviour-layer" class="table-of-contents__link toc-highlight">3.4 Obligations on a future scale-to-zero behaviour layer</a></li></ul></li><li><a href="#4-outbound-action-set" class="table-of-contents__link toc-highlight">4. Outbound: action set</a></li><li><a href="#5-interrupt-stop-routing" class="table-of-contents__link toc-highlight">5. Interrupt (<code>/stop</code>) routing</a></li><li><a href="#6-trust-boundary--signed-body-handling-a2" class="table-of-contents__link toc-highlight">6. Trust boundary &amp; signed-body handling (A2)</a><ul><li><a href="#61-channel-authentication-the-connectorgateway-link-itself" class="table-of-contents__link toc-highlight">6.1 Channel authentication (the connector⇄gateway link itself)</a></li></ul></li><li><a href="#7-per-instance-delivery--the-management-plane-phase-6" class="table-of-contents__link toc-highlight">7. Per-instance delivery &amp; the management plane (Phase 6)</a><ul><li><a href="#71-the-delivery-gate-connector-side-informational" class="table-of-contents__link toc-highlight">7.1 The delivery gate (connector-side, informational)</a></li><li><a href="#72-management-routes-connector-side-authenticated" class="table-of-contents__link toc-highlight">7.2 Management routes (connector-side, authenticated)</a></li><li><a href="#73-relevance-policy-declaration-the-gateways-responsibility" class="table-of-contents__link toc-highlight">7.3 Relevance-policy declaration (the gateway&#39;s responsibility)</a></li></ul></li><li><a href="#8-gateway-side-platform-behavior-controls-enterprise" class="table-of-contents__link toc-highlight">8. Gateway-side platform behavior controls (enterprise)</a></li><li><a href="#9-versioning-policy" class="table-of-contents__link toc-highlight">9. Versioning policy</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/getting-started/quickstart">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/user-guide/cli">User Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/developer-guide/architecture">Developer Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/reference/cli-commands">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/aiqinghaiwork163/haishui-agent/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub Issues<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://agentskills.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">Skills Hub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://aiqinghaiwork163.github.io/haishui-agent/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Desktop Download<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/aiqinghaiwork163/haishui-agent" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Haishui Agent · MIT License · 2026</div></div></div></footer></div>
+</body>
+</html>

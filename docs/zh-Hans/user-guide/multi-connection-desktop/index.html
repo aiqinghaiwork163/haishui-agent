@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-user-guide/multi-connection-desktop" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Connecting Desktop to Many Haishui Instances | Haishui Agent</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/img/haishui-agent-banner.png"><meta data-rh="true" name="twitter:image" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/img/haishui-agent-banner.png"><meta data-rh="true" property="og:url" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/user-guide/multi-connection-desktop"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Connecting Desktop to Many Haishui Instances | Haishui Agent"><meta data-rh="true" name="description" content="Register every Haishui backend you own — the local runtime, remote gateways on"><meta data-rh="true" property="og:description" content="Register every Haishui backend you own — the local runtime, remote gateways on"><link data-rh="true" rel="icon" href="/haishui-agent/docs/zh-Hans/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/user-guide/multi-connection-desktop"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/multi-connection-desktop" hreflang="en"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/user-guide/multi-connection-desktop" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/multi-connection-desktop" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://2JLBVEYZN5-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Connecting Desktop to Many Haishui Instances","item":"https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/user-guide/multi-connection-desktop"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Haishui Agent" href="/haishui-agent/docs/zh-Hans/opensearch.xml"><link rel="stylesheet" href="/haishui-agent/docs/zh-Hans/assets/css/styles.3e972d5e.css">
+<script src="/haishui-agent/docs/zh-Hans/assets/js/runtime~main.6ab0d6e6.js" defer="defer"></script>
+<script src="/haishui-agent/docs/zh-Hans/assets/js/main.4b5fef0d.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/haishui-agent/docs/zh-Hans/img/logo.png"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/haishui-agent/docs/zh-Hans/"><div class="navbar__logo"><img src="/haishui-agent/docs/zh-Hans/img/logo.png" alt="Haishui Agent" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/haishui-agent/docs/zh-Hans/img/logo.png" alt="Haishui Agent" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Haishui Agent</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/haishui-agent/docs/zh-Hans/user-stories">Docs</a><a class="navbar__item navbar__link" href="/haishui-agent/docs/zh-Hans/skills">Skills</a><a class="navbar__item navbar__link" href="/haishui-agent/docs/zh-Hans/plugins">Plugins</a><a href="https://aiqinghaiwork163.github.io/haishui-agent/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Download<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/haishui-agent/docs/user-guide/multi-connection-desktop" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/haishui-agent/docs/zh-Hans/user-guide/multi-connection-desktop" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh-Hans">简体中文</a></li></ul></div><a href="https://aiqinghaiwork163.github.io/haishui-agent" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Home<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/aiqinghaiwork163/haishui-agent" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="搜索 (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">搜索</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/haishui-agent/docs/zh-Hans/user-stories"><span class="linkLabel_WmDU">用户故事与使用案例</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/getting-started/quickstart"><span class="categoryLinkLabel_W154">Getting Started</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/haishui-agent/docs/zh-Hans/user-guide/cli"><span class="categoryLinkLabel_W154">Using Haishui</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/cli"><span class="linkLabel_WmDU">CLI 界面</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/tui"><span class="linkLabel_WmDU">TUI</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/desktop"><span class="linkLabel_WmDU">Haishui Desktop</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/bot-mode"><span class="linkLabel_WmDU">Bot 模式</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/windows-native"><span class="linkLabel_WmDU">windows-native</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/windows-wsl-quickstart"><span class="linkLabel_WmDU">Windows (WSL2)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/configuration"><span class="linkLabel_WmDU">配置</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/managed-scope"><span class="linkLabel_WmDU">Managed Scope</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/configuring-models"><span class="linkLabel_WmDU">配置模型</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/secrets/"><span class="categoryLinkLabel_W154">Secrets</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/egress/"><span class="categoryLinkLabel_W154">Egress proxy</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/sessions"><span class="linkLabel_WmDU">Sessions（会话）</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/profiles"><span class="linkLabel_WmDU">Profiles：运行多个 Agent</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/profile-distributions"><span class="linkLabel_WmDU">Profile 分发：共享完整 Agent</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/multi-profile-gateways"><span class="linkLabel_WmDU">Running Many Gateways at Once</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/multi-connection-desktop"><span class="linkLabel_WmDU">Connecting Desktop to Many Haishui Instances</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/git-worktrees"><span class="linkLabel_WmDU">Git Worktrees</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/docker"><span class="linkLabel_WmDU">Docker</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/security"><span class="linkLabel_WmDU">安全</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/user-guide/checkpoints-and-rollback"><span class="linkLabel_WmDU">Checkpoints &amp; Rollback</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/user-guide/features/overview"><span class="categoryLinkLabel_W154">Features</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/user-guide/messaging/"><span class="categoryLinkLabel_W154">Messaging Platforms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/integrations/"><span class="categoryLinkLabel_W154">Integrations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/guides/run-nemotron-3-ultra-free"><span class="categoryLinkLabel_W154">Guides &amp; Tutorials</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/developer-guide/contributing"><span class="categoryLinkLabel_W154">Developer Guide</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/reference/cli-commands"><span class="categoryLinkLabel_W154">Reference</span></a></div></li></ul></nav><button type="button" title="收起侧边栏" aria-label="收起侧边栏" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/haishui-agent/docs/zh-Hans/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Using Haishui</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Connecting Desktop to Many Haishui Instances</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Connecting Desktop to Many Haishui Instances</h1></header>
+<p>Register every Haishui backend you own — the local runtime, remote gateways on
+your LAN or VPS, SSH hosts, and Haishui Cloud instances — in one desktop app,
+and use the agents on all of them side by side. Connections are persistent:
+each registered gateway dials its own backends and WebSockets on demand, and
+background agents keep streaming while you look at another gateway.</p>
+<p>This is the desktop-side complement to
+<a class="" href="/haishui-agent/docs/zh-Hans/user-guide/multi-profile-gateways">Running Many Gateways at Once</a>: that page is
+about hosting several gateways on one machine; this one is about one desktop
+app talking to several machines.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-to-find-it">Where to find it<a href="#where-to-find-it" class="hash-link" aria-label="Where to find it的直接链接" title="Where to find it的直接链接" translate="no">​</a></h2>
+<p>Everything lives on the unified <strong>Settings → Gateways</strong> page (older builds had
+separate <strong>Gateway</strong> and <strong>Connections</strong> pages; legacy Connections deep links
+redirect there). Three doors lead to it:</p>
+<ul>
+<li class=""><strong>Settings → Gateways</strong> — the page itself (<strong>Cmd/Ctrl+,</strong>, then
+<strong>Gateways</strong> in the settings nav). The connections registry is a section
+of that page, below the machine-level connection-mode controls.</li>
+<li class=""><strong>The sidebar profile rail</strong> — the plug button at the right end of the rail
+(tooltip: <strong>&quot;Connect another Haishui gateway…&quot;</strong>) deep-links straight to
+the Gateways page. It is always visible, even before you have created
+a second profile or a second connection.</li>
+<li class=""><strong>The command palette</strong> — <strong>Cmd/Ctrl+K</strong>, then type <em>Gateways</em> (also
+matches <em>connections</em>, <em>add gateway</em>, <em>remote</em>, <em>ssh</em>, <em>instances</em>).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-gateway-registry">The gateway registry<a href="#the-gateway-registry" class="hash-link" aria-label="The gateway registry的直接链接" title="The gateway registry的直接链接" translate="no">​</a></h2>
+<p>The <strong>Registered gateways</strong> section of <strong>Settings → Gateways</strong> manages a named
+list of Haishui gateways. Its intro says it plainly: <em>&quot;Manage this device and
+every Haishui gateway it can reach through remote, SSH, or Cloud connections.&quot;</em>
+Each entry is a <em>connection</em>:</p>
+<table><thead><tr><th>Kind</th><th>What it is</th><th>Auth</th></tr></thead><tbody><tr><td><strong>Local</strong></td><td>&quot;The Haishui runtime managed by this app.&quot;</td><td>automatic</td></tr><tr><td><strong>Remote gateway</strong></td><td>&quot;A Haishui gateway reachable over HTTP(S) — LAN, Tailscale, or the internet.&quot;</td><td>session token or OAuth</td></tr><tr><td><strong>SSH</strong></td><td>&quot;A Haishui install reached over SSH.&quot; The app opens the tunnel and starts the dashboard for you</td><td>SSH key + adopted token</td></tr><tr><td><strong>Haishui Cloud</strong></td><td>&quot;A hosted instance discovered through your Haishui Cloud account.&quot;</td><td>portal sign-in</td></tr></tbody></table>
+<p>Rules worth knowing:</p>
+<ul>
+<li class=""><strong>Every connection needs a unique device name</strong> (&quot;Homelab&quot;, &quot;Work laptop&quot;).
+The name shows up everywhere the instance appears — roster badges, handles,
+update results. Uniqueness is case-insensitive, so <code>Homelab</code> and <code>homelab</code>
+cannot coexist.</li>
+<li class="">The <strong>local</strong> entry is managed by the app (it wears an <strong>App-managed</strong> pill)
+and cannot be removed. Removing any other connection tears down its live
+backends and tunnels; the instance itself is untouched.</li>
+<li class="">One connection is always the <strong>Primary</strong> (pill on its row): it is the
+registry fallback for multi-gateway calls that do not name a gateway.
+<strong>Make primary</strong> does not switch the current Sessions workspace; removing
+the primary falls back to the local entry.</li>
+<li class=""><strong>At startup, return to Sessions on the last-used gateway</strong> controls which
+gateway Sessions opens after a full app restart. It is off by default, so
+Sessions opens on <strong>Primary</strong>. Turn it on to resume the most recent gateway
+that connected successfully. A failed switch is never remembered, and a
+removed or unavailable saved gateway falls back to Primary.</li>
+<li class=""><strong>Test</strong> probes the connection&#x27;s own HTTP <em>and</em> WebSocket legs, so a pass
+(the <em>&quot;Reachable&quot;</em> toast) means chat will actually work — not just that the
+host pinged.</li>
+<li class=""><strong>Duplicates are rejected when you save</strong>: there is only ever one <strong>local</strong>
+entry; <strong>remote</strong> and <strong>cloud</strong> entries are deduplicated on the normalized
+URL (trimmed, trailing slashes stripped, lowercased — and across both
+kinds, so a cloud entry and a remote entry can&#x27;t point at the same URL);
+<strong>SSH</strong> entries are deduplicated on the normalized <code>user@host:port</code> plus
+remote profile.</li>
+<li class="">Cloud entries normally come from the Haishui Cloud sign-in/discovery flow at
+the top of the Gateways page — the <strong>Haishui Cloud</strong> kind in the add-connection
+editor points you there.</li>
+</ul>
+<p>Switch gateways from the <strong>Sessions</strong> sidebar. Profiles, chats, messaging, and
+cron stay scoped to that gateway; the app-managed window backend is still chosen
+by the connection-mode controls above. <strong>Primary</strong> is the registry fallback and
+does not switch the current workspace.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="organizing-session-groups">Organizing session groups<a href="#organizing-session-groups" class="hash-link" aria-label="Organizing session groups的直接链接" title="Organizing session groups的直接链接" translate="no">​</a></h2>
+<p>In the Sessions sidebar&#x27;s view menu, choose <strong>Gateway &amp; profile</strong> while viewing
+all profiles. Each gateway gets its own collapsible section, with profile
+subsections containing their sessions. Two gateways with a <code>default</code> profile
+stay separate. Gateway headers start with the saved connection name; profile
+headers show the profile name.</p>
+<p>Use a gateway or profile section&#x27;s menu to <strong>Rename group</strong>, <strong>Reset name</strong>, <strong>Move up</strong>, or
+<strong>Move down</strong>. Renaming changes only the sidebar label, not the gateway or profile.
+Gateways reorder as complete sections, and profiles reorder within their own gateway.
+Drag the section header anywhere (its icon, its name, or the empty space) to
+reorder it, or focus the header and use Space, arrow keys, then Space to place
+it. Names, order, and collapsed sections
+are remembered on this desktop. Collapsing a gateway preserves its profiles&#x27;
+individual collapse states. Each profile&#x27;s new-session action targets that
+profile on its owning gateway.</p>
+<p>The Haishui Cloud panel also lists <strong>Saved Cloud gateways</strong> when portal discovery
+is signed out. <strong>Use gateway</strong> selects an existing saved connection without
+changing the default gateway; <strong>Active in this window</strong> identifies the current
+one. Adding a new instance uses its friendly Cloud name, while existing custom
+connection names are preserved. Saved connections still need valid gateway
+authentication; manage sign-in from the registered connection controls.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="adding-a-connection-step-by-step">Adding a connection, step by step<a href="#adding-a-connection-step-by-step" class="hash-link" aria-label="Adding a connection, step by step的直接链接" title="Adding a connection, step by step的直接链接" translate="no">​</a></h2>
+<ol>
+<li class="">Open <strong>Settings → Gateways</strong> and scroll to the connections registry (or
+click the plug in the profile rail).</li>
+<li class="">Click <strong>Add connection</strong>.</li>
+<li class="">Pick the kind: <strong>Local</strong>, <strong>Haishui Cloud</strong>, <strong>Remote gateway</strong>, or <strong>SSH</strong>.
+(<strong>Local</strong> is disabled while the app-managed local entry exists — which is
+almost always; <strong>Haishui Cloud</strong> directs you to the cloud sign-in/discovery
+flow above.)</li>
+<li class="">Fill the fields:<!-- -->
+<ul>
+<li class=""><strong>Name</strong> — required, unique; the &quot;device name&quot; shown everywhere this
+instance appears (placeholder: <code>Homelab</code>). Max 64 characters.</li>
+<li class=""><em>Remote gateway only:</em>
+<ul>
+<li class=""><strong>Gateway URL</strong> — the base URL of a running <code>haishui serve</code> backend,
+e.g. <code>http://homelab.lan:9119</code>. Reverse-proxy path prefixes work.</li>
+<li class=""><strong>Authentication</strong> — choose <strong>Session token</strong> or <strong>OAuth</strong>:<!-- -->
+<ul>
+<li class=""><strong>Session token</strong> — paste the dashboard session token from the
+remote gateway. When editing, <em>&quot;Leave blank to keep the saved
+token.&quot;</em></li>
+<li class=""><strong>OAuth</strong> — sign in through the Nous Portal browser flow; no token
+to paste.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class=""><em>SSH only:</em>
+<ul>
+<li class=""><strong>SSH host</strong> — one composite field in <code>user@host:22</code> form (user and
+port optional). Your SSH key is used; the app adopts a dashboard
+token over the tunnel. Remote probes run under the account&#x27;s login
+shell; on a <code>zsh</code> login shell the probe watchdog cannot kill the whole
+process group, so a hung probe&#x27;s grandchildren may linger on the remote
+(bash/sh remotes reap them).</li>
+<li class=""><strong>Haishui path (optional)</strong> — full path to the <code>haishui</code> executable on
+the remote (for example <code>/opt/haishui/bin/haishui</code>). Leave blank to
+auto-detect. Set it when the remote&#x27;s non-interactive shell does not
+have <code>haishui</code> on its <code>PATH</code> and <strong>Test</strong> reports <em>&quot;Haishui is not
+installed on the remote host&quot;</em>; clearing the field restores
+auto-detection.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">Click <strong>Save connection</strong> (or <strong>Cancel</strong>).</li>
+<li class="">Click <strong>Test</strong> on the new row and wait for <em>&quot;Reachable&quot;</em>.</li>
+</ol>
+<p>Edit any non-local entry later with the pencil button, or remove it with the
+trash button — removal asks for confirmation and reminds you that <em>&quot;The
+instance itself is not touched — you can add it again any time.&quot;</em></p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>The remote backend is a running <code>haishui serve</code> process</div><div class="admonitionContent_BuS1"><p>Nothing here works unless the backend is actually up and reachable on the
+other machine. The desktop app attaches to it; it does not start it for you
+(except for SSH connections, where the app starts the dashboard over the
+tunnel on demand). See
+<a class="" href="/haishui-agent/docs/zh-Hans/user-guide/desktop#connecting-to-a-remote-backend">Connecting to a remote backend</a>
+for backend-side setup — auth providers, binding to a non-loopback address,
+and Tailscale guidance.</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="migrating-from-the-single-connection-settings">Migrating from the single-connection settings<a href="#migrating-from-the-single-connection-settings" class="hash-link" aria-label="Migrating from the single-connection settings的直接链接" title="Migrating from the single-connection settings的直接链接" translate="no">​</a></h3>
+<p>The first launch of a registry-capable build imports your existing settings
+automatically: the global connection mode and any legacy per-profile
+overrides from Settings → Gateway become named registry entries (deduplicated
+by URL/host). (Newer builds no longer offer per-profile overrides in the
+Gateways settings page — gateway connections are machine-level, and profiles
+are discovered from the gateways you connect.)
+The legacy settings file is left untouched, so older builds on the same
+machine keep working. If a migrated name collided, it was suffixed
+(<code>Homelab 2</code>).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="agents-across-gateways">Agents across gateways<a href="#agents-across-gateways" class="hash-link" aria-label="Agents across gateways的直接链接" title="Agents across gateways的直接链接" translate="no">​</a></h2>
+<p>Every <a class="" href="/haishui-agent/docs/zh-Hans/user-guide/profiles">profile</a> on every registered connection is an <em>agent</em>.
+The union roster is what multi-gateway surfaces (and the built-in
+<a class="" href="/haishui-agent/docs/zh-Hans/user-guide/bot-mode">Bot Mode</a> roster) render:</p>
+<ul>
+<li class="">When the same profile name exists on several gateways, handles disambiguate
+as <strong><code>@name-device</code></strong> — <code>research</code> on your Homelab renders as
+<code>@research-homelab</code>, while a profile unique across all gateways keeps its
+bare name.</li>
+<li class="">Enumeration is eager but sockets are lazy: the app lists agents over REST
+without dialing every gateway&#x27;s WebSocket. An unreachable gateway reports
+per-row instead of breaking the roster; SSH connections stay connect-on-demand
+until you first open an agent on them (no surprise tunnels).</li>
+<li class="">Opening an agent dials <strong>its own gateway</strong> — chats, sessions, and memory
+live on the machine that owns the profile, exactly as if you were using
+that instance directly.</li>
+</ul>
+<p>Each <code>(connection, profile)</code> pair gets its own backend and socket, pooled
+with the same idle-reaping as local per-profile backends — background agents
+keep streaming while you look at another gateway.</p>
+<p>Approval buttons route back to the session&#x27;s owning backend, not whichever
+profile is currently selected. For a local secondary profile, Desktop can use
+the socket that delivered the request even when the cached session binding is
+missing. Saved session ownership still takes precedence, and deleting or
+renaming that local profile clears this temporary route rather than reconnecting
+an obsolete backend.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="switching-and-scoping">Switching and scoping<a href="#switching-and-scoping" class="hash-link" aria-label="Switching and scoping的直接链接" title="Switching and scoping的直接链接" translate="no">​</a></h3>
+<p>The sidebar foot follows one hierarchy: <strong>gateway → profile → sessions</strong>.
+Gateways are machines or hosted backends; profiles are isolated Haishui agents
+that live on one gateway.</p>
+<ul>
+<li class="">With one registered gateway, no gateway control is added. Local-only Desktop
+keeps the same profile rail and keyboard flow as before.</li>
+<li class="">With several gateways, the sidebar shows one named gateway selector. Its device,
+cloud, network, or terminal icon identifies the connection type; profile
+avatars remain a separate control after the divider. The same selector scales
+from two gateways to a larger fleet without turning backends into profile-like
+glyphs or crowding profile actions out of the rail.</li>
+<li class="">Selecting a gateway restores the last profile used there. The home pill
+returns to its default profile and the layers pill shows <strong>All profiles on
+this gateway</strong>. <strong>Cmd/Ctrl+1–9</strong> continue to switch profiles within the
+active gateway.</li>
+<li class="">With several gateways the profile rail is a <strong>fleet rail</strong>: every registered
+gateway&#x27;s profiles sit on the one strip, each group headed by that gateway&#x27;s
+kind glyph (device, network, terminal, cloud) — the same glyph the gateway
+selector uses. The active gateway&#x27;s squares look exactly as they do on a
+single-gateway Desktop; the other gateways&#x27; squares are dimmed (&quot;at rest&quot;).
+Hovering an at-rest square names its machine (<code>omer · This device</code>), so two
+same-named profiles on different machines never read alike.</li>
+<li class="">Clicking an at-rest square performs the same switch as the gateway selector,
+landing on that exact <code>(gateway, profile)</code>: the square spins while the
+target is dialed, the previous gateway stays painted until the target
+answers, and a dead target fails the click with a message rather than
+leaving the window half-switched. Groups keep registry order whichever
+gateway is active, so a square never moves under the pointer that clicked
+it. Right-click on an at-rest square offers <strong>Switch to</strong>, <strong>Color</strong>,
+<strong>Rename</strong>, <strong>Edit SOUL.md</strong> and <strong>Delete</strong>, all executed on the square&#x27;s
+own gateway; the delete confirmation names the machine.</li>
+<li class="">A gateway the last enumeration could not reach keeps its squares, marked
+with an amber dot on its glyph — a sleeping box is still yours. Two
+registrations of one backend collapse to a single group. Past thirteen
+squares across the fleet, the strip condenses into one menu sectioned by
+gateway.</li>
+<li class="">The selected gateway survives a quit and relaunch only when <strong>Settings →
+Gateways → At startup, return to Sessions on the last-used gateway</strong> is on.
+The preference and gateway id live in the app&#x27;s user-data registry, so
+replacing or updating the application bundle does not reset them.</li>
+<li class="">With more than thirteen profiles on the active gateway, their avatar strip
+condenses into a named profile selector. Large gateway and profile sets can
+therefore coexist without changing the <strong>gateway → profile → sessions</strong> model.</li>
+<li class=""><strong>This device</strong> remains a first-class gateway even when a remote connection is
+Primary. It can keep local sessions available during a remote outage, but the
+app does not call it &quot;offline mode&quot;: the selected model or tools may still
+require internet access.</li>
+<li class="">The session list, messaging channels, cron jobs, settings, files, and memory
+are all scoped to the active <code>(gateway, profile)</code>. Switching from a Telegram
+gateway to a Signal gateway cannot leave the previous gateway&#x27;s channel groups
+or sessions in the sidebar.</li>
+<li class="">Merely displaying the switcher reads Electron&#x27;s local connection registry.
+Remote gateways are opened only when selected; there is no periodic fleet
+polling.</li>
+<li class="">Hovering an agent pre-warms its backend so the switch doesn&#x27;t pay a cold
+boot. SSH agents are the exception: hovering never dials the tunnel or
+starts a remote backend — only opening one does.</li>
+<li class="">The <strong>Capabilities</strong> page (Skills / Tools / MCP) has a matching scope: its
+<strong>Configuring</strong> selector lists every <code>(profile, device)</code> agent from the
+union roster, and picking one reads and writes <strong>that machine&#x27;s</strong> skills,
+toolsets, and MCP servers without switching the Sessions workspace. Hub
+installs, env keys, and MCP setup all land on the selected agent&#x27;s backend.
+The MCP tab&#x27;s <em>hot-reload into a live session</em> button appears only for agents
+on the gateway the window is connected to; edits on other machines apply on
+their next session.</li>
+</ul>
+<p>Add, test, rename, or remove gateways in <strong>Settings → Gateways</strong>. The plug
+button beside the profile actions is a shortcut to that single management
+home, not a second add flow.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sessions-and-bot-mode">Sessions and Bot Mode<a href="#sessions-and-bot-mode" class="hash-link" aria-label="Sessions and Bot Mode的直接链接" title="Sessions and Bot Mode的直接链接" translate="no">​</a></h3>
+<p>Sessions intentionally show one active gateway at a time: this keeps files,
+tools, channels, cron, and session history in one understandable execution
+context. The fleet profile rail widens only the <em>picker</em> — the workspace still
+lives on exactly one <code>(gateway, profile)</code> after every click. Bot Mode serves a
+different job and may present the union roster, grouped by gateway, so a user
+can open one agent on a NAS and another on a VPS from one surface. Opening a
+bot still activates its exact <code>(gateway, profile)</code> route.</p>
+<p>Direct bot mentions and delegation remain gateway-local by default. Crossing a
+backend boundary changes filesystem, credentials, tools, and trust context, so
+cross-gateway execution should be an explicit bridge rather than an accidental
+side effect of sharing one Desktop window.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updating-every-instance-at-once">Updating every instance at once<a href="#updating-every-instance-at-once" class="hash-link" aria-label="Updating every instance at once的直接链接" title="Updating every instance at once的直接链接" translate="no">​</a></h2>
+<p><strong>Settings → Gateways → Update all instances</strong> (shown once more than one
+connection is registered) dispatches <code>haishui update</code> to every eligible
+connection in parallel:</p>
+<ul>
+<li class=""><strong>Local</strong> updates through the app&#x27;s own update pipeline (the same flow as
+Settings → Updates).</li>
+<li class=""><strong>Remote and SSH</strong> connections are told to update themselves via their own
+backend — the update runs on <em>that</em> machine.</li>
+<li class=""><strong>Haishui Cloud</strong> instances are skipped with a <em>&quot;Managed by Haishui Cloud&quot;</em>
+note: the platform manages their versions.</li>
+</ul>
+<p>Each instance reports independently, so one unreachable box never wedges the
+batch. Backends that manage updates externally (Docker, Nix) refuse politely
+with their own message, per row.</p>
+<p>You rarely need the Settings button, though: once more than one update target
+exists, the app&#x27;s regular update affordances (<strong>Update now</strong> on the About
+panel, ⌘K <strong>Update Haishui</strong>, the update-ready toast) run the same fan-out
+automatically — active backend first, then every other eligible gateway, then
+the desktop app itself last. See
+<a class="" href="/haishui-agent/docs/zh-Hans/user-guide/desktop#updating">Updating</a> in the desktop guide.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-notes">Security notes<a href="#security-notes" class="hash-link" aria-label="Security notes的直接链接" title="Security notes的直接链接" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Where tokens live.</strong> Remote-gateway session tokens (and native sign-in
+OAuth tokens, keyed by gateway base URL) are stored in the app&#x27;s user-data
+directory as owner-only (0600) files, in the Electron main process; the
+renderer and plugins never see token bytes.</li>
+<li class=""><strong>Optional keychain encryption.</strong> By default the tokens are <strong>not</strong> run
+through the OS keychain — on macOS in particular, Electron&#x27;s <code>safeStorage</code>
+parks a per-app key in the login keychain, and a locked or broken keychain
+turns that into a password prompt on every launch. If you want at-rest
+encryption on top of the file permissions, turn on <strong>Settings → Gateway →
+&quot;Encrypt saved secrets with the OS keychain&quot;</strong>; existing stored secrets are
+re-encrypted in place (Keychain on macOS, DPAPI on Windows, the session
+keyring backend on Linux). Turning it back off decrypts them again.</li>
+<li class=""><strong>The registry file</strong> (<code>connections.json</code> under the app&#x27;s user-data
+directory) holds labels, URLs, and hosts — secrets only ever appear inside
+encrypted envelopes.</li>
+<li class="">The plugin SDK&#x27;s <code>host.connections()</code> deliberately returns labels, kinds,
+and the primary id — never token material.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-plugin-authors">For plugin authors<a href="#for-plugin-authors" class="hash-link" aria-label="For plugin authors的直接链接" title="For plugin authors的直接链接" translate="no">​</a></h2>
+<p>The Desktop <a class="" href="/haishui-agent/docs/zh-Hans/developer-guide/desktop-plugin-sdk">plugin SDK</a> exposes the
+multi-gateway surface directly:</p>
+<ul>
+<li class=""><code>host.connections()</code> — the registered connection list (labels, kinds,
+primary; never token bytes).</li>
+<li class=""><code>host.agents()</code> — the union roster: one row per <code>(gateway, profile)</code> with
+the precomputed <code>@name-device</code> handle.</li>
+<li class=""><code>host.ensureAgent(connectionId, profile)</code> — activate an agent&#x27;s gateway so
+subsequent <code>host.request</code> calls hit its backend.</li>
+<li class=""><code>host.warmAgent(connectionId, profile)</code> — fire-and-forget socket pre-warm
+(hover-intent).</li>
+</ul>
+<p>All four are feature-detected: on an older Desktop build they&#x27;re absent and a
+plugin should fall back to the single-gateway <code>profiles.list</code> flow. Bot Mode&#x27;s
+multi-gateway roster is the reference consumer.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Troubleshooting的直接链接" title="Troubleshooting的直接链接" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>&quot;Connection test failed&quot;</strong> — the backend isn&#x27;t reachable at that URL from
+this machine. Check that <code>haishui serve</code> is running on the remote host, the
+port is open, and (for token auth) the token is current. Re-run <strong>Test</strong>
+after fixing.</li>
+<li class=""><strong>An agent shows but won&#x27;t open</strong> — run <strong>Test</strong> on its connection. The
+WebSocket leg failing while HTTP passes usually means a proxy, firewall, or
+gateway auth/origin guard is blocking <code>/api/ws</code>.</li>
+<li class=""><strong>A remote gateway is missing from the roster</strong> — its backend is down or
+unreachable; the roster lists it under gateways with the error. SSH connections
+show <em>connect-on-demand</em> until first use — that&#x27;s by design, not a failure.</li>
+<li class=""><strong>&quot;Update Haishui Desktop to chat with agents on other connections&quot;</strong> — the
+app predates the multi-connection stack; update the desktop app itself.</li>
+<li class=""><strong>Duplicate device names</strong> — not possible; names are enforced unique at
+save time. If a migrated name collided, it was suffixed (<code>Homelab 2</code>).</li>
+<li class=""><strong>&quot;Could not save the connection&quot;</strong> — most commonly a missing <strong>Name</strong>, a
+name already in use, or a malformed <strong>Gateway URL</strong> / <strong>SSH host</strong>; the
+error message names the exact violation.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/aiqinghaiwork163/haishui-agent/edit/main/website/docs/user-guide/multi-connection-desktop.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/haishui-agent/docs/zh-Hans/user-guide/multi-profile-gateways"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Running Many Gateways at Once</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/haishui-agent/docs/zh-Hans/user-guide/git-worktrees"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Git Worktrees</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#where-to-find-it" class="table-of-contents__link toc-highlight">Where to find it</a></li><li><a href="#the-gateway-registry" class="table-of-contents__link toc-highlight">The gateway registry</a></li><li><a href="#organizing-session-groups" class="table-of-contents__link toc-highlight">Organizing session groups</a></li><li><a href="#adding-a-connection-step-by-step" class="table-of-contents__link toc-highlight">Adding a connection, step by step</a><ul><li><a href="#migrating-from-the-single-connection-settings" class="table-of-contents__link toc-highlight">Migrating from the single-connection settings</a></li></ul></li><li><a href="#agents-across-gateways" class="table-of-contents__link toc-highlight">Agents across gateways</a><ul><li><a href="#switching-and-scoping" class="table-of-contents__link toc-highlight">Switching and scoping</a></li><li><a href="#sessions-and-bot-mode" class="table-of-contents__link toc-highlight">Sessions and Bot Mode</a></li></ul></li><li><a href="#updating-every-instance-at-once" class="table-of-contents__link toc-highlight">Updating every instance at once</a></li><li><a href="#security-notes" class="table-of-contents__link toc-highlight">Security notes</a></li><li><a href="#for-plugin-authors" class="table-of-contents__link toc-highlight">For plugin authors</a></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/getting-started/quickstart">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/user-guide/cli">User Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/developer-guide/architecture">Developer Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/reference/cli-commands">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/aiqinghaiwork163/haishui-agent/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub Issues<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://agentskills.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">Skills Hub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://aiqinghaiwork163.github.io/haishui-agent/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Desktop Download<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/aiqinghaiwork163/haishui-agent" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Haishui Agent · MIT License · 2026</div></div></div></footer></div>
+</body>
+</html>

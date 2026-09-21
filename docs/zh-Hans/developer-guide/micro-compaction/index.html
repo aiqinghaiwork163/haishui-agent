@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-developer-guide/micro-compaction" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">Micro-compaction | Haishui Agent</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/img/haishui-agent-banner.png"><meta data-rh="true" name="twitter:image" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/img/haishui-agent-banner.png"><meta data-rh="true" property="og:url" content="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/developer-guide/micro-compaction"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Micro-compaction | Haishui Agent"><meta data-rh="true" name="description" content="How micro-compaction amortizes context compression cost: triggers, tail sizing, the cached-prefix trade-off"><meta data-rh="true" property="og:description" content="How micro-compaction amortizes context compression cost: triggers, tail sizing, the cached-prefix trade-off"><link data-rh="true" rel="icon" href="/haishui-agent/docs/zh-Hans/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/developer-guide/micro-compaction"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/micro-compaction" hreflang="en"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/developer-guide/micro-compaction" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/micro-compaction" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://2JLBVEYZN5-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Micro-compaction","item":"https://aiqinghaiwork163.github.io/haishui-agent/docs/zh-Hans/developer-guide/micro-compaction"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Haishui Agent" href="/haishui-agent/docs/zh-Hans/opensearch.xml"><link rel="stylesheet" href="/haishui-agent/docs/zh-Hans/assets/css/styles.3e972d5e.css">
+<script src="/haishui-agent/docs/zh-Hans/assets/js/runtime~main.6ab0d6e6.js" defer="defer"></script>
+<script src="/haishui-agent/docs/zh-Hans/assets/js/main.4b5fef0d.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/haishui-agent/docs/zh-Hans/img/logo.png"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/haishui-agent/docs/zh-Hans/"><div class="navbar__logo"><img src="/haishui-agent/docs/zh-Hans/img/logo.png" alt="Haishui Agent" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/haishui-agent/docs/zh-Hans/img/logo.png" alt="Haishui Agent" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Haishui Agent</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/haishui-agent/docs/zh-Hans/user-stories">Docs</a><a class="navbar__item navbar__link" href="/haishui-agent/docs/zh-Hans/skills">Skills</a><a class="navbar__item navbar__link" href="/haishui-agent/docs/zh-Hans/plugins">Plugins</a><a href="https://aiqinghaiwork163.github.io/haishui-agent/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Download<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/haishui-agent/docs/developer-guide/micro-compaction" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/haishui-agent/docs/zh-Hans/developer-guide/micro-compaction" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh-Hans">简体中文</a></li></ul></div><a href="https://aiqinghaiwork163.github.io/haishui-agent" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Home<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/aiqinghaiwork163/haishui-agent" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="搜索 (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">搜索</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/haishui-agent/docs/zh-Hans/user-stories"><span class="linkLabel_WmDU">用户故事与使用案例</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/getting-started/quickstart"><span class="categoryLinkLabel_W154">Getting Started</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/user-guide/cli"><span class="categoryLinkLabel_W154">Using Haishui</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/user-guide/features/overview"><span class="categoryLinkLabel_W154">Features</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/user-guide/messaging/"><span class="categoryLinkLabel_W154">Messaging Platforms</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/integrations/"><span class="categoryLinkLabel_W154">Integrations</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/guides/run-nemotron-3-ultra-free"><span class="categoryLinkLabel_W154">Guides &amp; Tutorials</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/haishui-agent/docs/zh-Hans/developer-guide/contributing"><span class="categoryLinkLabel_W154">Developer Guide</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/contributing"><span class="linkLabel_WmDU">贡献指南</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/worktree-ui-dev"><span class="linkLabel_WmDU">TUI &amp; Desktop from Worktrees</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/architecture"><span class="categoryLinkLabel_W154">Architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/architecture"><span class="linkLabel_WmDU">架构</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/codebase-ownership"><span class="linkLabel_WmDU">Codebase Ownership Map</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/agent-loop"><span class="linkLabel_WmDU">Agent Loop 内部机制</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/prompt-assembly"><span class="linkLabel_WmDU">Prompt 组装</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/context-compression-and-caching"><span class="linkLabel_WmDU">上下文压缩与缓存</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/micro-compaction"><span class="linkLabel_WmDU">Micro-compaction</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/gateway-internals"><span class="linkLabel_WmDU">Gateway 内部机制</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/gateway-session-lifecycle"><span class="linkLabel_WmDU">Gateway Session Lifecycle</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/multiplexing-gateway"><span class="linkLabel_WmDU">Multiplexing Gateway Internals</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/completion-backlog-delivery"><span class="linkLabel_WmDU">Completion backlogs</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/session-storage"><span class="linkLabel_WmDU">会话存储</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/state-db-recovery"><span class="linkLabel_WmDU">State DB Recovery</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/provider-runtime"><span class="linkLabel_WmDU">Provider 运行时解析</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/programmatic-integration"><span class="linkLabel_WmDU">程序化集成</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/adding-tools"><span class="categoryLinkLabel_W154">Extending</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/haishui-agent/docs/zh-Hans/developer-guide/tools-runtime"><span class="categoryLinkLabel_W154">Internals</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/haishui-agent/docs/zh-Hans/reference/cli-commands"><span class="categoryLinkLabel_W154">Reference</span></a></div></li></ul></nav><button type="button" title="收起侧边栏" aria-label="收起侧边栏" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/haishui-agent/docs/zh-Hans/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Developer Guide</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Architecture</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Micro-compaction</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Micro-compaction</h1></header>
+<p><strong>A way to amortize the cost of compression.</strong></p>
+<p>Long conversations eventually outgrow the model&#x27;s context window, and something
+has to be thrown away or summarized. Haishui has always done this in one batch:
+when the transcript crosses a threshold, the session stops, a large chunk of the
+middle is summarized in a single call, and the conversation resumes. That works,
+but the whole bill comes due at once — one visible pause, one big summarization
+request, at whatever moment you happened to cross the line.</p>
+<p>Micro-compaction pays the same bill in instalments. After each completed turn,
+Haishui folds the single oldest un-absorbed exchange into a running summary. The
+work is the same work; it just happens continuously, a piece at a time, instead
+of all at once in the middle of your session.</p>
+<p>It is not free and it is not a magic bullet, and it is <strong>off by default</strong> —
+<code>compression.micro_compact: true</code> turns it on. Each pass is a real call to the
+compression model, and it runs at the end of a turn — your answer has already
+streamed, but the turn does not close until the pass finishes. Each pass also
+rewrites already-sent history, which breaks the provider prompt-cache prefix
+every turn; read <a href="#prompt-caching--the-cost-you-are-opting-into" class="">Prompt caching</a>
+before enabling it, because for some setups that cost exceeds the benefit.</p>
+<p>What the feature gives you is a <strong>tuning option</strong>: you choose how the
+compression cost is distributed, and which model pays it. See
+<a href="#choosing-a-compression-model" class="">Choosing a compression model</a>, because that
+choice matters more than anything else here.</p>
+<p><strong>The tradeoff is that knowledge gets a little earlier than you may be used to.</strong>
+Because compaction is always running, older parts of the conversation become
+summaries sooner than they would under batch compaction — which leaves
+everything verbatim until the window actually fills. Detail from earlier in the
+session turns second-hand faster. You trade some of that fidelity for never
+eating one long stall, and for a context window that stays consistently smaller
+rather than sawtoothing up to the threshold and back.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-it-does">What it does<a href="#what-it-does" class="hash-link" aria-label="What it does的直接链接" title="What it does的直接链接" translate="no">​</a></h2>
+<p>After every turn that finishes normally, <code>finalize_turn</code> asks the context
+compressor to absorb <strong>one</strong> exchange:</p>
+<ol>
+<li class="">Find the oldest exchange that hasn&#x27;t been summarized yet.</li>
+<li class="">Send just that exchange, plus the current running summary, to the auxiliary
+summarization model.</li>
+<li class="">Replace those messages in the transcript with a single summary marker
+carrying the updated running summary.</li>
+</ol>
+<p>One exchange per turn. The per-turn cost stays bounded no matter how long the
+conversation gets.</p>
+<p>An <strong>exchange</strong> is one full agent turn: an assistant message together with its
+tool results and any follow-up assistant iterations, up to the next user
+message. In tool-heavy work that&#x27;s where the bulk of the tokens live — a
+file read or a command&#x27;s output dwarfs the surrounding prose — which is why
+absorbing one exchange at a time is worth doing at all. Taking the whole turn
+(rather than a single assistant+tools group) also keeps the transcript&#x27;s role
+alternation strictly valid: the summary marker is an assistant-role message,
+and a full turn is always bounded by user messages on both sides.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="your-messages-are-never-compacted">Your messages are never compacted<a href="#your-messages-are-never-compacted" class="hash-link" aria-label="Your messages are never compacted的直接链接" title="Your messages are never compacted的直接链接" translate="no">​</a></h2>
+<p>An exchange deliberately starts at the <em>assistant</em> message. Micro-compaction
+walks straight past user messages to get there, so <strong>what you typed is never
+summarized</strong> — your prompts stay verbatim for the entire session, no matter how
+long it runs or how many times compaction fires.</p>
+<p>This is the most useful property of the whole design, and it&#x27;s worth being
+explicit about why. What the assistant produces is largely an account of what it
+did: it read this file, it ran that command, it got this result. That kind of
+narration survives summarising with very little loss — &quot;it did it this way&quot; is
+about as informative compressed as it was in full. Your instructions are a
+different kind of thing. They&#x27;re the intent everything else is derived from, and
+they cannot be reconstructed from the work that followed. Paraphrasing &quot;use the
+existing retry helper, don&#x27;t add a new one&quot; into a summary is exactly how an
+agent ends up confidently doing the thing you told it not to, six turns later.</p>
+<p>So the asymmetry is on purpose: compact the derived material, keep the source of
+truth. The cost is a floor on how small the middle can get, since user turns
+accumulate and are never absorbed. In practice that floor is low — a prompt is
+normally a tiny fraction of what a single tool result costs — but it is a real
+floor. If you routinely paste 10–20K-token prompts, that weight stays in context
+by design.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-it-never-touches">What it never touches<a href="#what-it-never-touches" class="hash-link" aria-label="What it never touches的直接链接" title="What it never touches的直接链接" translate="no">​</a></h2>
+<p>Two more regions are protected and stay verbatim:</p>
+<ul>
+<li class=""><strong>The head</strong> — the system prompt and the opening messages, so the session&#x27;s
+founding instructions are never paraphrased.</li>
+<li class=""><strong>The tail</strong> — a token-budgeted window of the most recent messages, so
+everything that&#x27;s immediately relevant is still there in full.</li>
+</ul>
+<p>Micro-compaction only ever works in the middle, between those two.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-it-works">How it works<a href="#how-it-works" class="hash-link" aria-label="How it works的直接链接" title="How it works的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-cursor">The cursor<a href="#the-cursor" class="hash-link" aria-label="The cursor的直接链接" title="The cursor的直接链接" translate="no">​</a></h3>
+<p>The compressor keeps a cursor: the index of the first message not yet absorbed.
+Each successful pass advances it past the exchange it just summarized.</p>
+<p>If that in-memory cursor is missing or out of range — a fresh process, a resumed
+session — it&#x27;s recovered by scanning the transcript for the last summary marker
+and resuming just after it. The transcript itself is the source of truth, so
+resuming a session doesn&#x27;t re-summarize work already done.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-rolling-summary">The rolling summary<a href="#the-rolling-summary" class="hash-link" aria-label="The rolling summary的直接链接" title="The rolling summary的直接链接" translate="no">​</a></h3>
+<p>Rather than keeping a pile of per-exchange summaries, there is exactly one
+running summary that each new exchange is merged into. The summarizer is asked
+to fold in the new material&#x27;s decisions, requirements, file paths and open
+questions, drop details that are no longer relevant, and preserve the existing
+structure. It&#x27;s also explicitly instructed to replace any credentials it
+encounters with <code>[REDACTED]</code>.</p>
+<p>Because that summary is cumulative, only the newest marker is kept in the
+transcript. Earlier markers are strictly redundant — the current summary already
+contains everything they held — so they&#x27;re dropped as they&#x27;re superseded. This
+matters more than it sounds: leaving them in place stacks near-duplicate copies
+of the same text, each with its own heading and end-marker scaffolding, and the
+transcript grows on every turn instead of shrinking.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="defrag">Defrag<a href="#defrag" class="hash-link" aria-label="Defrag的直接链接" title="Defrag的直接链接" translate="no">​</a></h3>
+<p>Merge into a summary often enough and it gets baggy — repetitive, and larger
+than the material justifies. When the running summary crosses a token threshold
+(2000 by default), the next pass <strong>defrags</strong>: one auxiliary call re-summarizes
+the running summary <em>itself</em> into a fresh compact version, and the summary
+marker in the transcript is rewritten in place.</p>
+<p>Defrag never touches the transcript&#x27;s structure — no messages are absorbed or
+spliced, the cursor doesn&#x27;t move, and user turns are untouched. It processes
+only the accumulated summary text, never conversation messages, so the
+&quot;your messages are never compacted&quot; guarantee holds through it.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="staying-in-step-with-the-session-database">Staying in step with the session database<a href="#staying-in-step-with-the-session-database" class="hash-link" aria-label="Staying in step with the session database的直接链接" title="Staying in step with the session database的直接链接" translate="no">​</a></h3>
+<p>The in-memory splice alone isn&#x27;t enough. Haishui&#x27;s normal session flush is
+append-only, so the original rows would stay marked active and a resume would
+load <em>both</em> the summary and the messages it replaced — putting the session
+straight over the context limit.</p>
+<p>So each pass also calls <code>archive_and_compact</code>, which atomically soft-archives the
+active rows and inserts the compacted set. The messages are then stamped as
+already-persisted so the append-only flush that follows skips them. If that
+database step fails, it&#x27;s logged and the session continues; the resume would
+double-load until the next batch compression cleans up.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="when-the-summarizer-fails">When the summarizer fails<a href="#when-the-summarizer-fails" class="hash-link" aria-label="When the summarizer fails的直接链接" title="When the summarizer fails的直接链接" translate="no">​</a></h3>
+<p>A summarization call can fail — the auxiliary model is unreachable, out of quota,
+or the exchange itself is somehow unsummarizable. The transcript is left
+untouched and the failure is counted.</p>
+<p>If the <em>same</em> exchange fails three times in a row, the cursor is advanced past it
+anyway. Without that, one bad exchange would be retried on every single turn
+forever. Those skipped messages stay in the transcript and get picked up by the
+next batch compaction.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="interaction-with-batch-compaction">Interaction with batch compaction<a href="#interaction-with-batch-compaction" class="hash-link" aria-label="Interaction with batch compaction的直接链接" title="Interaction with batch compaction的直接链接" translate="no">​</a></h2>
+<p>Micro-compaction doesn&#x27;t replace batch compaction — it defers it. Threshold-based
+compaction is still there and still fires if the window fills anyway, and its
+summary markers are the same format, so the two interoperate. In practice
+micro-compaction keeps the transcript far enough below the threshold that the
+batch path fires much less often.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="configuration">Configuration<a href="#configuration" class="hash-link" aria-label="Configuration的直接链接" title="Configuration的直接链接" translate="no">​</a></h2>
+<p>Micro-compaction is <strong>off by default</strong>. Turn it on explicitly:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token key atrule">compression</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token key atrule">micro_compact</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token boolean important">true</span><span class="token plain">             </span><span class="token comment" style="color:rgb(98, 114, 164)"># default: false</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token key atrule">micro_compact_every_n_turns</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token number">1</span><span class="token plain">  </span><span class="token comment" style="color:rgb(98, 114, 164)"># cadence — how often a pass runs</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token key atrule">micro_compact_defrag_threshold_tokens</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> </span><span class="token number">2000</span><br></div></code></pre></div></div>
+<p>With <code>micro_compact</code> unset or <code>false</code> Haishui behaves exactly as it always has:
+batch-only compaction. Everything else about compression is unchanged.</p>
+<p><code>micro_compact_every_n_turns</code> is the knob that matters most after the on/off
+switch, because it sets how often you pay the cache break described below. At
+<code>1</code> a pass runs after every completed turn: the most aggressive reclaim, and
+one broken prefix per turn. At <code>5</code> you get a fifth of the breaks and a fifth of
+the reclaim rate, which is the right direction if your sessions are long-lived
+and your provider&#x27;s cache discount is deep. Values below <code>1</code> are clamped to <code>1</code>
+rather than silently disabling the feature. The counter advances per turn, not
+per committed pass, so a turn with nothing to absorb still moves the cadence
+along and cannot wedge it.</p>
+<p><code>micro_compact_defrag_threshold_tokens</code> is when the rolling summary gets
+re-summarized instead of growing forever — see <a href="#defrag" class="">Defrag</a>.</p>
+<p>It ships opt-in rather than on because of the prompt-cache cost described in
+the next section — that cost is real, it is not universally worth paying, and
+it should be a decision you make rather than one you inherit.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="prompt-caching--the-cost-you-are-opting-into">Prompt caching — the cost you are opting into<a href="#prompt-caching--the-cost-you-are-opting-into" class="hash-link" aria-label="Prompt caching — the cost you are opting into的直接链接" title="Prompt caching — the cost you are opting into的直接链接" translate="no">​</a></h2>
+<p>Read this before enabling the feature. It is the strongest argument against it.</p>
+<p>A long-lived conversation reuses a cached prompt prefix every turn, and cached
+input tokens are billed at a fraction of uncached ones. That discount survives
+only as long as the prefix does not change. <strong>A micro-compaction pass rewrites
+already-sent history</strong>, which invalidates the prefix from the rewrite point
+onward — so with micro-compaction on, you break the cache <em>every turn</em> instead
+of once per batch compaction.</p>
+<p>This is the same cost the proactive prune deliberately avoids. That path gates
+itself behind <code>compression.proactive_prune_min_reclaim_tokens</code> (4096 by
+default) precisely so its rewrites stay, in the words of the config comment,
+&quot;one big episodic break instead of a tiny break every tool iteration.&quot;</p>
+<p>Micro-compaction has no equivalent <em>reclaim-size</em> gate — a pass commits
+whatever the one absorbed exchange happened to save, large or small. What it
+has instead is a <em>frequency</em> dial, <code>micro_compact_every_n_turns</code>. Raising it
+makes the breaks rarer and more episodic, which is the same end the prune&#x27;s
+gate serves by a different route, though it gets there by absorbing less rather
+than by waiting for a bigger win. If you want the prune&#x27;s exact semantics here,
+a reclaim threshold on micro-compaction is the obvious follow-up and does not
+exist yet.</p>
+<p>So the honest framing is a trade of one cost for another, not a saving:</p>
+<table><thead><tr><th></th><th>Batch-only (default)</th><th>Micro-compaction on</th></tr></thead><tbody><tr><td>Compression stalls</td><td>One long stall at the threshold</td><td>Spread across turns</td></tr><tr><td>Context occupancy</td><td>Sawtooths up to the threshold</td><td>Stays low and flat</td></tr><tr><td>Cache prefix</td><td>Intact between compactions</td><td>Broken every turn</td></tr></tbody></table>
+<p>Which side wins depends on numbers specific to you: how much your provider
+discounts cached input, how large your prefix is, how long your sessions run,
+and how much a mid-session stall actually costs you. On a provider with a deep
+cache discount and a big prefix, the per-turn invalidation can plausibly cost
+more than the stall it removes. Measure your own sessions — see
+<a href="#measuring-it" class="">Measuring it</a> — rather than assuming.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="choosing-a-compression-model">Choosing a compression model<a href="#choosing-a-compression-model" class="hash-link" aria-label="Choosing a compression model的直接链接" title="Choosing a compression model的直接链接" translate="no">​</a></h2>
+<p>Micro-compaction uses the <code>auxiliary.compression</code> model:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token key atrule">auxiliary</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token key atrule">compression</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token key atrule">provider</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> openai</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">api</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token key atrule">model</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> &lt;your choice</span><span class="token punctuation" style="color:rgb(248, 248, 242)">&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token key atrule">base_url</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> &lt;endpoint</span><span class="token punctuation" style="color:rgb(248, 248, 242)">&gt;</span><br></div></code></pre></div></div>
+<p>This is the single most important knob, and there is no universally right
+answer — it depends on your hardware and what you are willing to trade.</p>
+<p>Each pass sends the running summary plus one exchange, so the prompt is small
+(a few thousand tokens) but the call happens <strong>every turn</strong>, at the end of the
+turn. Two properties matter:</p>
+<ul>
+<li class=""><strong>Latency dominates.</strong> Because a pass runs per turn, its wall-clock cost is
+felt repeatedly. A model that takes 30 seconds turns every turn into a turn
+plus 30 seconds.</li>
+<li class=""><strong>Reasoning models are a poor fit.</strong> Merging one exchange into a summary is
+mechanical work. A thinking model will spend reasoning tokens on it and be
+substantially slower than a plain instruct model of similar size, for no
+benefit to the output.</li>
+</ul>
+<p>Some measured points, on one particular setup — treat them as illustrations of
+the shape, not as recommendations:</p>
+<table><thead><tr><th>model</th><th>observed</th></tr></thead><tbody><tr><td>7B 4-bit instruct, local (MLX, Apple Silicon)</td><td>~31s per pass; box also serving other work</td></tr><tr><td>large MoE reasoning model, remote GPU</td><td>noticeably slower still — thinking tokens on a summarisation task</td></tr></tbody></table>
+<p>The pattern is that a small, fast, non-reasoning instruct model is usually the
+right shape, and that a bigger or &quot;smarter&quot; model is often worse here rather
+than better. Where that lands for you depends on what you have to run it on.</p>
+<p>If passes feel too slow, your options in rough order of effect are: pick a
+faster or smaller compression model; give it a less contended host; or turn
+micro-compaction off and go back to batch compaction.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="measuring-it">Measuring it<a href="#measuring-it" class="hash-link" aria-label="Measuring it的直接链接" title="Measuring it的直接链接" translate="no">​</a></h2>
+<p>Micro-compaction is not primarily a token-saving or time-saving optimisation,
+and judging it on tokens saved will undersell it. The two things it actually
+buys you are:</p>
+<ol>
+<li class=""><strong>The long pause is amortized.</strong> The same summarization work happens, but as
+small increments after turns instead of one stall in the middle of a session.</li>
+<li class=""><strong>Your context lasts longer.</strong> Because the middle is continuously reclaimed,
+occupancy stays low instead of sawtoothing up to the threshold. A session
+runs much further — often indefinitely — before it needs a hard compaction
+at all.</li>
+</ol>
+<p>So the number that matters is <strong>occupancy</strong>: how full the window is being kept,
+as a percentage of the compaction threshold. A session that holds steady around
+40% has headroom to keep going; one climbing through 90% is about to stall. The
+second number is <strong>how many batch compactions actually fired</strong> — ideally none.</p>
+<p>A session can save nothing on paper and still be a clear win on both counts.</p>
+<p>Every pass emits one content-free JSON line, in the same style as the batch
+compaction telemetry:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">micro compaction telemetry: {&quot;event&quot;:&quot;micro_compaction&quot;,&quot;outcome&quot;:&quot;absorbed&quot;,</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">&quot;tokens_before&quot;:12739,&quot;tokens_after&quot;:12060,&quot;tokens_delta&quot;:-679,</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">&quot;occupancy_pct&quot;:38.4,&quot;threshold_tokens&quot;:34816,&quot;context_limit&quot;:40960,</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">&quot;exchange_tokens&quot;:868,&quot;rolling_summary_tokens&quot;:31,&quot;passes_total&quot;:1,</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">&quot;tokens_saved_total&quot;:679,&quot;duration_ms&quot;:14,...}</span><br></div></code></pre></div></div>
+<p><code>occupancy_pct</code> is <code>tokens_after</code> as a share of the compaction threshold -- the
+headroom figure. It is null when the model&#x27;s window has not been resolved yet:
+the telemetry reads only the cached value, because resolving it can issue a
+synchronous <code>/models</code> probe and telemetry must never be what blocks a turn.</p>
+<p><code>tokens_delta</code> is negative when the pass shrank the transcript.
+<code>tokens_saved_total</code> and <code>passes_total</code> accumulate across the session, so a whole
+run can be summarised from its last line. No transcript content appears in the
+payload — only counts.</p>
+<p>To turn a log into an answer:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">python scripts/micro_compaction_report.py [--per-session] [LOGFILE ...]</span><br></div></code></pre></div></div>
+<p>Defaults to <code>$HAISHUI_HOME/logs/agent.log</code>. It reports passes, outcome mix, net
+tokens saved, mean absorbed-exchange size and pass durations.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-it-looks-like-when-it-is-working">What it looks like when it is working<a href="#what-it-looks-like-when-it-is-working" class="hash-link" aria-label="What it looks like when it is working的直接链接" title="What it looks like when it is working的直接链接" translate="no">​</a></h3>
+<p>One real session — a 3.5 hour whole-project code review, ~75K tokens of
+transcript, 400K window, compaction threshold at 320K:</p>
+<table><thead><tr><th>pass</th><th>messages</th><th>tokens</th><th>delta</th><th>occupancy</th><th>duration</th></tr></thead><tbody><tr><td>1</td><td>40 -&gt; 39</td><td>27,479 -&gt; 27,778</td><td>+299</td><td>8.7%</td><td>2.2s</td></tr><tr><td>2</td><td>61 -&gt; 59</td><td>48,676 -&gt; 48,128</td><td>-548</td><td>15.0%</td><td>4.5s</td></tr><tr><td>3</td><td>70 -&gt; 67</td><td>58,309 -&gt; 55,915</td><td>-2,394</td><td>17.5%</td><td>9.1s</td></tr><tr><td>4</td><td>84 -&gt; 80</td><td>75,251 -&gt; 69,818</td><td>-5,433</td><td>21.8%</td><td>36.2s</td></tr><tr><td>5</td><td>84 -&gt; 80</td><td>74,659 -&gt; 70,264</td><td>-4,395</td><td>22.0%</td><td>31.2s</td></tr></tbody></table>
+<p>Three things to read off it.</p>
+<p><strong>Occupancy flattened.</strong> It climbed to about 22% and stopped. The last two
+passes are identical (84 -&gt; 80 messages); between them the conversation added
+4,841 tokens and micro-compaction reclaimed 4,395. That is equilibrium: the
+window holds steady instead of marching toward the threshold.</p>
+<p><strong>No batch compaction fired.</strong> Across the whole session the long pause never
+happened.</p>
+<p><strong>Reclamation only ramps after the tail budget.</strong> The first passes recovered
+almost nothing, because below the tail budget (here 64,000 tokens, 16% of the
+window) nearly the whole transcript is protected tail and there is very little
+that may be touched. Early sessions legitimately show no passes at all.</p>
+<p>And the cost, stated plainly: passes ran 2 to 37 seconds, median around 31, on
+a small local model that was also serving other work. Roughly two minutes of
+summarisation spread across three and a half hours. Against one batch
+compaction of a 75K-token middle that is still the better trade, but a
+37-second increment is not a rounding error. See
+<a href="#choosing-a-compression-model" class="">Choosing a compression model</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-the-numbers-honestly">Reading the numbers honestly<a href="#reading-the-numbers-honestly" class="hash-link" aria-label="Reading the numbers honestly的直接链接" title="Reading the numbers honestly的直接链接" translate="no">​</a></h3>
+<p><strong>The first pass in a session usually costs tokens rather than saving them.</strong>
+Inserting the summary marker carries a fixed ~400 tokens of scaffolding — the
+compaction preamble, the historical heading, the end marker — and on pass one
+that is paid against a single absorbed exchange. A first pass showing
+<code>tokens_delta: +330</code> is not a malfunction.</p>
+<p>From the second pass on, the marker is <em>replaced</em> rather than added, so the
+scaffolding is already paid for and each absorbed exchange is close to pure
+saving. The break-even is normally the second or third pass. This is why the
+per-session view matters more than any single line: judge the feature on a
+session&#x27;s trajectory, not on one turn.</p>
+<p>The plainer human-readable lines are still there too:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">Micro-compaction: 37 -&gt; 36 messages</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">Micro-compaction defrag: rolling summary re-summarized (1843 chars)</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">Micro-compaction: skipping exchange at cursor 12 after 3 consecutive failures</span><br></div></code></pre></div></div>
+<p>Message counts move by small amounts — that&#x27;s expected. The token count is where
+the effect shows: absorbing one tool-heavy exchange can drop hundreds of tokens
+while changing the message count by one or two.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="failure-behaviour">Failure behaviour<a href="#failure-behaviour" class="hash-link" aria-label="Failure behaviour的直接链接" title="Failure behaviour的直接链接" translate="no">​</a></h2>
+<p>Micro-compaction is best-effort throughout. The call in <code>finalize_turn</code> is wrapped
+so that any exception is logged and swallowed — a failure returns the conversation
+unchanged and the turn completes normally. It can degrade, but it shouldn&#x27;t be
+able to break a session.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/aiqinghaiwork163/haishui-agent/edit/main/website/docs/developer-guide/micro-compaction.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/haishui-agent/docs/zh-Hans/developer-guide/context-compression-and-caching"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">上下文压缩与缓存</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/haishui-agent/docs/zh-Hans/developer-guide/gateway-internals"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Gateway 内部机制</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-it-does" class="table-of-contents__link toc-highlight">What it does</a></li><li><a href="#your-messages-are-never-compacted" class="table-of-contents__link toc-highlight">Your messages are never compacted</a></li><li><a href="#what-it-never-touches" class="table-of-contents__link toc-highlight">What it never touches</a></li><li><a href="#how-it-works" class="table-of-contents__link toc-highlight">How it works</a><ul><li><a href="#the-cursor" class="table-of-contents__link toc-highlight">The cursor</a></li><li><a href="#the-rolling-summary" class="table-of-contents__link toc-highlight">The rolling summary</a></li><li><a href="#defrag" class="table-of-contents__link toc-highlight">Defrag</a></li><li><a href="#staying-in-step-with-the-session-database" class="table-of-contents__link toc-highlight">Staying in step with the session database</a></li><li><a href="#when-the-summarizer-fails" class="table-of-contents__link toc-highlight">When the summarizer fails</a></li></ul></li><li><a href="#interaction-with-batch-compaction" class="table-of-contents__link toc-highlight">Interaction with batch compaction</a></li><li><a href="#configuration" class="table-of-contents__link toc-highlight">Configuration</a></li><li><a href="#prompt-caching--the-cost-you-are-opting-into" class="table-of-contents__link toc-highlight">Prompt caching — the cost you are opting into</a></li><li><a href="#choosing-a-compression-model" class="table-of-contents__link toc-highlight">Choosing a compression model</a></li><li><a href="#measuring-it" class="table-of-contents__link toc-highlight">Measuring it</a><ul><li><a href="#what-it-looks-like-when-it-is-working" class="table-of-contents__link toc-highlight">What it looks like when it is working</a></li><li><a href="#reading-the-numbers-honestly" class="table-of-contents__link toc-highlight">Reading the numbers honestly</a></li></ul></li><li><a href="#failure-behaviour" class="table-of-contents__link toc-highlight">Failure behaviour</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/getting-started/quickstart">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/user-guide/cli">User Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/developer-guide/architecture">Developer Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/haishui-agent/docs/zh-Hans/reference/cli-commands">Reference</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/aiqinghaiwork163/haishui-agent/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub Issues<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://agentskills.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">Skills Hub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://aiqinghaiwork163.github.io/haishui-agent/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Desktop Download<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/aiqinghaiwork163/haishui-agent" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Haishui Agent · MIT License · 2026</div></div></div></footer></div>
+</body>
+</html>

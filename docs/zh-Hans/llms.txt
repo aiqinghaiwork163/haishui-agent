@@ -1,0 +1,268 @@
+# Haishui Agent
+
+> The self-improving AI agent built by Nous Research. A terminal-native autonomous coding and task agent with persistent memory, agent-created skills, and a messaging gateway that lives on 21+ messaging platforms — 19 native to the gateway plus IRC and Microsoft Teams via plugins (Telegram, Discord, Slack, SMS, Matrix, ...). Runs on local, Docker, SSH, Daytona, Modal, or Singularity backends. Works with Nous Portal, OpenRouter, OpenAI, Anthropic, Google, or any OpenAI-compatible endpoint.
+
+Install: `curl -fsSL https://raw.githubusercontent.com/aiqinghaiwork163/haishui-agent/main/scripts/install.sh | bash`  (Linux, macOS, WSL2, Termux)
+
+Repo: https://github.com/aiqinghaiwork163/haishui-agent
+
+## Getting Started
+
+- [Installation](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/installation): Install Haishui Agent on Linux, macOS, WSL2, native Windows, or Android via Termux
+- [Quickstart](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/quickstart): Your first conversation with Haishui Agent — from install to chatting in under 5 minutes
+- [Learning Path](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/learning-path): Choose your learning path through the Haishui Agent documentation based on your experience level and goals.
+- [Updating](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/updating): How to update Haishui Agent to the latest version or uninstall it
+- [Termux (Android)](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/termux): Run Haishui Agent directly on an Android phone with Termux
+- [Nix Setup](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/nix-setup): Install and deploy Haishui Agent with Nix — from quick `nix run` to fully declarative NixOS module with container mode
+- [Platform Support](https://aiqinghaiwork163.github.io/haishui-agent/docs/getting-started/platform-support): Which operating systems, distribution methods, and features Haishui Agent supports.
+
+## Using Haishui
+
+- [CLI](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/cli): Master the Haishui Agent terminal interface — commands, keybindings, personalities, and more
+- [TUI (Ink terminal UI)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/tui): Launch the modern terminal UI for Haishui — mouse-friendly, rich overlays, and non-blocking input.
+- [Configuration](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/configuration): Configure Haishui Agent — config.yaml, providers, models, API keys, and more
+- [Configuring Models](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/configuring-models)
+- [Sessions](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/sessions): Session persistence, resume, search, management, and per-platform session tracking
+- [Profiles](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/profiles)
+- [Git Worktrees](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/git-worktrees): Run multiple Haishui agents safely on the same repository using git worktrees and isolated checkouts
+- [Docker Backend](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/docker): Running Haishui Agent in Docker and using Docker as a terminal backend
+- [Security](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/security): Security model, dangerous command approval, user authorization, container isolation, and production deployment best practices
+- [Checkpoints & Rollback](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/checkpoints-and-rollback): Filesystem safety nets for destructive operations using shadow git repos and automatic snapshots
+- [Bot Mode](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/bot-mode): Turn your Haishui profiles into a roster of named Bots — each with its own chat, role, model, memory, skills, and avatar. Bots run routines, share group chats, and message each other.
+- [Haishui Desktop](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/desktop): The native Haishui desktop app — a polished experience for chatting with Haishui, with streaming tool output, side-by-side previews, a file browser, voice, cron, profiles, skills, and settings. macOS, Windows, and Linux.
+- [Egress proxy](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/egress)
+- [Egress credential-injection proxy (iron-proxy)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/egress/iron-proxy)
+- [Network Egress Isolation (Docker)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/egress/network-isolation): Segment Docker networks so the agent sandbox can only reach allowlisted hosts
+- [Import from Other Agents](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/import-from-other-agents): One-command import of a Claude Code (~/.claude) or OpenAI Codex CLI (~/.codex) setup into Haishui — instructions, allowlists, MCP servers, skills, and memories.
+- [Local Models](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/local-models): Run models entirely on your own machine — no account, no API key, nothing leaves your computer.
+- [Managed Scope](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/managed-scope): Administrator-pinned, user-immutable config and secrets via a system-level managed directory
+- [Connecting Desktop to Many Haishui Instances](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/multi-connection-desktop)
+- [Running Many Gateways at Once](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/multi-profile-gateways)
+- [Profile Distributions: Share a Whole Agent](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/profile-distributions)
+- [Secrets](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/secrets)
+- [Bitwarden Secrets Manager](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/secrets/bitwarden)
+- [Command Helper Secret Source](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/secrets/command)
+- [1Password](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/secrets/onepassword)
+- [Google Workspace — Gmail, Calendar, Drive, Sheets & Docs](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/skills/google-workspace): Send email, manage calendar events, search Drive, read/write Sheets, and access Docs — all through OAuth2-authenticated Google APIs
+- [Which File Does What?](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/which-file-does-what): SOUL.md vs USER.md vs MEMORY.md vs AGENTS.md — a one-page map of the agent's files, who writes each one, and when the agent actually sees them
+- [Windows (Native) Guide](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/windows-native): Run Haishui Agent natively on Windows 10 / 11 — install, feature matrix, UTF-8 console, Git Bash, gateway as a Scheduled Task, editor handling, PATH, uninstall, and common pitfalls
+- [Windows (WSL2) Guide](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/windows-wsl-quickstart): Run Haishui Agent on Windows via WSL2 — setup, filesystem access between Windows and Linux, networking, and common pitfalls
+
+## Core Features
+
+- [Features Overview](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/overview)
+- [Tools](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/tools): Overview of Haishui Agent's tools — what's available, how toolsets work, and terminal backends
+- [Skills System](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/skills): On-demand knowledge documents — progressive disclosure, agent-managed skills, and the Skills Hub
+- [Curator](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/curator): Background maintenance for agent-created skills — usage tracking, staleness, archival, and LLM-driven review
+- [Memory](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/memory): How Haishui Agent remembers across sessions — MEMORY.md, USER.md, and session search
+- [Memory Providers](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/memory-providers): External memory provider plugins — Honcho, OpenViking, Mem0, Hindsight, Holographic, RetainDB, ByteRover, Supermemory
+- [Context Files](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/context-files): Project context files — .haishui.md, AGENTS.md, CLAUDE.md, global SOUL.md, and .cursorrules — automatically injected into every conversation
+- [Context References](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/context-references): Inline @-syntax for attaching files, folders, git diffs, and URLs directly into your messages
+- [Personality & SOUL.md](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/personality): Customize Haishui Agent's personality with a global SOUL.md, built-in personalities, and custom persona definitions
+- [Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/plugins): Extend Haishui with custom tools, hooks, and integrations via the plugin system
+- [Built-in Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/built-in-plugins): Plugins shipped with Haishui Agent that run automatically via lifecycle hooks — disk-cleanup and friends
+- [Codex App-Server Runtime (optional)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/codex-app-server-runtime)
+- [Computer Use](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/computer-use)
+- [Passwords & Logins](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/credential-vault): The agent signs into sites, pays and fills addresses for you without ever seeing a password.
+- [Deliverable Mode (Artifacts in Chat)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/deliverable-mode): How the agent ships generated charts, PDFs, spreadsheets, and other files as native attachments in messaging platforms.
+- [Document Extraction](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/document-extraction): How read_file converts PDFs, Office documents, and notebooks to text — and what to do when a PDF is scanned images
+- [Extending the Dashboard](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/extending-the-dashboard): Build themes and plugins for the Haishui web dashboard — palettes, typography, layouts, custom tabs, shell slots, page-scoped slots, and backend API routes
+- [Session Heartbeats](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/heartbeat): A recurring prompt that re-enters your current session whenever it's idle — /heartbeat every 10m Check the deployment.
+- [Kanban Multi-Gateway Deployment](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/kanban-multi-gateway): Running one kanban board across several per-profile gateways: single dispatcher, profile-owned delivery
+- [Kanban worker lanes](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/kanban-worker-lanes)
+- [Recurring Loops](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/loops): Re-run a prompt on a recurring interval inside your session — Haishui' take on Claude Code's /loop.
+- [LSP — Semantic Diagnostics](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/lsp): Real language servers (pyright, gopls, rust-analyzer, …) wired into the post-write lint check used by write_file and patch.
+- [Mixture of Agents](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/mixture-of-agents): Create named MoA presets that appear as selectable models under the Mixture of Agents provider
+- [Pets (Petdex Mascots)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/pets): Adopt an animated mascot that reacts to agent activity across the CLI, TUI, and desktop app
+- [Plugin Catalog](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/plugin-catalog): Browse and install reviewed, SHA-pinned Haishui plugins from the curated catalog
+- [Skins & Themes](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/skins): Customize the Haishui CLI with built-in and user-defined skins
+- [Spotify](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/spotify)
+- [Subscription Proxy](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/subscription-proxy): Use your Nous Portal subscription (or other OAuth provider) as an OpenAI-compatible endpoint for external apps
+- [Nous Tool Gateway](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/tool-gateway): One subscription, every tool. Web search, image generation, TTS, and cloud browsers — all routed through Nous Portal with no extra API keys.
+- [Tool Search](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/tool-search)
+- [Wake Word](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/wake-word): Hands-free 'Hey Haishui' wake word — start a voice session by speaking, the 'Hey Siri' way
+- [Haishui Web Dashboard](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/web-dashboard): Browser-based administration panel for managing configuration, API keys, MCP servers, messaging pairing, webhooks, the gateway, memory, credentials, sessions, logs, analytics, cron jobs, and skills
+- [Web Search & Extract](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/web-search): Search the web and extract page content with multiple backend providers — including free self-hosted SearXNG.
+- [X (Twitter) Search](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/x-search): Search X (Twitter) posts and threads from within the agent using xAI's built-in x_search Responses tool — works with either a SuperGrok OAuth login or an XAI_API_KEY.
+
+## Automation
+
+- [Cron Jobs](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/cron): Schedule automated tasks with natural language, manage them with one cron tool, and attach one or more skills
+- [Delegation](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/delegation): Spawn isolated child agents for parallel workstreams with delegate_task
+- [Kanban Multi-Agent](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/kanban): Durable SQLite-backed task board for coordinating multiple Haishui profiles
+- [Kanban Tutorial](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/kanban-tutorial)
+- [Persistent Goals](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/goals): Set a standing goal and let Haishui keep working across turns until it's done. Our take on the Ralph loop.
+- [Code Execution](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/code-execution): Programmatic Python execution with RPC tool access — collapse multi-step workflows into a single turn
+- [Hooks](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/hooks): Run custom code at key lifecycle points — log activity, send alerts, post to webhooks
+- [Batch Processing](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/batch-processing): Generate agent trajectories at scale — parallel processing, checkpointing, and toolset distributions
+
+## Media & Web
+
+- [Voice Mode](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/voice-mode): Real-time voice conversations with Haishui Agent — CLI, Telegram, Discord (DMs, text channels, and voice channels)
+- [Browser](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/browser): Control browsers with multiple providers, local Chromium-family browsers via CDP, or cloud browsers for web interaction, form filling, scraping, and more.
+- [Vision](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/vision): Paste images from your clipboard into the Haishui CLI for multimodal vision analysis.
+- [Image Generation](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/image-generation): Generate images via FAL.ai — 11 models including FLUX 2, GPT Image (1.5 & 2), Nano Banana Pro, Ideogram, Recraft V4 Pro, Krea 2, and more, selectable via `haishui tools`.
+- [Text-to-Speech](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/tts): Text-to-speech and voice message transcription across all platforms
+
+## Messaging Platforms
+
+- [Overview](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging): Chat with Haishui from Telegram, Discord, Slack, WhatsApp, Signal, SMS, Email, Home Assistant, Mattermost, Matrix, DingTalk, Yuanbao, Microsoft Teams, LINE, Raft, Webhooks, or any OpenAI-compatible frontend via the API server — architecture and setup overview
+- [Telegram](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/telegram): Set up Haishui Agent as a Telegram bot
+- [Discord](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/discord): Set up Haishui Agent as a Discord bot
+- [Slack](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/slack): Set up Haishui Agent as a Slack bot using Socket Mode
+- [WhatsApp](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/whatsapp): Set up Haishui Agent as a WhatsApp bot via the built-in Baileys bridge
+- [Signal](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/signal): Set up Haishui Agent as a Signal messenger bot via signal-cli daemon
+- [Email](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/email): Set up Haishui Agent as an email assistant via IMAP/SMTP
+- [SMS](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/sms): Set up Haishui Agent as an SMS chatbot via Twilio
+- [Matrix](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/matrix): Set up Haishui Agent as a Matrix bot
+- [Mattermost](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/mattermost): Set up Haishui Agent as a Mattermost bot
+- [Home Assistant](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/homeassistant): Control your smart home with Haishui Agent via Home Assistant integration.
+- [Webhooks](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/webhooks): Receive events from GitHub, GitLab, and other services to trigger Haishui agent runs
+- [A2A (Agent-to-Agent)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/a2a)
+- [BlueBubbles (iMessage)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/bluebubbles)
+- [Buzz](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/buzz)
+- [DingTalk](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/dingtalk): Set up Haishui Agent as a DingTalk chatbot
+- [Feishu / Lark](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/feishu): Set up Haishui Agent as a Feishu or Lark bot
+- [Google Chat](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/google_chat): Set up Haishui Agent as a Google Chat bot using Cloud Pub/Sub
+- [IRC](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/irc)
+- [LINE](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/line): Set up Haishui Agent as a LINE Messaging API bot
+- [Microsoft Graph Webhook Listener](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/msgraph-webhook): Receive Microsoft Graph change notifications (meetings, calendar, chat, etc.) in Haishui
+- [ntfy](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/ntfy)
+- [Open WebUI](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/open-webui): Connect Open WebUI to Haishui Agent via the OpenAI-compatible API server
+- [Photon iMessage](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/photon)
+- [QQ Bot](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/qqbot)
+- [Raft](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/raft): Connect Haishui Agent to Raft as an external agent via wake-channel bridge
+- [Haishui Relay](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/relay): Connect Haishui to messaging platforms through a relay connector that owns the platform credentials — enrollment, capabilities, config, and troubleshooting
+- [SimpleX Chat](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/simplex)
+- [Microsoft Teams](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/teams): Set up Haishui Agent as a Microsoft Teams bot
+- [Teams Meetings](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/teams-meetings): Set up the Microsoft Teams meeting summary pipeline with Microsoft Graph webhooks
+- [WeCom (Enterprise WeChat)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/wecom): Connect Haishui Agent to WeCom via the AI Bot WebSocket gateway
+- [WeCom Callback (Self-Built App)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/wecom-callback)
+- [Weixin (WeChat)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/weixin): Connect Haishui Agent to personal WeChat accounts via the iLink Bot API
+- [WhatsApp Business (Cloud API)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/whatsapp-cloud): Set up Haishui Agent as a WhatsApp bot via Meta's official Business Cloud API
+- [Yuanbao](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/messaging/yuanbao): Connect Haishui Agent to the Yuanbao enterprise messaging platform via WebSocket gateway
+
+## Integrations
+
+- [Integrations Overview](https://aiqinghaiwork163.github.io/haishui-agent/docs/integrations)
+- [Providers](https://aiqinghaiwork163.github.io/haishui-agent/docs/integrations/providers)
+- [MCP (Model Context Protocol)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/mcp): Connect Haishui Agent to external tool servers via MCP — and control exactly which MCP tools Haishui loads
+- [ACP (Agent Context Protocol)](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/acp): Use Haishui Agent inside ACP-compatible editors and collaboration platforms
+- [API Server](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/api-server): Expose haishui-agent as an OpenAI-compatible API for any frontend
+- [Honcho Memory](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/honcho): AI-native persistent memory via Honcho — dialectic reasoning, multi-agent user modeling, and deep personalization
+- [Provider Routing](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/provider-routing): Configure OpenRouter provider preferences to optimize for cost, speed, or quality.
+- [Fallback Providers](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/fallback-providers): Configure automatic failover to backup LLM providers when your primary model is unavailable.
+- [Credential Pools](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-guide/features/credential-pools): Pool multiple API keys or OAuth tokens per provider for automatic rotation and rate limit recovery.
+- [Buzz Integration](https://aiqinghaiwork163.github.io/haishui-agent/docs/integrations/buzz): All three ways to connect Haishui Agent to Buzz — Block's Nostr-based human+agent workspace
+- [Nous Portal](https://aiqinghaiwork163.github.io/haishui-agent/docs/integrations/nous-portal): One subscription, 300+ frontier models, and the Tool Gateway — the recommended way to run Haishui Agent
+
+## Guides & Tutorials
+
+- [Tips & Best Practices](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/tips): Practical advice to get the most out of Haishui Agent — prompt tips, CLI shortcuts, context files, memory, cost optimization, and security
+- [Local LLMs on Mac](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/local-llm-on-mac): Set up a local OpenAI-compatible LLM server on macOS with llama.cpp or MLX, including model selection, memory optimization, and real benchmarks on Apple Silicon
+- [Daily Briefing Bot](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/daily-briefing-bot): Build an automated daily briefing bot that researches topics, summarizes findings, and delivers them to Telegram or Discord every morning
+- [Team Telegram Assistant](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/team-telegram-assistant): Step-by-step guide to setting up a Telegram bot that your whole team can use for code help, research, system admin, and more
+- [Use Haishui as a Python Library](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/python-library): Embed AIAgent in your own Python scripts, web apps, or automation pipelines — no CLI required
+- [Use MCP with Haishui](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/use-mcp-with-haishui): A practical guide to connecting MCP servers to Haishui Agent, filtering their tools, and using them safely in real workflows
+- [Use Voice Mode with Haishui](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/use-voice-mode-with-haishui): A practical guide to setting up and using Haishui voice mode across CLI, Telegram, Discord, and Discord voice channels
+- [Use SOUL.md with Haishui](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/use-soul-with-haishui): How to use SOUL.md to shape Haishui Agent's default voice, what belongs there, and how it differs from AGENTS.md and /personality
+- [Automate with Cron](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/automate-with-cron): Real-world automation patterns using Haishui cron — monitoring, reports, pipelines, and multi-skill workflows
+- [Work with Skills](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/work-with-skills): Find, install, use, and create skills — on-demand knowledge that teaches Haishui new workflows
+- [Delegation Patterns](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/delegation-patterns): When and how to use subagent delegation — patterns for parallel research, code review, and multi-file work
+- [GitHub PR Review Agent](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/github-pr-review-agent): Build an automated AI code reviewer that monitors your repos, reviews pull requests, and delivers feedback — hands-free
+- [Give Your Agent Its Own Email Address](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/agent-email-address): Set up a dedicated mailbox your agent can read and send from using the bundled Himalaya skill, with a cron polling pattern and safety notes
+- [Automation Blueprints](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/automation-blueprints): Ready-to-use automation blueprints — scheduled tasks, GitHub event triggers, API webhooks, and multi-skill workflows
+- [AWS Bedrock](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/aws-bedrock): Use Haishui Agent with Amazon Bedrock — native Converse API, Anthropic SDK routing, OpenAI models via Bedrock Mantle, IAM authentication, Guardrails, and cross-region inference
+- [Microsoft Foundry](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/azure-foundry): Use Haishui Agent with Microsoft Foundry — OpenAI-style and Anthropic-style endpoints, auto-detection of transport and deployed models
+- [Script-Only Cron Jobs (No LLM)](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/cron-script-only): Classic watchdog cron jobs that skip the LLM entirely — a script runs on schedule and its stdout gets delivered to your messaging platform. Memory alerts, disk alerts, CI pings, periodic health checks.
+- [Cron Troubleshooting](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/cron-troubleshooting): Diagnose and fix common Haishui cron issues — jobs not firing, delivery failures, skill loading errors, and performance problems
+- [Desktop Native Sign-In (RFC 8252)](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/desktop-native-signin): How the Haishui Desktop app signs in to a gated gateway using your system browser and PKCE — no embedded webview, no session cookies
+- [Google Gemini](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/google-gemini): Use Haishui Agent with Google Gemini — native AI Studio API, API-key setup, tool calling, streaming, and quota guidance
+- [Google Vertex AI](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/google-vertex): Use Haishui Agent with Gemini on Google Cloud Vertex AI — OAuth2 service account or ADC, GCP billing and quotas, no static API key
+- [Run Haishui Locally with Ollama — Zero API Cost](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/local-ollama-setup): Step-by-step guide to running Haishui Agent entirely on your own machine with Ollama and open-weight models like Gemma 4, no cloud API keys or paid subscriptions needed
+- [Manage Haishui Cloud with MCP](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/manage-haishui-cloud-with-mcp): Connect Haishui Agent to the Nous Portal MCP server so your local agent can list, start, stop, and manage your Haishui Cloud instances conversationally
+- [Register a Microsoft Graph Application](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/microsoft-graph-app-registration): Azure portal walkthrough for creating the app registration that powers the Teams meeting pipeline
+- [Migrate from OpenClaw](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/migrate-from-openclaw): Complete guide to migrating your OpenClaw / Clawdbot setup to Haishui Agent — what gets migrated, how config maps, and what to check after.
+- [MiniMax OAuth](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/minimax-oauth): Log into MiniMax via browser OAuth and use MiniMax-M2.7 models in Haishui Agent — no API key required
+- [OAuth over SSH / Remote Hosts](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/oauth-over-ssh): How to complete browser-based OAuth (Spotify, MCP servers) when Haishui runs on a remote machine, container, or behind a jump box
+- [Operate the Teams Meeting Pipeline](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/operate-teams-meeting-pipeline): Runbook, go-live checklist, and operator worksheet for the Microsoft Teams meeting pipeline
+- [Pipe Script Output to Messaging Platforms](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/pipe-script-output): Send text from any shell script, cron job, CI hook, or monitoring daemon to Telegram, Discord, Slack, Signal, and other platforms using `haishui send`.
+- [Run Haishui Agent with Nous Portal](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/run-haishui-with-nous-portal): Start-to-finish walkthrough: subscribe, set up, switch models, enable gateway tools, and verify routing
+- [Run Nemotron 3 Ultra free in Haishui Agent](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/run-nemotron-3-ultra-free): Try NVIDIA Nemotron 3 Ultra on Nous Portal — free June 4–18 — with day 0 support in Haishui Agent
+- [Running Haishui on a Personal or Work Machine](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/secure-haishui-on-a-work-machine): A security-posture walkthrough for running Haishui Agent on the machine you live on — what the defaults protect, how to tighten further, and how to undo mistakes
+- [Troubleshooting: \"My Agent Feels Dumber\"](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/troubleshooting-agent-quality): A diagnostic checklist for when Haishui seems less capable than before or forgets things mid-session — model switches, context pressure, wrong context detection, and the frozen memory snapshot
+- [Automated GitHub PR Comments with Webhooks](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/webhook-github-pr-review): Connect Haishui to GitHub so it automatically fetches PR diffs, reviews code changes, and posts comments — triggered by webhooks with no manual prompting
+- [xAI Grok OAuth (SuperGrok / X Premium+)](https://aiqinghaiwork163.github.io/haishui-agent/docs/guides/xai-grok-oauth): Sign in with your SuperGrok or X Premium+ subscription to use Grok models in Haishui Agent — no API key required
+
+## Developer Guide
+
+- [Contributing](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/contributing): How to contribute to Haishui Agent — dev setup, code style, PR process
+- [Architecture](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/architecture): Haishui Agent internals — major subsystems, execution paths, data flow, and where to read next
+- [Agent Loop](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/agent-loop): Detailed walkthrough of AIAgent execution, API modes, tools, callbacks, and fallback behavior
+- [Prompt Assembly](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/prompt-assembly): How Haishui builds the system prompt, preserves cache stability, and injects ephemeral layers
+- [Context Compression & Caching](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/context-compression-and-caching)
+- [Gateway Internals](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/gateway-internals): How the messaging gateway boots, authorizes users, routes sessions, and delivers messages
+- [Session Storage](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/session-storage)
+- [Provider Runtime](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/provider-runtime): How Haishui resolves providers, credentials, API modes, and auxiliary models at runtime
+- [Adding Tools](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/adding-tools): How to add a new tool to Haishui Agent — schemas, handlers, registration, and toolsets
+- [Adding Providers](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/adding-providers): How to add a new inference provider to Haishui Agent — auth, runtime resolution, CLI flows, adapters, tests, and docs
+- [Adding Platform Adapters](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/adding-platform-adapters)
+- [Creating Skills](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/creating-skills): How to create skills for Haishui Agent — SKILL.md format, guidelines, and publishing
+- [Extending the CLI](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/extending-the-cli): Build wrapper CLIs that extend the Haishui TUI with custom widgets, keybindings, and layout changes
+- [ACP Internals](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/acp-internals): How the ACP adapter works: lifecycle, sessions, event bridge, approvals, and tool rendering
+- [Billing Lifecycle (TUI)](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/billing-lifecycle): Map from every billing/subscription state and typed refusal to the exact TUI copy and recovery action
+- [Browser Provider Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/browser-provider-plugin): How to build a cloud browser backend plugin for Haishui Agent
+- [Browser CDP Supervisor](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/browser-supervisor): How Haishui detects and responds to native JS dialogs and interacts with cross-origin iframes via a persistent CDP connection.
+- [Chronos Managed-Cron Contract](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/chronos-managed-cron-contract): Agent ↔ NAS wire contract for the Chronos cron provider
+- [CLI Internals](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/cli-internals): How haishui_cli is shaped: slash dispatch, config loaders, the skin engine, the transactional update pipeline, and process-identity rules
+- [Codebase Ownership Map](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/codebase-ownership): Which directories belong to which subsystem, and where the right docs entry point lives for each
+- [Background completion backlogs](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/completion-backlog-delivery)
+- [Context Engine Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/context-engine-plugin): How to build a context engine plugin that replaces the built-in ContextCompressor
+- [Cron Internals](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/cron-internals): How Haishui stores, schedules, edits, pauses, skill-loads, and delivers cron jobs
+- [Desktop Plugin SDK (@haishui/plugin-sdk)](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/desktop-plugin-sdk): Extend the native Haishui Desktop app — panes, pages, sidebar nav, status bar, palette commands, keybinds, themes, and a scoped backend namespace, with one import and no build step.
+- [Egress proxy internals](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/egress-internals): How the iron-proxy egress firewall integrates with Haishui — module layout, lifecycle, security invariants, and extension points
+- [Gateway Monitoring](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/gateway-monitoring): Health export, structured diagnostics, fleet queries and how to extend the monitoring plane
+- [Gateway Session Lifecycle](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/gateway-session-lifecycle): SessionSource, SessionEntry, SessionStore, session-key rules and multi-user isolation in the gateway
+- [Image Generation Provider Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/image-gen-provider-plugin): How to build an image-generation backend plugin for Haishui Agent
+- [Memory Provider Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/memory-provider-plugin): How to build a memory provider plugin for Haishui Agent
+- [Micro-compaction](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/micro-compaction): How micro-compaction amortizes context compression cost: triggers, tail sizing, the cached-prefix trade-off
+- [Middleware](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/middleware): Behavior-changing plugin middleware for LLM and tool calls: contract, execution order, examples
+- [Model Provider Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/model-provider-plugin): How to build a model provider (inference backend) plugin for Haishui Agent
+- [Multiplexing Gateway Internals](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/multiplexing-gateway): Design of the one-gateway-for-all-profiles mode: scope composition, secret scope, inbound routing, persistence
+- [Observer Hooks](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/observer-hooks): Read-only telemetry contract for plugins: event families, correlation IDs, payload safety
+- [Onboarding recommendations](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/onboarding-recommendations)
+- [Plugin LLM Access](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/plugin-llm-access): Run any LLM call from inside a plugin via ctx.llm — chat or structured, sync or async. Host-owned auth, fail-closed trust gate, optional JSON Schema validation.
+- [Build a Haishui Plugin](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/plugins): Step-by-step guide to building a complete Haishui plugin with tools, hooks, data files, and skills
+- [Programmatic Integration](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/programmatic-integration): Three protocols for driving haishui-agent from external programs: ACP, the TUI gateway JSON-RPC, and the OpenAI-compatible HTTP API
+- [Relay ↔ Connector Contract](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/relay-connector-contract): Wire contract between the Haishui gateway relay adapter and external connectors (experimental)
+- [Relay Shared Metrics](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/relay-shared-metrics): NeMo Relay shared metrics: what is exported, consent and retention, staging validation
+- [Secret Source Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/secret-source-plugin): How to build a secret-manager backend plugin for Haishui Agent
+- [State DB Recovery](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/state-db-recovery): How Haishui recovers state.db when the FTS index or the file itself is corrupt
+- [Streaming TTS Internals](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/streaming-tts): Sentence chunker, streaming provider ABC, capability matrix and how to add a streaming TTS provider
+- [Public Subagent Lifecycle API](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/subagent-lifecycle-api)
+- [Terminal Environment Provider Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/terminal-environment-plugin)
+- [Tools Runtime](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/tools-runtime): Runtime behavior of the tool registry, toolsets, dispatch, and terminal environments
+- [Trajectory Format](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/trajectory-format)
+- [Video Generation Provider Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/video-gen-provider-plugin): How to build a video-generation backend plugin for Haishui Agent
+- [Web Search Provider Plugins](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/web-search-provider-plugin): How to build a web-search/extract/crawl backend plugin for Haishui Agent
+- [TUI & Desktop from Worktrees](https://aiqinghaiwork163.github.io/haishui-agent/docs/developer-guide/worktree-ui-dev): Run the Ink TUI and Electron desktop app from a git worktree without a full npm install per checkout
+
+## Reference
+
+- [CLI Commands](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/cli-commands): Authoritative reference for Haishui terminal commands and command families
+- [Slash Commands](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/slash-commands): Complete reference for interactive CLI and messaging slash commands
+- [Profile Commands](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/profile-commands)
+- [Environment Variables](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/environment-variables): Complete reference of all environment variables used by Haishui Agent
+- [Tools Reference](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/tools-reference): Authoritative reference for Haishui built-in tools, grouped by toolset
+- [Toolsets Reference](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/toolsets-reference): Reference for Haishui core, composite, platform, and dynamic toolsets
+- [MCP Config Reference](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/mcp-config-reference): Reference for Haishui Agent MCP configuration keys, filtering semantics, and utility-tool policy
+- [Model Catalog](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/model-catalog): Remotely-hosted manifest driving curated model picker lists for OpenRouter and Nous Portal.
+- [Bundled Skills Catalog](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/skills-catalog): Table of all ~90 skills bundled with Haishui
+- [Optional Skills Catalog](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/optional-skills-catalog): Table of ~60 additional installable skills
+- [FAQ & Troubleshooting](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/faq): Frequently asked questions and solutions to common issues with Haishui Agent
+- [Automation Blueprints Catalog](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/automation-blueprints-catalog): Ready-to-run automation blueprints — set one up from the dashboard, CLI, TUI, any messenger, or the desktop app.
+- [CLI Symbols Glossary](https://aiqinghaiwork163.github.io/haishui-agent/docs/reference/cli-symbols): What every symbol in the Haishui terminal UI means — transcript markers, status-bar badges, overlay glyphs, and approval prompts.
+
+## More
+
+- [User Stories & Use Cases](https://aiqinghaiwork163.github.io/haishui-agent/docs/user-stories): Real stories from the Haishui Agent community — what people are actually building, scraped from X, GitHub, Reddit, Hacker News, YouTube, blogs, and podcasts.
